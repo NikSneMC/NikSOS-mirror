@@ -1,0 +1,241 @@
+{
+	"layer": "top",
+    "position": "top",
+	"modules-left": ["group/power", "group/hardware", "network", "tray"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["custom/github", "group/audio", "clock", "hyprland/language", "custom/launcher"],
+
+
+
+    "group/power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/shutdown", 
+            "custom/logout",
+            "custom/reboot",
+            "custom/sleep"//,
+            // "custom/lock"
+        ]
+    },
+	
+    "custom/shutdown":{
+        "format": "󰐥",
+        "on-click": "systemctl poweroff",
+        "tooltip": false
+    },
+
+    "custom/reboot":{
+        "format": "󰜉",
+        "on-click": "systemctl reboot",
+        "tooltip": false
+    },
+
+    "custom/sleep":{
+        "format": "󰤄",
+        "on-click": "systemctl suspend",
+        "tooltip": false
+    },
+
+    "custom/logout":{
+        "format": "󰗽",
+        "on-click": "hyprctl dispatch exit 0",
+        "tooltip": false
+    },
+
+    "custom/lock":{
+        "format": "󰌾",
+        "on-click": "swaylock",
+        "tooltip": false
+    },
+
+    "battery": {
+        "interval": 1,
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "group/hardware": {
+		"orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+		"modules": [
+            "battery",
+			"cpu", 
+            "temperature", 
+            "memory", 
+            "backlight"
+		]
+	},
+
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+        "max-length": 10,
+        "on-click": "foot --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+
+    "temperature": {
+        "critical-threshold": 1,
+        "format": "{temperatureC}°C"
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+
+    "network": {
+        "interval": 1,
+		"format": "{bandwidthTotalBits}",
+        "format-wifi": " {essid} ({bandwidthTotalBits})",
+        "format-ethernet": "󰈀 {bandwidthTotalBits}",
+        "format-disconnected": "", 
+        "tooltip-format": "󰊗 {ifname} via {gwaddr}",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": " {ipaddr}/{cidr} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "NetworkManager"
+	},
+
+    "tray":{
+		"icon-size":18,
+        "show-passive-items": true,
+		"spacing": 10
+	},
+
+
+    
+    "hyprland/workspaces": {
+        "persistent-workspaces": {
+            "1": ["LVDS-1"],
+            "2": ["LVDS-1"],
+            "3": ["LVDS-1"],
+            // "4": [],
+            // "5": [],
+            // "6": [],
+            // "7": [],
+            // "8": [],
+            "9": ["VGA-1"],
+            "10": ["HDMI-A-1"]
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+
+
+
+    "custom/github": {
+        "format": "  {}",
+        "return-type": "json",
+        "interval": 1,
+        "exec": "$HOME/.config/waybar/scripts/github.sh",
+        "on-click": "xdg-open https://github.com/notifications"
+    },
+
+    "group/audio": {
+		"orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+		"modules": [
+            "pulseaudio", 
+            "pulseaudio#microphone"
+		]
+	},
+    
+    "pulseaudio": {
+		"tooltip": false,
+        "on-scroll-up": "pamixer -i 1",
+        "on-scroll-down": "pamixer -d 1",
+		"scroll-step": 1,
+		"format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+		"format-muted": "󰝟",
+        "on-click": "pamixer -t",
+		"on-click-right":"pavucontrol",
+		"format-icons": {
+			"default": ["󰕿", "󰖀", "󰕾"],
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": ""
+		}
+	},
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "pamixer --default-source -t",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pamixer --default-source -i 1",
+        "on-scroll-down": "pamixer --default-source -d 1",
+        "scroll-step": 1,
+        "tooltip": false
+    },
+    
+    "clock": {
+        "interval": 1,
+        "format": "{: %H:%M:%S}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "hyprland/language": {
+        "format": " {}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+        "on-click-right": "hyprctl switchxkblayout at-translated-set-2-keyboard prev"
+    },
+
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "wofi",
+        "on-click-right": "wofi --show run --prompt=Execute",
+        "tooltip": false
+    }
+}

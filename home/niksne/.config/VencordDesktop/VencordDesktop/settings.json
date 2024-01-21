@@ -1,0 +1,19 @@
+{
+    "minimizeToTray": "on",
+    "discordBranch": "stable",
+    "firstLaunch": false,
+    "arRPC": "on",
+    "splashColor": "rgb(220, 221, 222)",
+    "splashBackground": "rgb(49, 51, 56)",
+    "enableMenu": true,
+    "splashTheming": true,
+    "windowBounds": {
+        "x": 22,
+        "y": 61,
+        "width": 1322,
+        "height": 685
+    },
+    "skippedUpdate": "",
+    "disableMinSize": true,
+    "staticTitle": true
+}

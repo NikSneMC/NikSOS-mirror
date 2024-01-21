@@ -1,0 +1,14 @@
+﻿droid
+Giorgio Tani
+LGPLv3
+themes\droid\
+100
+$00FF9933
+clWindow
+$00CC5511
+clAppWorspace
+clWindowText
+010020004
+100
+4
+0

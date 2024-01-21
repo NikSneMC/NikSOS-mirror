@@ -1,0 +1,3 @@
+[filesystem "JetBrains s.r.o.|17.0.9|/dev/disk/by-uuid/d6536b5c-1473-4dd3-a605-155359438a1d"]
+	timestampResolution = 14485 nanoseconds
+	minRacyThreshold = 1053 microseconds

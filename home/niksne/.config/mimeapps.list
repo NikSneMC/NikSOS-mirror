@@ -1,0 +1,10 @@
+[Default Applications]
+x-scheme-handler/tg=org.telegram.desktop.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+x-scheme-handler/jetbrains-gateway=jetbrains-gateway.desktop
+application/zip=thunar.desktop
+x-scheme-handler/fleet=jetbrains-fleet-6239dcb1-7fa3-4a28-ad62-d0d79b16833f.desktop
+
+[Added Associations]
+x-scheme-handler/tg=org.telegram.desktop.desktop;
+application/zip=thunar.desktop;userapp-7z e-IDYSG2.desktop;
