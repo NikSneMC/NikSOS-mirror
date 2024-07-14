@@ -1,16 +1,16 @@
 {
   inputs,
-  pkgs,
+  npkgs,
   ...
 }: let
-  ides = with pkgs.jetbrains; [
+  ides = with npkgs.jetbrains; [
     idea-ultimate
     pycharm-professional
     webstorm
     rust-rover
     goland
     phpstorm
-    # clion
+    clion
   ];
 in {
   programs.jetbrains-remote = {
