@@ -1,8 +1,4 @@
-{
-  inputs,
-  npkgs,
-  ...
-}: let
+{npkgs, ...}: let
   ides = with npkgs.jetbrains; [
     idea-ultimate
     pycharm-professional
@@ -17,7 +13,7 @@ in {
     enable = true;
     inherit ides;
   };
-  home.packages = (with pkgs.jetbrains; [
+  home.packages = (with npkgs.jetbrains; [
     # gateway
     writerside
   ]) ++ ides;
