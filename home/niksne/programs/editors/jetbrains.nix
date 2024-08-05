@@ -15,6 +15,6 @@ in {
   };
   home.packages = (with npkgs.jetbrains; [
     # gateway
-    writerside
+    # writerside
   ]) ++ ides;
 }
