@@ -13,8 +13,5 @@ in {
     enable = true;
     inherit ides;
   };
-  home.packages = (with npkgs.jetbrains; [
-    # gateway
-    # writerside
-  ]) ++ ides;
+  home.packages = ides;
 }
