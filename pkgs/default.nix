@@ -7,7 +7,7 @@
     ...
   }: {
     packages = {
-      spoofDPI = pkgs.callPackage ./spoofDPI {};
+      spoof-spi = pkgs.callPackage ./spoof-dpi {};
     };
   };
 }
