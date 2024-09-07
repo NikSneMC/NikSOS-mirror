@@ -1,4 +1,4 @@
-{npkgs, ...}:let
+{npkgs, ...}: let
   ides = with npkgs.jetbrains; [
     idea-ultimate
     # pycharm-professional
