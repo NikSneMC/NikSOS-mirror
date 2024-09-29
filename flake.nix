@@ -98,7 +98,6 @@
         ./home/profiles.nix
         ./hosts
         ./modules
-        ./pkgs
       ];
 
       perSystem = {
