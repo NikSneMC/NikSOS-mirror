@@ -2,8 +2,8 @@
   description = "NikSne's NixOS and Home-Manager flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
-    nikspkgs.url = "github:NikSneMC/NikSpkgs/fix-webstorm-vmoptions";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nikspkgs.url = "github:NikSneMC/NikSpkgs";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     flake-parts = {
@@ -21,7 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprcursor.url = "github:hyprwm/hyprcursor";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -60,7 +60,7 @@
       };
     };
 
-    catppuccin.url = "github:NikSneMC/catppuccin-nix/pr/324";
+    catppuccin.url = "github:NikSneMC/catppuccin-nix";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nix-python.url = "github:NiKSneMC/nix-python";
