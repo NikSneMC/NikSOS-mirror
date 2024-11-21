@@ -24,8 +24,8 @@
 
             packages = [
               alejandra
+              deadnix
               git
-              nodePackages.prettier
             ];
 
             shellHook = ''
