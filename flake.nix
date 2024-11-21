@@ -9,7 +9,6 @@
         ./home/profiles.nix
         ./hosts
         ./modules
-        ./pkgs
         ./git-hooks.nix
       ];
 
@@ -27,7 +26,6 @@
               alejandra
               git
               nodePackages.prettier
-              config.packages.repl
             ];
 
             shellHook = ''
