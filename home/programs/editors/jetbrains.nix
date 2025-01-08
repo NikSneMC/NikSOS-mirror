@@ -7,6 +7,7 @@
       # goland
       # phpstorm
       # clion
+      datagrip
     ];
 in {
   programs.jetbrains-remote = {
