@@ -1,18 +1,40 @@
-{pkgs, ...}: let
-  ides = with pkgs.jetbrains; [
-    idea-ultimate
+{
+  lib',
+  pkgs,
+  ...
+}: let
+  ides = [
+    "idea-ultimate"
     # pycharm-professional
     # webstorm
-    rust-rover
+    # "rust-rover"
     # goland
     # phpstorm
     # clion
-    datagrip
+    "datagrip"
   ];
+
+  plugins = {
+    common = [
+      "catppuccin-theme"
+      "catppuccin-icons"
+      "ideavim"
+      "nixidea"
+      "rainbow-brackets"
+      "-env-files"
+      "gitlab"
+    ];
+    "idea-ultimate" = [
+      "scala"
+      "minecraft-development"
+    ];
+  };
+
+  ides' = lib'.jetbrains.mkIdes pkgs ides plugins;
 in {
   programs.jetbrains-remote = {
     enable = true;
-    inherit ides;
+    ides = ides';
   };
-  home.packages = ides;
+  home.packages = ides';
 }
