@@ -47,6 +47,8 @@
     nixpkgs.follows = "unstable";
     nikspkgs.url = "github:NikSneMC/NikSpkgs/niksos";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
     private = {
       url = "path:/home/niksne/Projects/NikSneMC/NikSOS-private";
       flake = false;
