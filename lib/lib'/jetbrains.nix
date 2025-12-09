@@ -4,7 +4,11 @@ _: let
     |> map (
       ide:
         {
-          package = pkgs.jetbrains.${ide};
+          package = pkgs.jetbrains.${ide}.override {
+            vmopts = ''
+              -Dnosplash=true
+            '';
+          };
         }
         // (
           if plugins ? ide
