@@ -39,6 +39,7 @@
           package = pkgs.jetbrains.${ide}.override {
             vmopts = ''
               -Dnosplash=true
+              -Dawt.toolkit.name=WLToolkit
             '';
           };
         }
