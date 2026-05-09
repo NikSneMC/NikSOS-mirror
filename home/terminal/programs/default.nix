@@ -53,5 +53,6 @@
   programs = {
     btop.enable = true;
     cava.enable = true;
+    translate-shell.enable = true;
   };
 }

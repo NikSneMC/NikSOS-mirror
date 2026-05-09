@@ -111,11 +111,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # common
     activate-niksos = {
       url = "github:NikSneMC/activate-niksos";
@@ -141,10 +136,7 @@
 
     dms = {
       url = "github:AvengeMedia/DankMaterialShell";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        quickshell.follows = "quickshell";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dms-plugin-registry = {
@@ -193,8 +185,7 @@
     };
 
     spicetify-nix = {
-      # FIXME: use upstream after it's next deps update (26.04.2026)
-      url = "github:NikSneMC/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "flake-utils/systems";

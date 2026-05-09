@@ -11,6 +11,7 @@ in {
   programs.dank-material-shell.plugins =
     [
       "alarmClock"
+      "animeCalendar"
       "calculator"
       "catWidget"
       "commandRunner"
@@ -19,8 +20,10 @@ in {
       "dankLauncherKeys"
       "dankNotepadModule"
       "dankPomodoroTimer"
+      "dankTranslate"
       "emojiLauncher"
       "niriWindows"
+      "usbManager"
       "webSearch"
     ]
     |> map (plugin: nameValuePair plugin {enable = true;})
