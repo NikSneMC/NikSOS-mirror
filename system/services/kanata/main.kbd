@@ -9,6 +9,7 @@
 (defvar
   tap-time 200
   hold-time 200
+  chord-time 50
 )
 
 (defalias
@@ -45,4 +46,9 @@
   _    _    _    _    _    _    _    left down rght pgdn _    _
   _    _    _    _    _    _    _    mute vold volu _    _
   _    pp   prev           _              next _    _    _
+)
+
+(defchordsv2
+  (a s) lsft $chord-time all-released ()
+  (; l) rsft $chord-time all-released ()
 )
