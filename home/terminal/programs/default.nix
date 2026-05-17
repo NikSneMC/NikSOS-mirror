@@ -47,7 +47,7 @@
 
     packwiz
     inputs.git-helper.packages.${stdenv.hostPlatform.system}.git-helper
-    ani-cli
+    master.ani-cli
   ];
 
   programs = {
