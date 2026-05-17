@@ -189,7 +189,7 @@
         {
           bind = "Mod+Shift+W";
           desc = "Launch ani-cli";
-          action = spawn "ani-cli";
+          action = spawn "ani-cli" "--rofi";
         }
         {
           bind = "Mod+Shift+X";
