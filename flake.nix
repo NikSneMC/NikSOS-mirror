@@ -192,6 +192,14 @@
       };
     };
 
+    try-rs = {
+      url = "github:tassiovirginio/try-rs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+
     wakatime-ls = {
       url = "github:mrnossiom/wakatime-ls";
       inputs.gitignore.follows = "git-hooks/gitignore";

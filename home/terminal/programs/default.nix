@@ -15,6 +15,7 @@
     ./lazydocker.nix
     ./skim.nix
     ./ssh.nix
+    ./try-rs.nix
     ./xdg.nix
     ./yazi.nix
     ./zoxide.nix
