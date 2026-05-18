@@ -689,6 +689,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1744536153,
+        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1769461804,
         "narHash": "sha256-msG8SU5WsBUfVVa/9RPLaymvi5bI8edTavbIq3vRlhI=",
         "owner": "NixOS",
@@ -774,6 +790,7 @@
         "private": "private",
         "spicetify-nix": "spicetify-nix",
         "stable": "stable",
+        "try-rs": "try-rs",
         "unstable": "unstable",
         "wakatime-ls": "wakatime-ls",
         "zen-browser": "zen-browser"
@@ -815,6 +832,24 @@
       }
     },
     "rust-overlay_2": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1769742225,
+        "narHash": "sha256-roSD/OJ3x9nF+Dxr+/bLClX3U8FP9EkCQIFpzxKjSUM=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "bcdd8d37594f0e201639f55889c01c827baf5c75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_3": {
       "inputs": {
         "nixpkgs": ["wakatime-ls", "nixpkgs"]
       },
@@ -882,6 +917,26 @@
         "type": "github"
       }
     },
+    "try-rs": {
+      "inputs": {
+        "flake-utils": ["flake-utils"],
+        "nixpkgs": ["nixpkgs"],
+        "rust-overlay": "rust-overlay_2"
+      },
+      "locked": {
+        "lastModified": 1777575360,
+        "narHash": "sha256-kIpgIkwIj2gCsPyeTgZkMpItU007gHlIXdsT1BAHO+Y=",
+        "owner": "tassiovirginio",
+        "repo": "try-rs",
+        "rev": "2df0149200b6a38430907ae0fdff0d753e83b47c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tassiovirginio",
+        "repo": "try-rs",
+        "type": "github"
+      }
+    },
     "unstable": {
       "locked": {
         "lastModified": 1776169885,
@@ -901,8 +956,8 @@
     "wakatime-ls": {
       "inputs": {
         "gitignore": ["git-hooks", "gitignore"],
-        "nixpkgs": "nixpkgs_4",
-        "rust-overlay": "rust-overlay_2"
+        "nixpkgs": "nixpkgs_5",
+        "rust-overlay": "rust-overlay_3"
       },
       "locked": {
         "lastModified": 1770482328,
