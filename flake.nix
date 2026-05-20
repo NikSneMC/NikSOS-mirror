@@ -154,9 +154,14 @@
       };
     };
 
+    helium-browser = {
+      url = "github:cjavad/nixpille-helium";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     helix.url = "github:helix-editor/helix";
 
-    niri-flake.url = "github:sodiboo/niri-flake";
+    niri.url = "github:sodiboo/niri-flake";
 
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
@@ -206,8 +211,11 @@
     };
 
     zen-browser = {
-      url = "github:NikSneMC/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "hm";
+      };
     };
   };
 }
