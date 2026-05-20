@@ -86,8 +86,8 @@
         }
         {
           bind = "Mod+B";
-          desc = "Launch browser";
-          action = spawn "zen";
+          desc = "Launch primary browser";
+          action = spawn "zen-beta";
         }
         {
           bind = "Mod+D";
@@ -150,6 +150,11 @@
           bind = "Mod+Shift+A";
           desc = "Open 2fa menu";
           action = rofi "2fa";
+        }
+        {
+          bind = "Mod+Shift+B";
+          desc = "Launch secondary browser";
+          action = spawn "helium";
         }
         {
           bind = "Mod+Shift+C";
