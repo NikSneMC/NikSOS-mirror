@@ -18,8 +18,15 @@
 
   environment = {
     systemPackages = with pkgs; [
+      gcc
+      gnumake
+      cargo
+      cargo-binstall
+      bun
+      nodejs_24
+      pnpm
       python3
-      nodejs
+      pipx
     ];
 
     variables.JAVA_HOME = "${pkgs.zulu25}/";
