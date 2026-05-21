@@ -73,6 +73,23 @@
       ]
       ++ [
         {
+          bind = "Mod+Alt+C";
+          desc = "Clear dynamic cast target";
+          action = clear-dynamic-cast-target;
+        }
+        {
+          bind = "Mod+Alt+W";
+          desc = "Select a window for dynamic cast target";
+          action = set-dynamic-cast-window;
+        }
+        {
+          bind = "Mod+Alt+M";
+          desc = "Select an output for dynamic cast target";
+          action = set-dynamic-cast-monitor;
+        }
+      ]
+      ++ [
+        {
           bind = "Mod+Ctrl+Alt+S";
           desc = "Reload dms";
           action = dms "restart";
