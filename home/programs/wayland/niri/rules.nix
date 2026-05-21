@@ -58,6 +58,7 @@ in {
           {app-id = "Element";}
         ];
         open-on-workspace = "social";
+        block-out-from = "screen-capture";
       }
       {
         matches = [
@@ -67,7 +68,7 @@ in {
           {app-id = "steam.*";}
           {app-id = "factorio";}
           {app-id = "mono";}
-          {app-id = "Terraria.bin.x86_64";}
+          {app-id = "Terraria.bin.*";}
         ];
         open-on-workspace = "gaming";
       }
@@ -87,6 +88,7 @@ in {
             title = "Mini App: .*";
           }
         ];
+        block-out-from = "screen-capture";
         open-floating = true;
       }
       {
@@ -94,6 +96,31 @@ in {
           {app-id = "jetbrains-.*";}
         ];
         open-maximized = true;
+      }
+      {
+        matches = [
+          {app-id = "spotify";}
+          {app-id = "steam.*";}
+          {app-id = "org.gnome.seahorse.*";}
+          {app-id = "org.kde.kdeconnect.*";}
+          {title = "AFFiNE";}
+        ];
+        block-out-from = "screen-capture";
+      }
+    ];
+
+    layer-rules = [
+      {
+        matches = [
+          {namespace = "rofi";}
+          {namespace = "dms:notification-popup";}
+          {namespace = "dms:notification-center-modal";}
+          {namespace = "dms:plugins:plugin";}
+          {namespace = "dms:control-center";}
+          {namespace = "dms:dash";}
+          {namespace = "dms:clipboard";}
+        ];
+        block-out-from = "screen-capture";
       }
     ];
   };
