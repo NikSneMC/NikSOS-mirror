@@ -1,4 +1,6 @@
-{
+{config, ...}: let
+  inherit (config.theme) colors;
+in {
   programs.niri.settings = {
     window-rules = [
       {
@@ -15,6 +17,21 @@
           {is-focused = false;}
         ];
         opacity = 0.95;
+      }
+      {
+        matches = [
+          {is-window-cast-target = true;}
+        ];
+        border = {
+          active.color = "#${colors.red}";
+          inactive.color = "#${colors.maroon}";
+          urgent.color = "#${colors.peach}";
+        };
+        tab-indicator = {
+          active.color = "#${colors.red}";
+          inactive.color = "#${colors.maroon}";
+          urgent.color = "#${colors.peach}";
+        };
       }
       {
         matches = [

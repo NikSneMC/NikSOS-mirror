@@ -9,18 +9,14 @@ in {
       width = 3;
       active.color = "#${colors.accent}";
       inactive.color = "#${colors.surface1}";
-      urgent.color = "#${colors.peach}";
+      urgent.color = "#${colors.yellow}";
     };
 
     gaps = 7;
 
     focus-ring.enable = false;
 
-    shadow = {
-      enable = false;
-      color = "#${colors.accent}";
-      inactive-color = "#${colors.base}";
-    };
+    shadow.enable = false;
 
     insert-hint = {
       enable = true;
@@ -49,7 +45,7 @@ in {
       width = 3;
       active.color = "#${colors.accent}";
       inactive.color = "#${colors.surface1}";
-      urgent.color = "#${colors.peach}";
+      urgent.color = "#${colors.yellow}";
     };
   };
 }

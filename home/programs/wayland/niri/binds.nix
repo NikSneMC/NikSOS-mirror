@@ -70,6 +70,11 @@
           desc = "Toggles the focus between the floating and the tiling layout";
           action = switch-focus-between-floating-and-tiling;
         }
+        {
+          bind = "Mod+Alt+F";
+          desc = "Toggles the windowed fullscreen status for the focused window";
+          action = toggle-windowed-fullscreen;
+        }
       ]
       ++ [
         {
