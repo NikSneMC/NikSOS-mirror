@@ -62,7 +62,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    flake-compat.url = "github:edolstra/flake-compat";
+    flake-compat.url = "github:NixOS/flake-compat";
 
     private = {
       url = "github:NikSneMC/NikSOS-private";
