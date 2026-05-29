@@ -81,6 +81,17 @@
       };
     };
 
+    templates = {
+      url = "github:NikSneMC/templates";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+        systems.follows = "flake-utils/systems";
+        flake-parts.follows = "flake-parts";
+        git-hooks.follows = "git-hooks";
+      };
+    };
+
     naersk = {
       url = "github:nix-community/naersk";
       inputs.nixpkgs.follows = "nixpkgs";
