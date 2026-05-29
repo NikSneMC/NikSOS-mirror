@@ -12,6 +12,8 @@ in {
       supportedFilesystems = ["fat32" "ext4" "btrfs" "ntfs"];
     };
 
+    binfmt.emulatedSystems = ["aarch64-linux"];
+
     kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
     consoleLogLevel = 3;
     kernelParams = [
