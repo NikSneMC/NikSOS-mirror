@@ -15,10 +15,9 @@ mkNixosModules: {
     efi.canTouchEfiVariables = true;
   };
 
-  catppuccin = {
-    enable = true;
+  theme = {
     flavor = "mocha";
-    accent = "sky";
+    accent = "blue";
   };
 
   services = {
@@ -27,4 +26,7 @@ mkNixosModules: {
   };
 
   hardware.openrazer.users = ["niksne"];
+
+  nixpkgs.hostPlatform = "x86_64-linux";
+  system.stateVersion = "23.11";
 }

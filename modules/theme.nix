@@ -7,14 +7,14 @@
     flavor = lib.mkOption {
       description = '''';
       type = lib.types.str;
-      example = lib.literalExample "mocha";
+      example = lib.literalExample "latte";
       default = "mocha";
     };
     accent = lib.mkOption {
       description = '''';
       type = lib.types.str;
-      example = lib.literalExample "sky";
-      default = "sky";
+      example = lib.literalExample "blue";
+      default = "mauve";
     };
 
     colors = lib.mkOption {
@@ -22,14 +22,16 @@
       type = lib.types.attrs;
       readOnly = true;
       default = let
-        removeHash = builtins.substring 1 6;
+        inherit (builtins) substring readFile fromJSON mapAttrs;
+
+        removeHash = substring 1 6;
         catppuccin =
           "${config.catppuccin.sources.palette}/palette.json"
-          |> builtins.readFile
-          |> builtins.fromJSON
-          |> builtins.mapAttrs (
+          |> readFile
+          |> fromJSON
+          |> mapAttrs (
             _: flavor:
-              (builtins.mapAttrs (_: color: removeHash color.hex) flavor.colors)
+              (mapAttrs (_: color: removeHash color.hex) flavor.colors)
               // {
                 accent = removeHash flavor.colors.${config.theme.accent}.hex;
               }
@@ -56,6 +58,7 @@
 
   config.catppuccin = {
     enable = true;
+    autoEnable = true;
     cursors.enable = true;
     inherit (config.theme) flavor accent;
   };

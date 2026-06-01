@@ -1,8 +1,4 @@
-mkNixosModules: {
-  inputs,
-  lib,
-  ...
-}: {
+mkNixosModules: {inputs, ...}: {
   imports = mkNixosModules [
     inputs.nixos-wsl.nixosModules.default
     "programs/development.nix"
@@ -15,5 +11,5 @@ mkNixosModules: {
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";
-  system.stateVersion = lib.mkDefault "24.11";
+  system.stateVersion = "24.11";
 }

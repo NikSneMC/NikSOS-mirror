@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   config,
   ...
@@ -20,15 +19,27 @@
       size = 10;
     };
 
+    theme = let
+      inherit (config.theme) flavor accent;
+    in {
+      name = "catppuccin-${flavor}-${accent}-standard";
+      package = pkgs.catppuccin-gtk.override {
+        variant = flavor;
+        accents = [accent];
+      };
+    };
+
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     gtk4 = {inherit (config.gtk) theme;};
 
     iconTheme = {
-      name = lib.mkForce "Colloid-Teal-Dracula-Dark";
+      name = "Colloid-Teal-Dracula-Dark";
       package = pkgs.colloid-icon-theme.override {
         schemeVariants = ["dracula"];
         colorVariants = ["teal"];
       };
     };
   };
+
+  catppuccin.gtk.icon.enable = false;
 }

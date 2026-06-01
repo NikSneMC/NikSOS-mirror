@@ -1,11 +1,10 @@
 {
   flake = {
-    niksosModules = rec {
-      all = caches;
+    niksosModules = {
       caches = import ./caches.nix;
+      theme = import ./theme.nix;
     };
-    homeManagerModules = rec {
-      all = homes // theme;
+    homeManagerModules = {
       homes = import ./homes.nix;
       theme = import ./theme.nix;
     };

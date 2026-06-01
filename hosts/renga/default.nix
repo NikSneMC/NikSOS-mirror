@@ -1,8 +1,4 @@
-mkNixosModules: {
-  inputs,
-  lib,
-  ...
-}: {
+mkNixosModules: {inputs, ...}: {
   imports = mkNixosModules [
     inputs.nixos-avf.nixosModules.avf
   ];
@@ -12,5 +8,5 @@ mkNixosModules: {
   };
 
   nixpkgs.hostPlatform = "aarch64-linux";
-  system.stateVersion = lib.mkDefault "26.05";
+  system.stateVersion = "26.05";
 }

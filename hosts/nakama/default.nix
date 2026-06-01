@@ -25,8 +25,7 @@ mkNixosModules: {pkgs, ...}: {
 
   zramSwap.enable = true;
 
-  catppuccin = {
-    enable = true;
+  theme = {
     flavor = "mocha";
     accent = "blue";
   };
@@ -46,4 +45,7 @@ mkNixosModules: {pkgs, ...}: {
   };
 
   users.users.niksne.extraGroups = ["libvirtd"];
+
+  nixpkgs.hostPlatform = "x86_64-linux";
+  system.stateVersion = "24.05";
 }
