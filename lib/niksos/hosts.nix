@@ -33,7 +33,8 @@
           inputs.disko.nixosModules.disko
           inputs.agenix.nixosModules.age
           inputs.catppuccin.nixosModules.catppuccin
-          self.niksosModules.all
+          self.niksosModules.caches
+          self.niksosModules.theme
           (inputs.private.modulesFor "nixos" host)
           (import "${self}/hosts/${host}" mkNixosModules)
           (

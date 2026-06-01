@@ -42,13 +42,16 @@
     # important
     master.url = "github:NixOS/nixpkgs/master";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    stable.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     nixpkgs.follows = "unstable";
 
     nikspkgs.url = "github:NikSneMC/NikSpkgs/niksos";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     assets = {
       url = "github:NikSneMC/NikSOS/assets";
@@ -118,7 +121,7 @@
     };
 
     catppuccin = {
-      url = "github:NikSneMC/catppuccin-nix";
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

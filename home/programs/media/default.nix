@@ -2,7 +2,6 @@
   imports = [
     ./mpv.nix
     ./obs-studio.nix
-    ./rnnoise.nix
     ./spicetify.nix
   ];
 

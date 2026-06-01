@@ -26,7 +26,7 @@
       nodejs_24
       pnpm
       python3
-      pipx
+      uv
     ];
 
     variables.JAVA_HOME = "${pkgs.zulu25}/";
