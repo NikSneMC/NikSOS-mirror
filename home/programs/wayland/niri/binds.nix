@@ -327,12 +327,12 @@
           action = toggle-column-tabbed-display;
         }
         {
-          bind = "Mod+Slash";
+          bind = "Mod+Bracketleft";
           desc = "Consume or expel the focused window left";
           action = consume-or-expel-window-left;
         }
         {
-          bind = "Mod+At";
+          bind = "Mod+Bracketright";
           desc = "Consume or expel the focused window right";
           action = consume-or-expel-window-right;
         }
