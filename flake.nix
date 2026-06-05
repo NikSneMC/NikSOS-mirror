@@ -169,7 +169,8 @@
     };
 
     helium-browser = {
-      url = "github:cjavad/nixpille-helium";
+      # FIXME: use upstream after https://github.com/cjavad/nixpille-helium/pull/3 merge
+      url = "github:NikSneMC/nixpille-helium/fix/build";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

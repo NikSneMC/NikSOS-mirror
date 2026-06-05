@@ -20,7 +20,7 @@
     inherit languagePacks;
 
     nativeMessagingHosts = with pkgs; [
-      firefoxpwa
+      master.firefoxpwa
     ];
 
     policies = let
