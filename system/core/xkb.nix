@@ -1,12 +1,8 @@
 {config, ...}: {
-  imports = [
-    ./layouts.nix
-  ];
-
   console.useXkbConfig = true;
 
   services.xserver.xkb = {
-    layout = "rdvp, ru";
+    layout = "us, ru";
     options = "grp:win_space_toggle, compose:ralt";
   };
 
