@@ -361,25 +361,25 @@
       ]
       ++ [
         {
-          bind = "Mod+Exclam";
+          bind = "Mod+Minus";
           desc = "Decrease the width of the focused window";
           action = set-window-width "-5%";
           repeat = true;
         }
         {
-          bind = "Mod+Numbersign";
+          bind = "Mod+Plus";
           desc = "Increase the width of the focused window";
           action = set-window-width "+5%";
           repeat = true;
         }
         {
-          bind = "Mod+Shift+Exclam";
+          bind = "Mod+Shift+Minus";
           desc = "Decrease the height of the focused window";
           action = set-window-height "-5%";
           repeat = true;
         }
         {
-          bind = "Mod+Shift+Numbersign";
+          bind = "Mod+Shift+Plus";
           desc = "Increase the height of the focused window";
           action = set-window-height "+5%";
           repeat = true;
