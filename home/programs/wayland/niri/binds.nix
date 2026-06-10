@@ -152,11 +152,6 @@
           action = fish "dms clipboard search --json -l 1 | jq '.entries[0].id' | xargs dms clipboard delete";
         }
         {
-          bind = "Mod+Tab";
-          desc = "Toggle overview";
-          action = toggle-overview;
-        }
-        {
           bind = "Mod+Escape";
           desc = "Open logout menu";
           action = dms-ipc "powermenu" "toggle";
@@ -165,6 +160,11 @@
           bind = "Mod+Semicolon";
           desc = "Open emoju menu";
           action = dms-ipc "spotlight" "toggleQuery" ":";
+        }
+        {
+          bind = "Mod+Shift+Space";
+          desc = "Toggle overview";
+          action = toggle-overview;
         }
       ]
       ++ [
