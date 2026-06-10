@@ -67,6 +67,15 @@
             padding 30
             corner-radius 0
           }
+
+          binds {
+            Mod+Tab       hotkey-overlay-title="Switch to the next recent window" {
+              next-window;
+            }
+            Mod+Shift+Tab hotkey-overlay-title="Switch to the previous recent window" {
+              previous-window;
+            }
+          }
         }
       '';
   };
