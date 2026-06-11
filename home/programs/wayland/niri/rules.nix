@@ -99,7 +99,7 @@ in {
       }
       {
         matches = [
-          {app-id = "spotify";}
+          {app-id = "Spotify";}
           {app-id = "steam.*";}
           {app-id = "org.gnome.seahorse.*";}
           {app-id = "org.kde.kdeconnect.*";}

@@ -100,6 +100,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs = {
@@ -150,7 +155,10 @@
 
     dms = {
       url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+      };
     };
 
     dms-plugin-registry = {
@@ -169,12 +177,17 @@
     };
 
     helium-browser = {
-      # FIXME: use upstream after https://github.com/cjavad/nixpille-helium/pull/3 merge
-      url = "github:NikSneMC/nixpille-helium/fix/build";
+      url = "github:cjavad/nixpille-helium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix.url = "github:helix-editor/helix";
+    helix = {
+      url = "github:NikSneMC/helix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
 
     niri.url = "github:sodiboo/niri-flake";
 
@@ -217,12 +230,17 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        rust-overlay.follows = "rust-overlay";
       };
     };
 
     wakatime-ls = {
       url = "github:mrnossiom/wakatime-ls";
-      inputs.gitignore.follows = "git-hooks/gitignore";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        gitignore.follows = "git-hooks/gitignore";
+        rust-overlay.follows = "rust-overlay";
+      };
     };
 
     zen-browser = {
