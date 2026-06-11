@@ -6,37 +6,13 @@
   pkgs,
   ...
 }: let
+  inherit (builtins) attrNames;
+
   notForHosts = lib'.notForHosts osConfig;
 
   headlessHosts = ["tobichi" "renga"];
-
-  commonLSPs =
-    {
-      uwu-colors = {
-        command = "uwu_colors";
-      };
-      wakatime-ls = {
-        command = "wakatime-ls";
-      };
-    }
-    // (notForHosts headlessHosts lib.optionalAttrs {
-      discord-rpc = {
-        command = "discord-rpc-lsp";
-      };
-    });
-
-  commonPackages = with pkgs; let
-    inherit (stdenv.hostPlatform) system;
-  in
-    [
-      uwu-colors
-      inputs.wakatime-ls.packages.${system}.wakatime-ls
-    ]
-    ++ (
-      notForHosts headlessHosts lib.optional inputs.discord-rpc-lsp.packages.${system}.default
-    );
-
-  langfiles = [
+in {
+  imports = [
     ./bash.nix
     ./c.nix
     ./ci.nix
@@ -64,5 +40,38 @@
     ./yaml.nix
     ./zig.nix
   ];
-in
-  lib'.helix.mkHelixLangs pkgs langfiles commonLSPs commonPackages
+
+  programs.helix = {
+    languages = let
+      globalLsps =
+        {
+          uwu-colors = {
+            command = "uwu_colors";
+          };
+          wakatime-ls = {
+            command = "wakatime-ls";
+          };
+        }
+        // (notForHosts headlessHosts lib.optionalAttrs {
+          discord-rpc = {
+            command = "discord-rpc-lsp";
+          };
+        });
+    in {
+      language-server = globalLsps;
+
+      global-language-servers = attrNames globalLsps;
+    };
+
+    extraPackages = with pkgs; let
+      inherit (stdenv.hostPlatform) system;
+    in
+      [
+        uwu-colors
+        inputs.wakatime-ls.packages.${system}.wakatime-ls
+      ]
+      ++ (
+        notForHosts headlessHosts lib.optional inputs.discord-rpc-lsp.packages.${system}.default
+      );
+  };
+}
