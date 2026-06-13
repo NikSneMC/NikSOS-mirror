@@ -39,6 +39,6 @@
 
       mission-center
 
-      custom.catppuccin
+      catppuccin
     ]);
 }
