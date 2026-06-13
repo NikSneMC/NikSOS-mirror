@@ -44,7 +44,7 @@ in {
       {
         matches = [
           {app-id = "zen";}
-          {app-id = "spotify";}
+          {app-id = "Spotify";}
         ];
         open-on-workspace = "misc";
       }
