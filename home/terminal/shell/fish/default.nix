@@ -1,7 +1,6 @@
 {
   imports = [
     ./functions
-    ./plugins.nix
   ];
 
   programs.fish = {
