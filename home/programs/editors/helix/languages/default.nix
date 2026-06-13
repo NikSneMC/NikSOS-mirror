@@ -5,13 +5,7 @@
   osConfig,
   pkgs,
   ...
-}: let
-  inherit (builtins) attrNames;
-
-  notForHosts = lib'.notForHosts osConfig;
-
-  headlessHosts = ["tobichi" "renga"];
-in {
+}: {
   imports = [
     ./bash.nix
     ./c.nix
@@ -41,37 +35,32 @@ in {
     ./zig.nix
   ];
 
-  programs.helix = {
-    languages = let
-      globalLsps =
-        {
-          uwu-colors = {
-            command = "uwu_colors";
-          };
-          wakatime-ls = {
-            command = "wakatime-ls";
-          };
-        }
-        // (notForHosts headlessHosts lib.optionalAttrs {
-          discord-rpc = {
-            command = "discord-rpc-lsp";
-          };
-        });
-    in {
-      language-server = globalLsps;
+  programs.helix = let
+    inherit (builtins) listToAttrs;
+    inherit (lib) optionals nameValuePair;
+    inherit (pkgs.stdenv.hostPlatform) system;
 
-      global-language-servers = attrNames globalLsps;
-    };
+    notForHosts = lib'.notForHosts osConfig;
 
-    extraPackages = with pkgs; let
-      inherit (stdenv.hostPlatform) system;
-    in
+    globalLsps = with pkgs;
       [
         uwu-colors
         inputs.wakatime-ls.packages.${system}.wakatime-ls
       ]
-      ++ (
-        notForHosts headlessHosts lib.optional inputs.discord-rpc-lsp.packages.${system}.default
-      );
+      ++ (notForHosts ["tobichi" "renga"] optionals [
+        inputs.discord-rpc-lsp.packages.${system}.default
+      ]);
+  in {
+    languages = rec {
+      global-language-servers =
+        globalLsps
+        |> map (lsp: lsp.meta.mainProgram or lsp.NIX_MAIN_PROGRAM or lsp.pname);
+      language-server =
+        global-language-servers
+        |> map (command: nameValuePair command {inherit command;})
+        |> listToAttrs;
+    };
+
+    extraPackages = globalLsps;
   };
 }
