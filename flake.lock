@@ -419,22 +419,6 @@
         "type": "github"
       }
     },
-    "nikspkgs": {
-      "locked": {
-        "lastModified": 1780679230,
-        "narHash": "sha256-B9vJpf9fiQlCwm1RrQwS+jLLvBnappX/q66A0tCr0kc=",
-        "owner": "NikSneMC",
-        "repo": "NikSpkgs",
-        "rev": "efef58218144f31947425dcbe52fd4d529ca7846",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NikSneMC",
-        "ref": "niksos",
-        "repo": "NikSpkgs",
-        "type": "github"
-      }
-    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -717,7 +701,6 @@
         "hm": "hm",
         "master": "master",
         "naersk": "naersk",
-        "nikspkgs": "nikspkgs",
         "niri": "niri",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-index-database": "nix-index-database",
