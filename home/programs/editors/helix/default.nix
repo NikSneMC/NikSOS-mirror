@@ -28,7 +28,6 @@
     defaultEditor = true;
     settings.editor = {
       line-number = "relative";
-      inline-blame = true;
       completion-trigger-len = 1;
       completion-replace = true;
       bufferline = "multiple";
