@@ -60,7 +60,6 @@
             };
             nixpkgs.overlays = mkPkgsOverlays (with inputs; {
               inherit master unstable stable;
-              custom = nikspkgs;
             });
             catppuccin.cache.enable = true;
           })
