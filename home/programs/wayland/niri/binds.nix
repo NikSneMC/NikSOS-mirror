@@ -156,7 +156,7 @@
           action = dms-ipc "spotlight" "toggleQuery" ":";
         }
         {
-          bind = "Mod+Shift+Space";
+          bind = "Mod+Alt+Tab";
           desc = "Toggle overview";
           action = toggle-overview;
         }
