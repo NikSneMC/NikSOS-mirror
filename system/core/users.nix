@@ -11,6 +11,7 @@
         "video"
         "wheel"
         "dialout"
+        "i2c"
       ];
     };
   };
