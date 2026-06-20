@@ -184,6 +184,11 @@
       };
     };
 
+    niri-autoselect-portal = {
+      url = "git+https://codeberg.org/debugloop/niri-autoselect-portal.git";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+    };
+
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
       inputs = {
