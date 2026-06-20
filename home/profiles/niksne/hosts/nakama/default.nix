@@ -7,7 +7,7 @@ mkHmModules: {
 
     "services"
 
-    "terminal/emulators/wezterm.nix"
+    "terminal/emulators/rio.nix"
 
     ./niri.nix
   ];

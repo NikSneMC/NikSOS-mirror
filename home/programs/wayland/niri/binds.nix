@@ -133,7 +133,7 @@
         {
           bind = "Mod+T";
           desc = "Launch terminal";
-          action = spawn "wezterm";
+          action = spawn "rio";
         }
         {
           bind = "Mod+V";
