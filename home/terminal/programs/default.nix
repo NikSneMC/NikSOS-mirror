@@ -47,7 +47,7 @@
     wget
 
     packwiz
-    inputs.git-helper.packages.${stdenv.hostPlatform.system}.git-helper
+    inputs.git-helper.packages.${stdenv.hostPlatform.system}.default
     master.ani-cli
   ];
 
