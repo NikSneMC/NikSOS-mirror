@@ -8,8 +8,10 @@
 
     fish = spawn "fish" "-c";
     rofi = menu: fish "pkill -9 bin/rofi || rofi -show ${menu}";
-    dms = spawn "dms";
-    dms-ipc = dms "ipc";
+    noctalia = spawn "noctalia" "msg";
+    noctalia-panel = noctalia "panel-toggle";
+    noctalia-launcher = noctalia-panel "launcher";
+    noctalia-control = noctalia-panel "control-center";
   in
     mkBinds (
       (mkWorkspacesBinds config)
@@ -90,15 +92,15 @@
       ++ [
         {
           bind = "Mod+Ctrl+Alt+S";
-          desc = "Reload dms";
-          action = dms "restart";
+          desc = "Reload noctalia";
+          action = noctalia "config-reload";
         }
       ]
       ++ [
         {
           bind = "Mod+A";
           desc = "Launch app menu";
-          action = dms-ipc "spotlight" "toggle";
+          action = noctalia-launcher;
         }
         {
           bind = "Mod+B";
@@ -117,19 +119,19 @@
         }
         {
           bind = "Mod+I";
-          desc = "Open DMS settings";
-          action = dms-ipc "settings" "focusOrToggle";
+          desc = "Open noctalia settings";
+          action = noctalia "settings-toggle";
         }
         {
           bind = "Mod+N";
           desc = "Open notification center";
-          action = dms-ipc "notifications" "toggle";
+          action = noctalia-control "notifications";
         }
-        {
-          bind = "Mod+R";
-          desc = "Execute command";
-          action = dms-ipc "spotlight" "toggleQuery" ">";
-        }
+        # {
+        #   bind = "Mod+R";
+        #   desc = "Execute command";
+        #   action = noctalia-launcher "/cmd";
+        # }
         {
           bind = "Mod+T";
           desc = "Launch terminal";
@@ -138,22 +140,22 @@
         {
           bind = "Mod+V";
           desc = "Open clipboard history";
-          action = dms-ipc "clipboard" "toggle";
+          action = noctalia-panel "clipboard";
         }
-        {
-          bind = "Mod+X";
-          desc = "Delete an item from the clipboard history";
-          action = fish "dms clipboard search --json -l 1 | jq '.entries[0].id' | xargs dms clipboard delete";
-        }
+        # {
+        #   bind = "Mod+X";
+        #   desc = "Delete an item from the clipboard history";
+        #   action = fish "noctalia clipboard search --json -l 1 | jq '.entries[0].id' | xargs noctalia clipboard delete";
+        # }
         {
           bind = "Mod+Escape";
           desc = "Open logout menu";
-          action = dms-ipc "powermenu" "toggle";
+          action = noctalia-panel "session";
         }
         {
           bind = "Mod+Semicolon";
           desc = "Open emoju menu";
-          action = dms-ipc "spotlight" "toggleQuery" ":";
+          action = noctalia-launcher "/emo";
         }
         {
           bind = "Mod+Alt+Tab";
@@ -175,12 +177,12 @@
         {
           bind = "Mod+Shift+C";
           desc = "Launch color picker";
-          action = fish "select_color";
+          action = spawn "hyprpicker" "--autocopy" "--notify" "--lowercase-hex";
         }
         {
           bind = "Mod+Shift+G";
           desc = "Lock session";
-          action = dms-ipc "lock" "lock";
+          action = noctalia "session" "lock";
         }
         {
           bind = "Mod+Shift+M";
@@ -190,7 +192,7 @@
         {
           bind = "Mod+Shift+N";
           desc = "Mute notifications";
-          action = dms-ipc "notifications" "toggleDoNotDisturb";
+          action = noctalia "notification-dnd-toggle";
         }
         {
           bind = "Mod+Shift+P";
@@ -215,24 +217,29 @@
         {
           bind = "Mod+Shift+X";
           desc = "Clear clipboard";
-          action = dms "clipboard" "clear";
+          action = noctalia "clipboard-clear";
         }
       ]
       ++ [
         {
           bind = "Mod+Shift+S";
           desc = "Take a screenshot";
-          action = dms-ipc "niri" "screenshot";
+          action = noctalia "screenshot-region";
         }
-        {
-          bind = "Mod+Shift+Ctrl+S";
-          desc = "Take a screenshot (window)";
-          action = dms-ipc "niri" "screenshotWindow";
-        }
+        # {
+        #   bind = "Mod+Shift+Ctrl+S";
+        #   desc = "Take a screenshot (window)";
+        #   action = noctalia "screenshot-window";
+        # }
         {
           bind = "Mod+Shift+Alt+S";
           desc = "Take a screenshot (screen)";
-          action = dms-ipc "niri" "screenshotScreen";
+          action = noctalia "screenshot-fullscreen";
+        }
+        {
+          bind = "Mod+Shift+Ctrl+Alt+S";
+          desc = "Take a screenshot (all screens)";
+          action = noctalia "screenshot-fullscreen" "all";
         }
       ]
       ++ (
@@ -245,9 +252,19 @@
             action = toggle_scratchpad ".title == \"AmneziaVPN\"" "AmneziaVPN";
           }
           {
+            bind = "Mod+Ctrl+B";
+            desc = "Toggle bluetooth";
+            action = noctalia "bluetooth-toggle";
+          }
+          {
+            bind = "Mod+Ctrl+M";
+            desc = "Toggle monitor configuration menu";
+            action = toggle_scratchpad ".app_id == \"nwg-displays\"" "nwg-displays";
+          }
+          {
             bind = "Mod+Ctrl+N";
             desc = "Toggle night mode";
-            action = dms-ipc "night" "toggle";
+            action = noctalia "nightlight-force-toggle";
           }
           {
             bind = "Mod+Ctrl+P";
@@ -262,7 +279,7 @@
           {
             bind = "Mod+Ctrl+W";
             desc = "Toggle wi-fi";
-            action = fish "toggle_wifi";
+            action = noctalia "wifi-toggle";
           }
         ]
       )
@@ -538,15 +555,15 @@
       ++ [
         {
           bind = "XF86MonBrightnessUp";
-          desc = "Increase brightness by 10%";
-          action = dms-ipc "brightness" "increment" "10" "backlight:intel_backlight";
+          desc = "Increase brightness";
+          action = noctalia "brightness-up";
           allow-when-locked = true;
           repeat = true;
         }
         {
           bind = "XF86MonBrightnessDown";
-          desc = "Decrease brightness by 10%";
-          action = dms-ipc "brightness" "decrement" "10" "backlight:intel_backlight";
+          desc = "Decrease brightness";
+          action = noctalia "brightness-down";
           allow-when-locked = true;
           repeat = true;
         }
@@ -554,29 +571,29 @@
       ++ [
         {
           bind = "XF86AudioRaiseVolume";
-          desc = "Increase volume by 5%";
-          action = dms-ipc "audio" "increment" "5";
+          desc = "Increase volume";
+          action = noctalia "volume-up";
           allow-when-locked = true;
           repeat = true;
         }
         {
           bind = "XF86AudioLowerVolume";
-          desc = "Decrease volume by 5%";
-          action = dms-ipc "audio" "decrement" "5";
+          desc = "Decrease volume";
+          action = noctalia "volume-down";
           allow-when-locked = true;
           repeat = true;
         }
         {
           bind = "Ctrl+XF86AudioRaiseVolume";
           desc = "Increase volume by 1%";
-          action = dms-ipc "audio" "increment" "1";
+          action = noctalia "volume-up" "1";
           allow-when-locked = true;
           repeat = true;
         }
         {
           bind = "Ctrl+XF86AudioLowerVolume";
           desc = "Decrease volume by 1%";
-          action = dms-ipc "audio" "decrement" "1";
+          action = noctalia "volume-down" "1";
           allow-when-locked = true;
           repeat = true;
         }
@@ -585,13 +602,13 @@
         {
           bind = "XF86AudioMute";
           desc = "Mute audio";
-          action = dms-ipc "audio" "mute";
+          action = noctalia "volume-mute";
           allow-when-locked = true;
         }
         {
           bind = "XF86AudioMicMute";
           desc = "Mute microphone";
-          action = dms-ipc "audio" "micmute";
+          action = noctalia "mic-mute";
           allow-when-locked = true;
         }
       ]
@@ -599,19 +616,19 @@
         {
           bind = "XF86AudioPlay";
           desc = "Toggle media play/pause";
-          action = dms-ipc "mpris" "playPause";
+          action = noctalia "media" "toggle";
           allow-when-locked = true;
         }
         {
           bind = "XF86AudioPrev";
           desc = "Move to the previous track";
-          action = dms-ipc "mpris" "previous";
+          action = noctalia "media" "previous";
           allow-when-locked = true;
         }
         {
           bind = "XF86AudioNext";
           desc = "Move to the next track";
-          action = dms-ipc "mpris" "next";
+          action = noctalia "media" "next";
           allow-when-locked = true;
         }
       ]
@@ -619,7 +636,7 @@
         {
           bind = "Mod+Ctrl+D";
           desc = "Power off all monitors via DPMS";
-          action = power-off-monitors;
+          action = noctalia "dpms-off";
         }
       ]
     );

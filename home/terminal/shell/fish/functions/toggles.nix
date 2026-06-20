@@ -10,35 +10,20 @@
           set -l bluetooth_status (cat $backup_file | grep -o 'bluetooth:\(on\|off\)$' | cut -d':' -f2)
 
           if test "$wifi_status" = "on"
-            nmcli radio wifi on
+            noctalia msg wifi-enable
           end
 
           if test "$bluetooth_status" = "on"
-            rfkill unblock bluetooth
+            noctalia msg bluetooth-enable
           end
 
           rm $backup_file
         else
-          echo "wifi:$(rfkill list wifi | grep -q "Soft blocked: no" && echo "on" || echo "off")" > $backup_file
-          echo "bluetooth:$(rfkill list bluetooth | grep -qi "Soft blocked: no" && echo "on" || echo "off")" >> $backup_file
+          echo "wifi:$(noctalia msg wifi-status)" > $backup_file
+          echo "bluetooth:$(noctalia msg bluetooth-status)" >> $backup_file
 
-          nmcli radio wifi off
-          rfkill block bluetooth
-        end
-      '';
-    toggle_wifi.body =
-      # fish
-      ''
-        set wifi_status (nmcli radio wifi)
-        set backup_file ~/.cache/wifi_backup
-
-        if [ "$wifi_status" = enabled ]
-          nmcli radio wifi off
-        else
-          nmcli radio wifi on
-          if test -e $backup_file
-            rm $backup_file
-          end
+          noctalia msg wifi-disable
+          noctalia msg bluetooth-disable
         end
       '';
   };

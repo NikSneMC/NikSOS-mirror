@@ -45,11 +45,14 @@
   };
 
   xdg.configFile = {
-    niri-config-dms.target = lib.mkForce "niri/dms.kdl";
+    niri-config.target = lib.mkForce "niri/hm.kdl";
     "niri/config.kdl".text =
       # kdl
       ''
-        include "dms.kdl"
+        include "hm.kdl"
+        include optional=true "monitor.kdl"
+
+        layout { border { on; }; }
 
         // FIXME: rio's blur and transparency seems broken
         window-rule {
@@ -78,6 +81,7 @@
             }
           }
         }
+
       '';
   };
 }
