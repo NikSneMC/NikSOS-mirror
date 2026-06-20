@@ -16,12 +16,12 @@
     };
 
     workspaces = {
-      "1".name = "development";
-      "2".name = "misc";
-      "3".name = "education";
-      "4".name = "social";
-      "5".name = "gaming";
-      "6".name = "recording/streaming";
+      "1".name = " development";
+      "2".name = " misc";
+      "3".name = "󱛉 education";
+      "4".name = "󰭹 social";
+      "5".name = "󰊗 gaming";
+      "6".name = "󰻃 recording/streaming";
     };
 
     animations.slowdown = 0.5;
