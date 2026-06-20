@@ -4,6 +4,17 @@ in {
   programs.niri.settings = {
     window-rules = [
       {
+        geometry-corner-radius = let
+          radius = 12.;
+        in {
+          bottom-left = radius;
+          bottom-right = radius;
+          top-left = radius;
+          top-right = radius;
+        };
+        clip-to-geometry = true;
+      }
+      {
         open-maximized = true;
       }
       {
@@ -81,6 +92,7 @@ in {
       {
         matches = [
           {title = "AmneziaVPN";}
+          {app-id = "nwg-displays";}
           {app-id = "org.pulseaudio.pavucontrol";}
           {app-id = ".blueman-manager-wrapped";}
           {
@@ -111,14 +123,12 @@ in {
 
     layer-rules = [
       {
+        matches = [{namespace = "^noctalia-backdrop";}];
+        place-within-backdrop = true;
+      }
+      {
         matches = [
           {namespace = "rofi";}
-          {namespace = "dms:notification-popup";}
-          {namespace = "dms:notification-center-modal";}
-          {namespace = "dms:plugins:plugin";}
-          {namespace = "dms:control-center";}
-          {namespace = "dms:dash";}
-          {namespace = "dms:clipboard";}
         ];
         block-out-from = "screen-capture";
       }

@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./danksearch.nix
     ./rofi.nix
   ];
 
@@ -13,6 +12,8 @@
     wl-screenrec
     wlr-randr
     wl-mirror
+    nwg-displays
+    hyprpicker
   ];
 
   # make stuff work on wayland

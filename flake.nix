@@ -132,21 +132,9 @@
     catppuccin.url = "github:catppuccin/nix";
 
     # common
-    danksearch.url = "github:AvengeMedia/danksearch";
-
     discord-rpc-lsp = {
       url = "gitlab:invra/discord-rpc-lsp";
       inputs.flake-utils.follows = "flake-utils";
-    };
-
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.flake-compat.follows = "";
-    };
-
-    dms-plugin-registry = {
-      url = "github:AvengeMedia/dms-plugin-registry";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     git-helper = {
@@ -214,6 +202,10 @@
         flake-compat.follows = "";
       };
     };
+
+    noctalia.url = "github:noctalia-dev/noctalia";
+
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
 
     rio = {
       url = "github:raphamorim/rio";
