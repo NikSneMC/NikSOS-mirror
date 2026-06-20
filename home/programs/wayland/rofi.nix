@@ -41,7 +41,7 @@ in {
     enable = true;
     package = pkgs.rofi;
     location = "right";
-    terminal = "wezterm";
+    terminal = "rio";
     extraConfig = {
       icon-theme = "Numix-Circle";
       show-icons = true;

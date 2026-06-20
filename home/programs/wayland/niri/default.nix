@@ -51,8 +51,9 @@
       ''
         include "dms.kdl"
 
+        // FIXME: rio's blur and transparency seems broken
         window-rule {
-          match app-id="org.wezfurlong.wezterm"
+          match app-id="rio"
 
           opacity 0.9
           background-effect {

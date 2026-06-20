@@ -215,6 +215,18 @@
       };
     };
 
+    rio = {
+      url = "github:raphamorim/rio";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        rust-overlay = {
+          follows = "rust-overlay";
+          inputs.nixpkgs.follows = "rio/nixpkgs";
+        };
+        systems.follows = "systems";
+      };
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs = {

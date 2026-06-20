@@ -660,6 +660,22 @@
     },
     "nixpkgs_10": {
       "locked": {
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_11": {
+      "locked": {
         "lastModified": 1781577229,
         "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
         "owner": "NixOS",
@@ -674,7 +690,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_11": {
+    "nixpkgs_12": {
       "locked": {
         "lastModified": 1781577229,
         "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
@@ -844,6 +860,33 @@
         "type": "github"
       }
     },
+    "rio": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": "nixpkgs_10",
+        "rust-overlay": [
+          "rust-overlay"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781435951,
+        "narHash": "sha256-pV04NJJcYbk3nor4sKAewIY7OdoUROhLr8BqK5Or1KY=",
+        "owner": "raphamorim",
+        "repo": "rio",
+        "rev": "e1946a7b98a5a5a4074f384437f0256abf1df75b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "raphamorim",
+        "repo": "rio",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -874,6 +917,7 @@
           "unstable"
         ],
         "private": "private",
+        "rio": "rio",
         "rust-overlay": "rust-overlay",
         "spicetify-nix": "spicetify-nix",
         "stable": "stable",
@@ -992,7 +1036,7 @@
         "flake-utils": [
           "flake-utils"
         ],
-        "nixpkgs": "nixpkgs_10",
+        "nixpkgs": "nixpkgs_11",
         "rust-overlay": [
           "rust-overlay"
         ]
@@ -1033,7 +1077,7 @@
           "git-hooks",
           "gitignore"
         ],
-        "nixpkgs": "nixpkgs_11",
+        "nixpkgs": "nixpkgs_12",
         "rust-overlay": [
           "rust-overlay"
         ]
