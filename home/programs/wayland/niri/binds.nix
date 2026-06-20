@@ -1,9 +1,6 @@
 {
   config,
-  inputs,
-  lib,
   lib',
-  pkgs,
   ...
 }: {
   programs.niri.settings.binds = with config.lib.niri.actions; let
@@ -13,9 +10,6 @@
     rofi = menu: fish "pkill -9 bin/rofi || rofi -show ${menu}";
     dms = spawn "dms";
     dms-ipc = dms "ipc";
-    packages = builtins.mapAttrs (_: lib.getExe) {
-      activate-niksos = inputs.activate-niksos.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    };
   in
     mkBinds (
       (mkWorkspacesBinds config)
@@ -249,12 +243,6 @@
             bind = "Mod+Ctrl+A";
             desc = "Toggle anti RKN software";
             action = toggle_scratchpad ".title == \"AmneziaVPN\"" "AmneziaVPN";
-          }
-
-          {
-            bind = "Mod+Ctrl+E";
-            desc = "Toggle easter egg";
-            action = fish "pkill -9 activate-niksos || ${packages.activate-niksos}";
           }
           {
             bind = "Mod+Ctrl+N";

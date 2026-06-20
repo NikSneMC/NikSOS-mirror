@@ -132,19 +132,6 @@
     catppuccin.url = "github:catppuccin/nix";
 
     # common
-    activate-niksos = {
-      url = "github:NikSneMC/activate-niksos";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        flake-compat.follows = "";
-        systems.follows = "systems";
-        naersk = {
-          follows = "naersk";
-          inputs.nixpkgs.follows = "activate-niksos/nixpkgs";
-        };
-      };
-    };
-
     danksearch.url = "github:AvengeMedia/danksearch";
 
     discord-rpc-lsp = {
