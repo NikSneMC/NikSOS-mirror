@@ -66,7 +66,7 @@
             active-color "#${config.theme.colors.accent}ff"
             urgent-color "#${config.theme.colors.yellow}ff"
             padding 30
-            corner-radius 0
+            corner-radius 12
           }
 
           binds {
