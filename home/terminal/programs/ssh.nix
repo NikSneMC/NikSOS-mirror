@@ -6,7 +6,7 @@
 
     includes = ["hosts/*/*.conf"];
 
-    matchBlocks."*" = {
+    settings."*" = {
       forwardAgent = false;
       addKeysToAgent = "no";
       compression = false;
