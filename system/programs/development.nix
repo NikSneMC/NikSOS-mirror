@@ -25,7 +25,10 @@
       bun
       nodejs_24
       pnpm
-      python3
+      (python3.withPackages (p:
+        with p; [
+          repl-python-wakatime
+        ]))
       uv
     ];
 
