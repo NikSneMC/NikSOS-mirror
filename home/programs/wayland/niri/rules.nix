@@ -1,5 +1,7 @@
 {config, ...}: let
   inherit (config.theme) colors;
+
+  workspace = id: config.programs.niri.settings.workspaces.${toString id}.name;
 in {
   programs.niri.settings = {
     window-rules = [
@@ -50,14 +52,14 @@ in {
           {app-id = "jetbrains-.*";}
           {app-id = "t3code";}
         ];
-        open-on-workspace = "development";
+        open-on-workspace = workspace 1;
       }
       {
         matches = [
           {app-id = "zen";}
           {app-id = "Spotify";}
         ];
-        open-on-workspace = "misc";
+        open-on-workspace = workspace 2;
       }
       {
         matches = [
@@ -68,7 +70,7 @@ in {
           {app-id = "thunderbird";}
           {app-id = "Element";}
         ];
-        open-on-workspace = "social";
+        open-on-workspace = workspace 4;
         block-out-from = "screen-capture";
       }
       {
@@ -81,13 +83,13 @@ in {
           {app-id = "mono";}
           {app-id = "Terraria.bin.*";}
         ];
-        open-on-workspace = "gaming";
+        open-on-workspace = workspace 5;
       }
       {
         matches = [
           {app-id = "com.obsproject.Studio";}
         ];
-        open-on-workspace = "recording/streaming";
+        open-on-workspace = workspace 6;
       }
       {
         matches = [
