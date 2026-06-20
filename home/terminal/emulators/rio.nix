@@ -32,10 +32,11 @@
       editor.program = lib.getExe' config.programs.helix.package "hx";
       navigation = {
         mode = "Tab";
+        use-split = false;
         hide-if-single = false;
       };
-      padding-x = 5;
-      padding-y = [7 3];
+      padding = [0];
+      panel.padding = [0];
       renderer.performance = "high";
       scroll = {
         multiplier = 10.0;
