@@ -4,7 +4,10 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.niri.nixosModules.niri];
+  imports = [
+    inputs.niri.nixosModules.niri
+    inputs.niri-autoselect-portal.nixosModules.default
+  ];
 
   programs.niri = {
     enable = true;
@@ -14,6 +17,8 @@
   environment.systemPackages = [
     inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
   ];
+
+  services.niri-autoselect-portal.enable = true;
 
   xdg.portal = {
     config.niri.default = ["gtk" "gnome"];
