@@ -28,7 +28,10 @@
         tint_intensity = 0.3;
       };
       battery.warning_threshold = 20;
-      brightness.enable_ddcutil = true;
+      brightness = {
+        enable_ddcutil = true;
+        minimum_brightness = 0.05;
+      };
       calendar = {
         enabled = true;
         refresh_minutes = 15;
