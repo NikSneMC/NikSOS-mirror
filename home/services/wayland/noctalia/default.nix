@@ -119,7 +119,7 @@
           dnd = true;
           keyboard_layout = true;
           lock_keys = true;
-          media = true;
+          media = false;
           nightlight = true;
           power_profile = true;
           privacy = true;
