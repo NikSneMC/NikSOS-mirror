@@ -68,15 +68,6 @@
       inputs.systems.follows = "systems";
     };
 
-    private = {
-      url = "github:NikSneMC/NikSOS-private";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs = {
