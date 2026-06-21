@@ -29,7 +29,6 @@
             inputs.catppuccin.homeModules.catppuccin
             self.homeManagerModules.homes
             self.homeManagerModules.theme
-            (inputs.private.modulesFor "hm" host)
             (import "${self}/home/profiles/${user}" mkHmModules)
             (import "${self}/home/profiles/${user}/hosts/${host}" mkHmModules)
             {home = {inherit user;};}

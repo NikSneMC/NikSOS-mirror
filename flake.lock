@@ -469,64 +469,6 @@
         "type": "github"
       }
     },
-    "nix-minecraft": {
-      "inputs": {
-        "flake-compat": [
-          "private",
-          "flake-compat"
-        ],
-        "flake-utils": [
-          "private",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "private",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1764986396,
-        "narHash": "sha256-HYBvpziKGvKY/XfMCBRCTuUUqhPWjWiWaPthIsPzGDk=",
-        "owner": "Infinidoge",
-        "repo": "nix-minecraft",
-        "rev": "70b931d67256ad7ebfced45ed797c016943bbff2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Infinidoge",
-        "repo": "nix-minecraft",
-        "type": "github"
-      }
-    },
-    "nix-python": {
-      "inputs": {
-        "flake-compat": [
-          "private",
-          "flake-compat"
-        ],
-        "flake-utils": [
-          "private",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "private",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1728241922,
-        "narHash": "sha256-9LEp3jAZSJFiUWZ8YDJXSrf7pOJ3ShCNK+EQZjajl8Q=",
-        "owner": "NiKSneMC",
-        "repo": "nix-python",
-        "rev": "8e770b13f30e2dff3497580ae52db83a8b904ebb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NiKSneMC",
-        "repo": "nix-python",
-        "type": "github"
-      }
-    },
     "nixos-avf": {
       "inputs": {
         "nixpkgs": [
@@ -807,32 +749,6 @@
         "type": "github"
       }
     },
-    "private": {
-      "inputs": {
-        "flake-compat": [],
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nix-minecraft": "nix-minecraft",
-        "nix-python": "nix-python",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1779152059,
-        "narHash": "sha256-XTsBx+Yrv1t17ATmB3y4Fkm+d0RnqinBNy6KfAFzdpA=",
-        "owner": "NikSneMC",
-        "repo": "NikSOS-private",
-        "rev": "2e8ca903a8b1dc3f832f5ddbeb1dde6f7f8f9558",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NikSneMC",
-        "repo": "NikSOS-private",
-        "type": "github"
-      }
-    },
     "rio": {
       "inputs": {
         "flake-parts": [
@@ -888,7 +804,6 @@
         ],
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",
-        "private": "private",
         "rio": "rio",
         "rust-overlay": "rust-overlay",
         "spicetify-nix": "spicetify-nix",
