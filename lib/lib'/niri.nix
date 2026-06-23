@@ -3,6 +3,7 @@
   numbers,
   ...
 }: let
+  inherit (builtins) listToAttrs attrValues concatLists genList;
   inherit (lib) nameValuePair take;
   inherit (lib.lists) findFirstIndex;
   inherit (numbers) mod;
@@ -23,12 +24,12 @@
           inherit action allow-when-locked repeat cooldown-ms;
         }
     )
-    |> builtins.listToAttrs;
+    |> listToAttrs;
 
   mkWorkspacesBinds = config: let
     workspaces =
       config.programs.niri.settings.workspaces
-      |> builtins.attrValues
+      |> attrValues
       |> map (ws: ws.name)
       |> take 10;
   in
@@ -56,11 +57,11 @@
         }
       ]
     )
-    |> builtins.concatLists;
+    |> concatLists;
 
   mkColumnsBinds = n:
     n
-    |> builtins.genList (
+    |> genList (
       x: let
         m = x + 1;
         ws = toString (mod m 10);
@@ -78,7 +79,7 @@
         }
       ]
     )
-    |> builtins.concatLists;
+    |> concatLists;
 in {
   inherit mkBinds mkWorkspacesBinds mkColumnsBinds;
 }

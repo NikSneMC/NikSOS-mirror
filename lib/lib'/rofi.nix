@@ -1,19 +1,23 @@
 {lib, ...}: let
+  inherit (builtins) isBool isString isInt isList concatStringsSep typeOf isAttrs concatMap;
+  inherit (lib) filterAttrs mapAttrsToList;
+  inherit (lib.generators) toKeyValue;
+
   mkValueString = value:
-    if lib.isBool value
+    if isBool value
     then
       if value
       then "true"
       else "false"
-    else if lib.isInt value
+    else if isInt value
     then toString value
     else if (value._type or "") == "literal"
     then value.value
-    else if lib.isString value
+    else if isString value
     then ''"${value}"''
-    else if lib.isList value
-    then "[ ${lib.strings.concatStringsSep "," (map mkValueString value)} ]"
-    else abort "Unhandled value type ${builtins.typeOf value}";
+    else if isList value
+    then "[ ${concatStringsSep "," (map mkValueString value)} ]"
+    else abort "Unhandled value type ${typeOf value}";
 
   mkKeyValue = {
     sep ? ": ",
@@ -21,11 +25,11 @@
   }: name: value: "${name}${sep}${mkValueString value}${end}";
 
   mkRasiSection = name: value:
-    if lib.isAttrs value
+    if isAttrs value
     then let
-      toRasiKeyValue = lib.generators.toKeyValue {mkKeyValue = mkKeyValue {};};
+      toRasiKeyValue = toKeyValue {mkKeyValue = mkKeyValue {};};
       # Remove null values so the resulting config does not have empty lines
-      configStr = toRasiKeyValue (lib.filterAttrs (_: v: v != null) value);
+      configStr = toRasiKeyValue (filterAttrs (_: v: v != null) value);
     in ''
       ${name} {
       ${configStr}}
@@ -41,12 +45,12 @@
 
   toRasi = attrs:
     [
-      (lib.filterAttrs (n: _: n == "@theme") attrs)
-      (lib.filterAttrs (n: _: n == "@import") attrs)
+      (filterAttrs (n: _: n == "@theme") attrs)
+      (filterAttrs (n: _: n == "@import") attrs)
       (removeAttrs attrs ["@theme" "@import"])
     ]
-    |> lib.concatMap (lib.mapAttrsToList mkRasiSection)
-    |> lib.concatStringsSep "\n";
+    |> concatMap (mapAttrsToList mkRasiSection)
+    |> concatStringsSep "\n";
 in {
   inherit mkValueString mkKeyValue mkRasiSection toRasi;
 }
