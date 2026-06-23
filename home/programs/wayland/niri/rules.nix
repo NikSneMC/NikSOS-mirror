@@ -131,6 +131,8 @@ in {
       {
         matches = [
           {namespace = "rofi";}
+          {namespace = "noctalia-notification";}
+          {namespace = "noctalia-panel";}
         ];
         block-out-from = "screen-capture";
       }
