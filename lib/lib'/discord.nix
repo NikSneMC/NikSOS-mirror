@@ -1,21 +1,23 @@
 _: let
+  inherit (builtins) isString listToAttrs;
+
   mkEnabledPluginsFromList = plugins:
     plugins
     |> map (
       plugin: let
         value = {enabled = true;};
       in
-        if builtins.isString plugin
+        if isString plugin
         then {
           name = plugin;
           inherit value;
         }
         else {
           inherit (plugin) name;
-          value = (builtins.removeAttrs plugin ["name"]) // value;
+          value = (removeAttrs plugin ["name"]) // value;
         }
     )
-    |> builtins.listToAttrs;
+    |> listToAttrs;
 in {
   inherit mkEnabledPluginsFromList;
 }

@@ -1,9 +1,11 @@
 _: let
+  inherit (builtins) isString listToAttrs;
+
   mkSubvolumes = subvolumes:
     subvolumes
     |> map (
       subvolume:
-        if builtins.isString subvolume
+        if isString subvolume
         then {
           name = subvolume;
           value = {
@@ -15,7 +17,7 @@ _: let
           value = subvolume;
         }
     )
-    |> builtins.listToAttrs;
+    |> listToAttrs;
 
   mkUserSubvolumes = user: folders:
     folders

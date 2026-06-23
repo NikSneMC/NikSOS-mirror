@@ -1,4 +1,6 @@
 {...}: let
+  inherit (builtins) fetchurl;
+
   zellijPlugin = {
     url,
     name,
@@ -6,7 +8,7 @@
     config ? "",
     load ? false,
   }: let
-    package = builtins.fetchurl {
+    package = fetchurl {
       inherit url sha256;
       name = "zellij-plugin-${name}";
     };

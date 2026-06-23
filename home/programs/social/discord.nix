@@ -769,10 +769,10 @@
     "https://raw.githubusercontent.com/NikSneMC/discord-css/main/jetbrainsmono-nerd-font.css"
     "https://raw.githubusercontent.com/NikSneMC/discord-css/main/make-discord-ui-great-again.css"
   ];
+
+  inherit (builtins) toJSON;
 in {
-  xdg.configFile = let
-    inherit (builtins) toJSON;
-  in {
+  xdg.configFile = {
     "equibop/settings/settings.json".text = toJSON {
       autoUpdate = false;
       autoUpdateNotification = false;

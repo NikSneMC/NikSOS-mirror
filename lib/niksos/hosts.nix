@@ -30,8 +30,8 @@
       modules =
         type
         ++ [
-          inputs.disko.nixosModules.disko
           inputs.agenix.nixosModules.age
+          inputs.disko.nixosModules.disko
           inputs.catppuccin.nixosModules.catppuccin
           self.niksosModules.caches
           self.niksosModules.theme
