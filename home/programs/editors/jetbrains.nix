@@ -41,7 +41,7 @@
     };
   };
 
-  ides' = lib'.jetbrains.mkIdes pkgs ides plugins;
+  ides' = lib'.jetbrains.mkIdes pkgs plugins ides;
 in {
   programs.jetbrains-remote = {
     enable = true;

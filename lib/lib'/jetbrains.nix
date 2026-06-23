@@ -1,6 +1,6 @@
 {lib, ...}: let
   inherit (builtins) mapAttrs split attrValues;
-  inherit (lib) last fakeHash optionalAttrs;
+  inherit (lib) last fakeHash;
 
   mkPlugins = pkgs:
     mapAttrs (
@@ -33,32 +33,23 @@
         |> attrValues
     );
 
-  mkIdes = pkgs: ides: plugins': let
+  mkIdes = pkgs: plugins': let
+    inherit (pkgs) jetbrains;
+
     plugins = mkPlugins pkgs plugins';
   in
-    ides
-    |> map (
-      ide:
-        {
-          package = pkgs.jetbrains.${ide}.override {
-            vmopts = ''
-              -Dnosplash=true
-              -Dawt.toolkit.name=WLToolkit
-            '';
-          };
-        }
-        // (
-          optionalAttrs
-          (plugins ? ide)
-          {plugins' = plugins.${ide};}
-        )
-    )
-    |> map (
-      {
-        package,
-        plugins' ? [],
-      }:
-        pkgs.jetbrains.plugins.addPlugins package (plugins.common ++ plugins')
+    map (
+      ide: let
+        package = jetbrains.${ide}.override {
+          vmopts = ''
+            -Dnosplash=true
+            -Dawt.toolkit.name=WLToolkit
+          '';
+        };
+        plugins' = plugins.${ide} or [];
+      in
+        jetbrains.plugins.addPlugins package
+        (plugins.common ++ plugins')
     );
 in {
   inherit mkIdes;
