@@ -1,6 +1,9 @@
 {
   programs.niri.settings.input = {
-    focus-follows-mouse.enable = false;
+    focus-follows-mouse = {
+      enable = true;
+      max-scroll-amount = "90%";
+    };
 
     keyboard = {
       numlock = true;
