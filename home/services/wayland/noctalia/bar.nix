@@ -50,7 +50,6 @@
         type = "privacy";
         hide_inactive = true;
         active_color = "error";
-        mic_filter_regex = "^DeepFilter Noise Canceling source$";
       };
       tray = {
         type = "tray";
@@ -85,7 +84,7 @@
           "English (US)" = "EN";
           Russian = "RU";
         };
-        hide_when_single_layout = false;
+        hide_when_single_layout = true;
         show_icon = false;
       };
     };
@@ -102,6 +101,7 @@
         font_weight = 500;
         margin_edge = 0;
         margin_ends = 0;
+        margin_opposite_edge = 0;
         padding = 10;
         panel_overlap = 0;
         radius = 12;
@@ -115,6 +115,14 @@
         background_opacity = 0.75;
         border_width = 0;
         capsule = false;
+        show_on_workspace_switch = false;
+        dead_zone = {
+          command = "";
+          middle_command = "";
+          right_command = "";
+          scroll_down_command = "";
+          scroll_up_command = "";
+        };
         capsule_group = [
           {
             fill = "surface_variant";

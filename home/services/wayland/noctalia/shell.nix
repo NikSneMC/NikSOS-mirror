@@ -19,34 +19,47 @@
     middle_click_opens_widget_settings = true;
     niri_overview_type_to_launch_enabled = false;
     offline_mode = false;
+    launcher = {
+      app_grid = false;
+      categories = false;
+      compact = false;
+      dmenu = {};
+      session_search = true;
+      show_icons = true;
+      sort_by_usage = true;
+    };
     panel = {
       borders = true;
-      clipboard_placement = "centered";
-      control_center_placement = "centered";
-      launcher_categories = false;
-      launcher_compact = false;
-      launcher_placement = "centered";
-      launcher_session_search = true;
-      launcher_show_icons = true;
-      launcher_sort_by_usage = true;
+      clipboard_placement = "floating";
+      clipboard_position = "center";
+      control_center_placement = "floating";
+      control_center_position = "center";
+      launcher_placement = "floating";
+      launcher_position = "center";
       open_near_click_clipboard = true;
       open_near_click_control_center = true;
       open_near_click_launcher = true;
       open_near_click_session = true;
       open_near_click_wallpaper = true;
-      session_placement = "centered";
+      polkit_placement = "floating";
+      polkit_position = "center";
+      session_placement = "floating";
+      session_position = "auto";
       shadow = true;
       transparency_mode = "glass";
-      wallpaper_placement = "attached";
+      wallpaper_placement = "floating";
+      wallpaper_position = "auto";
     };
     password_style = "random";
     polkit_agent = true;
+    privacy.mic_filter_regex = "^DeepFilter Noise Canceling source$";
     screen_corners = {
       enabled = false;
       size = 32;
     };
     screen_time_enabled = true;
     screenshot = {
+      confirm_region = true;
       copy_to_clipboard = true;
       directory = config.xdg.userDirs.extraConfig.SCREENSHOTS;
       filename_pattern = "";
@@ -55,15 +68,18 @@
       pipe_to_command = false;
       save_to_file = true;
     };
-    session.actions = [
+    session.actions = let
+      countdown_seconds = 3;
+    in [
       {
         action = "lock";
         command = "";
         enabled = true;
         glyph = "";
         label = "";
-        shortcut = "1";
+        shortcut = "l";
         variant = "default";
+        inherit countdown_seconds;
       }
       {
         action = "logout";
@@ -71,8 +87,9 @@
         enabled = true;
         glyph = "";
         label = "";
-        shortcut = "2";
+        shortcut = "e";
         variant = "default";
+        inherit countdown_seconds;
       }
       {
         action = "lock_and_suspend";
@@ -80,8 +97,9 @@
         enabled = true;
         glyph = "";
         label = "";
-        shortcut = "3";
+        shortcut = "u";
         variant = "default";
+        inherit countdown_seconds;
       }
       {
         action = "reboot";
@@ -89,8 +107,9 @@
         enabled = true;
         glyph = "";
         label = "";
-        shortcut = "4";
+        shortcut = "r";
         variant = "default";
+        inherit countdown_seconds;
       }
       {
         action = "shutdown";
@@ -98,8 +117,9 @@
         enabled = true;
         glyph = "";
         label = "";
-        shortcut = "5";
+        shortcut = "s";
         variant = "destructive";
+        inherit countdown_seconds;
       }
     ];
     settings_show_advanced = true;

@@ -1,24 +1,31 @@
 {
+  inputs,
+  lib,
+  ...
+}: let
+  inherit (builtins) mapAttrs attrValues;
+  inherit (lib) filterAttrs hasPrefix removePrefix;
+
+  prefix = "noctalia-plugins-";
+in {
   programs.noctalia.settings.plugins = {
-    source = [
-      {
-        auto_update = false;
-        enabled = true;
-        kind = "git";
-        location = "https://github.com/noctalia-dev/official-plugins";
-        name = "official";
-      }
-      {
-        auto_update = false;
-        enabled = true;
-        kind = "git";
-        location = "https://github.com/noctalia-dev/community-plugins";
-        name = "community";
-      }
-    ];
     enabled = [
       "noctalia/bongocat"
       "noctalia/translator"
+      "noctalia/kaomoji"
     ];
+
+    source =
+      inputs
+      |> filterAttrs (name: _: hasPrefix prefix name)
+      |> mapAttrs (_: toString)
+      |> mapAttrs (_: removePrefix prefix)
+      |> mapAttrs (name: location: {
+        enabled = true;
+        inherit name location;
+        kind = "path";
+        auto_update = false;
+      })
+      |> attrValues;
   };
 }

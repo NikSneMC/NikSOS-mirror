@@ -83,6 +83,8 @@
         down = ["Down"];
         left = ["Left"];
         right = ["Right"];
+        tab_next = ["Tab"];
+        tab_previous = ["Shift+ISO_Left_Tab"];
         up = ["Up"];
         validate = [
           "Return"
@@ -93,8 +95,7 @@
       lockscreen = {
         enabled = true;
         blurred_desktop = false;
-        fingerprint = true;
-        tint_intensity = 0.3;
+        fingerprint = false;
         wallpaper = config.theme.wallpaper;
       };
       lockscreen_widgets.enabled = false;
@@ -112,6 +113,8 @@
         scale = 1;
         show_actions = true;
         show_app_name = true;
+        offset_x = 20;
+        offset_y = 8;
       };
       osd = {
         background_opacity = 0.97;
@@ -135,6 +138,7 @@
         offset_y = 8;
         orientation = "horizontal";
         position = "bottom_center";
+        position_vertical = "top_center";
         scale = 1;
       };
       system.monitor.enabled = true;
