@@ -198,6 +198,11 @@
 
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
 
+    noctalia-plugins-official = {
+      url = "github:noctalia-dev/official-plugins";
+      flake = false;
+    };
+
     rio = {
       url = "github:raphamorim/rio";
       inputs = {

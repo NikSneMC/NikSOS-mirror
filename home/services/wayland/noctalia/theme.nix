@@ -35,6 +35,10 @@ in {
           else "light";
         source = "custom";
         inherit custom_palette;
+        templates = {
+          enable_builtin_templates = false;
+          enable_community_templates = false;
+        };
       };
       wallpaper = {
         enabled = true;
