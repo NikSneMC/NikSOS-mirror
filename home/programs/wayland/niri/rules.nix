@@ -63,10 +63,10 @@ in {
       }
       {
         matches = [
-          {title = "Equibop";}
+          {app-id = "equibop";}
           {app-id = "vesktop";}
           {app-id = "discord";}
-          {app-id = "com.ayugram";}
+          {app-id = "com.ayugram.desktop";}
           {app-id = "thunderbird";}
           {app-id = "Element";}
         ];
@@ -93,8 +93,13 @@ in {
       }
       {
         matches = [
-          {title = "AmneziaVPN";}
           {app-id = "nwg-displays";}
+        ];
+        open-floating = true;
+      }
+      {
+        matches = [
+          {title = "AmneziaVPN";}
           {app-id = "org.pulseaudio.pavucontrol";}
           {app-id = ".blueman-manager-wrapped";}
           {
