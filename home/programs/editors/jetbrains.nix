@@ -35,7 +35,7 @@
       "${jetbrains}/1347/918481/scala-intellij-bin-2025.3.26.zip" = "sha256-wU1DNK5m1UH/L6iAUBnm1Mfv1D/Luz4SUmnvjdf/pso=";
       "${jetbrains}/8327/917195/Minecraft_Development-2025.3-1.8.11.zip" = "sha256-e831b/IcNH/FTbJyi6tbpXbSQE8SztJBbszNiMVqd/0=";
       "${jetbrains}/12839/262179/minecraft-nbt-intellij-plugin-1.5.4.zip" = "sha256-CDsO0R1vZN/Xv7aIuyEKOcN35FZfMbE9s7tXXmUzk/0=";
-      "${jetbrains}/27606/920551/FIM-IntelliJ-0.5.1.jar" = "sha256-Vblr63sT1zN+T8o6pyitjSbx6QdzrPmQolcdBbEwf8A=";
+      # "${jetbrains}/27606/920551/FIM-IntelliJ-0.5.1.jar" = "sha256-Vblr63sT1zN+T8o6pyitjSbx6QdzrPmQolcdBbEwf8A=";
       "${jetbrains}/29285/920968/MinecraftDevServer-1.0.1.zip" = "sha256-Wdze/yjkS8pprFhuWxYeQCBY+xa6/qZaG0tMYA1k81I=";
       "${jetbrains}/28320/869671/ModPublish-0.0.9.zip" = "sha256-P+qN1FgS0WQdqy78U+kTThFQdVY8r/s+BxzkOeotj08=";
     };
