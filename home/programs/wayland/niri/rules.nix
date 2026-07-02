@@ -135,7 +135,6 @@ in {
       }
       {
         matches = [
-          {namespace = "rofi";}
           {namespace = "noctalia-notification";}
           {namespace = "noctalia-panel";}
         ];

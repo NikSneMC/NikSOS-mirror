@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./rofi.nix
-  ];
-
   home.packages = with pkgs; [
     # utils
     cliphist

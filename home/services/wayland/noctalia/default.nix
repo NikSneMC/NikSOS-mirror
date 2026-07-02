@@ -5,6 +5,7 @@
 }: {
   imports = [
     inputs.noctalia.homeModules.default
+    ./launcher
     ./bar.nix
     ./plugins.nix
     ./shell.nix

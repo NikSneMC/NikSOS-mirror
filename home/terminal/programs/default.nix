@@ -7,6 +7,7 @@
     inputs.nix-index-database.homeModules.default
     ./git
     ./zellij
+    ./ani-cli.nix
     ./atuin.nix
     ./bat.nix
     ./cargo.nix
@@ -48,7 +49,6 @@
 
     packwiz
     inputs.git-helper.packages.${stdenv.hostPlatform.system}.default
-    master.ani-cli
   ];
 
   programs = {

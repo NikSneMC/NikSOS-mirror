@@ -7,7 +7,6 @@
     inherit (lib'.niri) mkBinds mkWorkspacesBinds mkColumnsBinds;
 
     fish = spawn "fish" "-c";
-    rofi = menu: fish "pkill -9 bin/rofi || rofi -show ${menu}";
     noctalia = spawn "noctalia" "msg";
     noctalia-panel = noctalia "panel-toggle";
     noctalia-launcher = noctalia-panel "launcher";
@@ -130,7 +129,7 @@
         # {
         #   bind = "Mod+R";
         #   desc = "Execute command";
-        #   action = noctalia-launcher "/cmd";
+        #   action = noctalia-launcher "/run ";
         # }
         {
           bind = "Mod+T";
@@ -155,7 +154,7 @@
         {
           bind = "Mod+Semicolon";
           desc = "Open emoju menu";
-          action = noctalia-launcher "/emo";
+          action = noctalia-launcher "/emo ";
         }
         {
           bind = "Mod+Alt+Tab";
@@ -167,7 +166,7 @@
         {
           bind = "Mod+Shift+A";
           desc = "Open 2fa menu";
-          action = rofi "2fa";
+          action = noctalia-launcher "/2fa ";
         }
         {
           bind = "Mod+Shift+B";
@@ -212,7 +211,7 @@
         {
           bind = "Mod+Shift+W";
           desc = "Launch ani-cli";
-          action = spawn "ani-cli" "--rofi";
+          action = spawn "ani-cli" "--dmenu";
         }
         {
           bind = "Mod+Shift+X";
