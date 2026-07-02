@@ -19,15 +19,6 @@
     middle_click_opens_widget_settings = true;
     niri_overview_type_to_launch_enabled = false;
     offline_mode = false;
-    launcher = {
-      app_grid = false;
-      categories = false;
-      compact = false;
-      dmenu = {};
-      session_search = true;
-      show_icons = true;
-      sort_by_usage = true;
-    };
     panel = {
       borders = true;
       clipboard_placement = "floating";
