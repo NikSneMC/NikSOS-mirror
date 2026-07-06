@@ -4,15 +4,17 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit (lib) mkForce getExe';
+in {
   programs.rio = {
     enable = true;
     package = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
       colors = with config.theme.colors; {
-        tabs = lib.mkForce "#${text}";
-        tabs-active = lib.mkForce "#${accent}";
-        tabs-active-highlight = lib.mkForce "#${accent}";
+        tabs = mkForce "#${text}";
+        tabs-active = mkForce "#${accent}";
+        tabs-active-highlight = mkForce "#${accent}";
       };
       confirm-before-quit = false;
       fonts = {
@@ -29,7 +31,7 @@
         ];
       };
       copy-on-select = true;
-      editor.program = lib.getExe' config.programs.helix.package "hx";
+      editor.program = getExe' config.programs.helix.package "hx";
       navigation = {
         mode = "Tab";
         use-split = false;
@@ -43,7 +45,7 @@
         divider = 0.5;
       };
       window = {
-        opacity = 0.9;
+        opacity = 0.85;
         blur = true;
         decorations = "Transparent";
       };
