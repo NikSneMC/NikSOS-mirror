@@ -15,6 +15,7 @@
     date_format = "%A, %x";
     disable_mipmaps = false;
     font_family = "JetBrainsMono NFP";
+    greeter_sync.auto_sync = true;
     launch_apps_as_systemd_services = true;
     middle_click_opens_widget_settings = true;
     niri_overview_type_to_launch_enabled = false;
