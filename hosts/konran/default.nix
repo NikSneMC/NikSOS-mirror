@@ -1,19 +1,27 @@
-mkNixosModules: {
+mkNixosModules: {pkgs, ...}: {
   imports = mkNixosModules [
     # "hardware/nvidia.nix"
     "hardware/amd.nix"
-    "hardware/razer.nix"
     "programs/niri.nix"
-    "services/ollama.nix"
+    "programs/obs-studio.nix"
+    "hardware/razer.nix"
+    "services/thermald.nix"
+    # "services/ollama.nix"
+    "virtualisation/virt-manager.nix"
   ];
+  boot = {
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
-  boot.loader = {
-    grub = {
-      efiSupport = true;
-      device = "nodev";
+    loader = {
+      grub = {
+        efiSupport = true;
+        device = "nodev";
+      };
+      efi.canTouchEfiVariables = true;
     };
-    efi.canTouchEfiVariables = true;
   };
+
+  zramSwap.enable = true;
 
   theme = {
     flavor = "mocha";
@@ -26,6 +34,8 @@ mkNixosModules: {
   };
 
   hardware.openrazer.users = ["niksne"];
+
+  users.users.niksne.extraGroups = ["libvirtd"];
 
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "23.11";
