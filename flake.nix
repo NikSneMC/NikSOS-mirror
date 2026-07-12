@@ -52,7 +52,7 @@
     };
 
     assets = {
-      url = "github:NikSneMC/NikSOS/assets";
+      url = "git+https://codeberg.org/NikSne/NikSOS?ref=assets";
       flake = false;
     };
 
