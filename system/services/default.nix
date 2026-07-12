@@ -17,5 +17,9 @@
       enable = true;
       resyncTimer = "10m";
     };
+
+    power-profiles-daemon.enable = true;
+
+    upower.enable = true;
   };
 }
