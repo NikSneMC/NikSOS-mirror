@@ -7,7 +7,10 @@
     packages = with pkgs; [
       numix-icon-theme-circle
     ];
-    pointerCursor.size = 24;
+    pointerCursor = {
+      enable = true;
+      size = 24;
+    };
   };
 
   gtk = {
