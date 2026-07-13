@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
@@ -8,7 +8,4 @@
   };
 
   users.users.niksne.extraGroups = ["docker"];
-  environment.systemPackages = with pkgs; [
-    lazydocker
-  ];
 }
