@@ -13,7 +13,6 @@
     ./cargo.nix
     ./eza.nix
     ./fetchers.nix
-    ./lazydocker.nix
     ./skim.nix
     ./ssh.nix
     ./try-rs.nix
@@ -54,6 +53,7 @@
   programs = {
     btop.enable = true;
     cava.enable = true;
+    lazydocker.enable = true;
     translate-shell.enable = true;
   };
 }
