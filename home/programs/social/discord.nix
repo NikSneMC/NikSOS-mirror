@@ -1,823 +1,254 @@
 {
   config,
-  lib',
-  pkgs,
+  inputs,
   ...
-}: let
-  plugins = [
-    {
-      name = "AccountPanelServerProfile";
-      prioritizeServerProfile = true;
-    }
-    {
-      name = "AllCallTimers";
-      format = "human";
-      showRoleColor = true;
-      showSeconds = true;
-      showWithoutHover = false;
-      trackSelf = true;
-      watchLargeGuilds = false;
-    }
-    "AmITyping"
-    {
-      name = "Anammox";
-      gift = false;
-    }
-    {
-      name = "AnonymiseFileNames";
-      anonymiseByDefault = true;
-      consistent = "image";
-      method = 0;
-      randomisedLength = 7;
-    }
-    {
-      name = "BetterActivities";
-      allActivitiesStyle = "carousel";
-      iconSize = 15;
-      memberList = true;
-      renderGifs = true;
-      showAppDescriptions = true;
-      specialFirst = true;
-    }
-    {
-      name = "BetterAudioPlayer";
-      forceMoveBelow = true;
-      oscilloscope = true;
-      oscilloscopeColor = "255, 255, 255";
-      oscilloscopeSolidColor = false;
-      spectrograph = true;
-      spectrographColor = "33, 150, 243";
-      spectrographSolidColor = false;
-    }
-    "BetterBanReasons"
-    "BetterBlockedUsers"
-    "BetterCommands"
-    "BetterGifAltText"
-    "BetterGifPicker"
-    "BetterInvites"
-    {
-      name = "BetterNotesBox";
-      hide = true;
-      noSpellCheck = false;
-    }
-    "BetterPlusReacts"
-    {
-      name = "BetterQuickReact";
-      columns = 4;
-      compactMode = false;
-      frequentEmojis = true;
-      rows = 2;
-      scroll = true;
-    }
-    {
-      name = "BetterRoleContext";
-      roleIconFileFormat = "png";
-    }
-    {
-      name = "BetterRoleDot";
-      bothStyles = false;
-      copyRoleColorInProfilePopout = false;
-    }
-    {
-      name = "BetterSessions";
-      backgroundCheck = true;
-      checkInterval = 20;
-    }
-    "BetterSettings"
-    "BetterUploadButton"
-    "BetterUserArea"
-    "BiggerStreamPreview"
-    "BlockKrisp"
-    {
-      name = "BlurNSFW";
-      blurAmount = 10;
-    }
-    "BypassPinPrompt"
-    {
-      name = "CallTimer";
-      format = "human";
-    }
-    {
-      name = "ChannelTabs";
-      onStartup = "remember";
-      renderAllTabs = true; # I want to use ALL my RAM! /s
-      createNewTabIfNotExists = true;
-      enableRapidNavigation = true;
-      enableNumberKeySwitching = false;
-      openNewTabsInCompactMode = true;
-    }
-    {
-      name = "CharacterCounter";
-      colorEffects = true;
-      position = false;
-    }
-    "ChatInputButtonAPI"
-    "CleanerChannelGroups"
-    "ClearURLs"
-    "ClipsEnhancements"
-    {
-      name = "CommandPalette";
-      allowMouseControl = true;
-      hotkey = [
-        "control"
-        "shift"
-      ];
-    }
-    "CommandsAPI"
-    {
-      name = "ConsoleJanitor";
-      disableLoggers = false;
-      disableSpotifyLogger = true;
-      whitelistedLoggers = "GatewaySocket; Routing/Utils";
-    }
-    "ConsoleShortcuts"
-    "ContextMenuAPI"
-    {
-      name = "CopyEmojiMarkdown";
-      copyUnicode = true;
-    }
-    "CopyFileContents"
-    "CopyProfileColors"
-    "CopyStatusUrls"
-    "CopyStickerLinks"
-    "CopyUserMention"
-    "CopyUserURLs"
-    {
-      name = "CrashHandler";
-      attemptToNavigateToHome = false;
-      attemptToPreventCrashes = true;
-    }
-    {
-      name = "CustomUserColors";
-      colorInServers = true;
-      dmList = true;
-    }
-    "DeadMembers"
-    {
-      name = "Dearrow";
-      dearrowByDefault = true;
-      hideButton = false;
-      replaceElements = 0;
-    }
-    {
-      name = "Decor";
-      baseUrl = "https://decor.fieryflames.dev";
-    }
-    "DisableCallIdle"
-    "DisableCameras"
-    "DontFilterMe"
-    "DontRoundMyTimestamps"
-    {
-      name = "Downloadify";
-      defaultDirectory = "${config.home.homeDirectory}/Downloads/Equibop";
-    }
-    "DragFavoriteEmotes"
-    {
-      name = "Dragify";
-      inviteTemporaryMembership = true;
-      reuseExistingInvites = true;
-    }
-    "DynamicImageModalAPI"
-    "EmojiDumper"
-    "EmoteCloner"
-    "EquicordHelper"
-    {
-      name = "Experiments";
-      toolbarDevMenu = true;
-    }
-    {
-      name = "ExportMessages";
-      exportContacts = true;
-    }
-    "FakeNitro"
-    "FavouriteAnything"
-    "FavoriteEmojiFirst"
-    {
-      name = "FindReply";
-      hideButtonIfNoReply = true;
-      includeAuthor = true;
-      includePings = true;
-    }
-    "FixCodeblockGap"
-    "FixFileExtensions"
-    "FixImagesQuality"
-    {
-      name = "FixSpotifyEmbeds";
-      volume = 10;
-    }
-    "FixYoutubeEmbeds"
-    {
-      name = "FontLoader";
-      applyOnClodeBlocks = true;
-      selectedFont = "JetBrainsMono Nerd Font Propo";
-    }
-    "ForceOwnerCrown"
-    "FrequentQuickSwitcher"
-    "FriendCloud"
-    "FriendCodes"
-    "FriendInvites"
-    "FriendTags"
-    "FriendsSince"
-    "FriendshipRanks"
-    "FullSearchContext"
-    "FullUserInChatbox"
-    {
-      name = "GameActivityToggle";
-      oldIcon = false;
-    }
-    "GifCollections"
-    "GifPaste"
-    "GitHubRepos"
-    {
-      name = "Glide";
-      Accent = "313338";
-      Brand = "ffffff";
-      ColorPreset = 0;
-      Primary = "000000";
-      Text = "ffffff";
-      animationSpeed = "0.2";
-      customFont = "JetBrainsMono Nerd Font Propo";
-      memberListAnim = true;
-      pastelStatuses = true;
-      privacyBlur = false;
-      serverListAnim = false;
-      tooltips = false;
-    }
-    "GodMode"
-    {
-      name = "GoogleThat";
-      defaultEngine = "DuckDuckGo";
-      hyperlink = true;
-    }
-    {
-      name = "GreetStickerPicker";
-      greetMode = "Greet";
-    }
-    "GuildPickerDumper"
-    "GuildTagSettings"
-    {
-      name = "HideServers";
-      showIndicator = true;
-    }
-    "HolyNotes"
-    "HomeTyping"
-    "ILoveSpam"
-    "IRememberYou"
-    "ImageLink"
-    {
-      name = "ImagePreview";
-      defaultMaxSize = "0";
-      fileInformation = true;
-      fixedImage = false;
-      hoverDelay = 0.5;
-      messageAvatars = true;
-      messageImages = true;
-      messageLinks = true;
-      messageStickers = true;
-      mouseOnlyMode = false;
-      zoomFactor = 1.5;
-    }
-    "ImageZoom"
-    "ImgToGif"
-    {
-      name = "ImplicitRelationships";
-      sortByAffinity = true;
-    }
-    "InRole"
-    "JumpTo"
-    "LastActive"
-    {
-      name = "LimitMiddleClickPaste";
-      limitTo = "active";
-      reenableDelay = 500;
-    }
-    {
-      name = "LoadingQuotes";
-      additionalQuotes = "";
-      additionalQuotesDelimiter = "|";
-      enableDiscordPresetQuotes = false;
-      enablePluginPresetQuotes = true;
-      replaceEvents = true;
-    }
-    "LoginWithQR"
-    {
-      name = "MediaDownloader";
-      defaultGifQuality = 3;
-      showFfmpegWarning = true;
-      showProgress = true;
-    }
-    {
-      name = "MediaPlaybackSpeed";
-      defaultAudioSpeed = 1;
-      defaultVideoSpeed = 1;
-      defaultVoiceMessageSpeed = 1;
-    }
-    {
-      name = "MemberCount";
-      memberList = true;
-      toolTip = true;
-    }
-    "MemberListDecoratorsAPI"
-    {
-      name = "MentionAvatars";
-      value = {
-        enabled = true;
-        showAtSymbol = true;
-      };
-    }
-    "MessageAccessoriesAPI"
-    {
-      name = "MessageBurst";
-      shouldMergeWithAttachment = false;
-      timePeriod = 3;
-    }
-    {
-      name = "MessageClickActions";
-      enableDeleteOnClick = true;
-      enableDoubleClickToEdit = true;
-      enableDoubleClickToReply = true;
-      requireModifier = false;
-    }
-    "MessageDecorationsAPI"
-    "MessageEventsAPI"
-    {
-      name = "MessageLatency";
-      detectDiscordKotlin = true;
-      latency = 2;
-      showMillis = true;
-    }
-    {
-      name = "MessageLinkTooltip";
-      display = "auto";
-      onForward = true;
-      onLink = true;
-      onReply = true;
-    }
-    {
-      name = "MessageLogger";
-      collapseDeleted = false;
-      deleteStyle = "text";
-      ignoreBots = false;
-      ignoreChannels = "";
-      ignoreGuilds = "";
-      ignoreSelf = false;
-      ignoreUsers = "";
-      logDeletes = true;
-      logEdits = true;
-    }
-    {
-      name = "MessageLoggerEnhanced";
-      ShowLogsButton = true;
-      alwaysLogCurrentChannel = true;
-      alwaysLogDirectMessages = true;
-      attachmentFileExtensions = "png,jpg,jpeg,gif,webp,mp4,webm,mp3,ogg,wav";
-      attachmentSizeLimitInMegabytes = 12;
-      blacklistedIds = "";
-      cacheLimit = 1000;
-      cacheMessagesFromServers = false;
-      hideMessageFromMessageLoggers = false;
-      hideMessageFromMessageLoggersDeletedMessage = "redacted eh";
-      ignoreBots = false;
-      ignoreMutedCategories = false;
-      ignoreMutedChannels = false;
-      ignoreMutedGuilds = true;
-      ignoreSelf = false;
-      imageCacheDir = "${config.xdg.configHome}/equibop/MessageLoggerData/savedImages";
-      logsDir = "${config.xdg.configHome}/equibop/MessageLoggerData";
-      messageLimit = 200;
-      messagesToDisplayAtOnceInLogs = 100;
-      permanentlyRemoveLogByDefault = false;
-      saveImages = true;
-      saveMessages = true;
-      sortNewest = true;
-      whitelistedIds = "";
-    }
-    "MessagePopoverAPI"
-    "MessageUpdaterAPI"
-    "ModalFade"
-    "MoreCommands"
-    "MoreKaomoji"
-    {
-      name = "Moyai";
-      ignoreBlocked = true;
-      ignoreBots = true;
-      quality = "Normal";
-      triggerWhenUnfocused = true;
-      volume = 0.5;
-    }
-    {
-      name = "MusicControls";
-      hoverControls = true;
-      showSpotifyControls = true;
-      showSpotifyLyrics = true;
-      showTidalControls = true;
-      showTidalLyrics = true;
-      showYoutubeMusicControls = true;
-    }
-    "MutualGroupDMs"
-    "NSFWGateBypass"
-    "NeverPausePreviews"
-    "NewPluginsManager"
-    "NoAppsAllowed"
-    "NoDevtoolsWarning"
-    "NoF1"
-    "NoMirroredCamera"
-    "NoModalAnimation"
-    "NoNitroUpsell"
-    "NoOnboardingDelay"
-    {
-      name = "NoTrack";
-      disableAnalytics = true;
-    }
-    "NoUnblockToJump"
-    "NormalizeMessageLinks"
-    "NotificationTitle"
-    {
-      name = "NotificationVolume";
-      notificationVolume = 100;
-    }
-    "PauseInvitesForever"
-    {
-      name = "PermissionFreeWill";
-      lockout = true;
-      onboarding = true;
-    }
-    {
-      name = "PermissionsViewer";
-      permissionsSortOrder = 0;
-    }
-    {
-      name = "PictureInPicture";
-      loop = true;
-    }
-    {
-      name = "PinDMs";
-      pinOrder = "Custom";
-      canCollapseDmSection = true;
-    }
-    "PinIcon"
-    "PlainFolderIcon"
-    {
-      name = "PlatformIndicators";
-      ConsoleIcon = "equicord";
-      badges = true;
-      colorMobileIndicator = true;
-      list = true;
-      messages = true;
-      showBots = true;
-    }
-    {
-      name = "PlatformSpoofer";
-      platform = "desktop";
-    }
-    "PreviewMessage"
-    "PurgeMessages"
-    "QuestFocused"
-    {
-      name = "Questify";
-      disableQuests = true;
-      completeVideoQuestsInBackground = true;
-      completeGameQuestsInBackground = true;
-      completeAchievementQuestsInBackground = true;
-      questButtonDisplay = "never";
-      questRewardIncludeInGame = false;
-      questRewardIncludeCollectibles = false;
-    }
-    "QuickMention"
-    {
-      name = "Quoter";
-      userIdentifier = 0;
-    }
-    "ReactErrorDecoder"
-    "ReadAllNotificationsButton"
-    {
-      name = "RelationshipNotifier";
-      friendRequestCancels = true;
-      friends = true;
-      groups = true;
-      notices = true;
-      offlineRemovals = true;
-      servers = true;
-    }
-    "RepeatMessage"
-    {
-      name = "ReplaceGoogleSearch";
-      replacementEngine = "DuckDuckGo";
-    }
-    "ReplyTimestamp"
-    "RevealAllSpoilers"
-    "ReverseImageSearch"
-    {
-      name = "ReviewDB";
-      hideBlockedUsers = true;
-      hideTimestamps = false;
-      notifyReviews = true;
-      showWarning = true;
-    }
-    "RichMagnetLinks"
-    {
-      name = "RoleColorEverywhere";
-      chatMentions = true;
-      colorChatMessages = false;
-      memberList = true;
-      messageSaturation = 30;
-      pollResults = true;
-      reactorsList = true;
-      voiceUsers = true;
-    }
-    "SaveFavoriteGIFs"
-    "ScreenRecorder"
-    "SearchFix"
-    {
-      name = "SecretRingToneEnabler";
-      onlySnow = false;
-    }
-    {
-      name = "SendTimestamps";
-      replaceMessageContents = true;
-    }
-    {
-      name = "ServerInfo";
-      sorting = "displayname";
-    }
-    "ServerListAPI"
-    {
-      name = "ServerListIndicators";
-      mode = 2;
-      useCompact = true;
-    }
-    "ServerSearch"
-    {
-      name = "Settings";
-      settingsLocation = "bottom";
-    }
-    {
-      name = "ShikiCodeblocks";
-      theme = "https://esm.sh/@catppuccin/vscode/themes/${config.theme.flavor}.json";
-      useDevIcon = "GREYSCALE";
-    }
-    {
-      name = "ShowBadgesInChat";
-      DiscordNitroPosition = 0;
-      DiscordProfilePosition = 1;
-      EquicordContributorPosition = 3;
-      EquicordDonorPosition = 2;
-      VencordContributorPosition = 5;
-      VencordDonorPosition = 4;
-      showDiscordNitro = true;
-      showDiscordProfile = true;
-      showEquicordContributor = false;
-      showEquicordDonor = false;
-      showVencordContributor = false;
-      showVencordDonor = false;
-    }
-    {
-      name = "ShowConnections";
-      iconSize = 32;
-      iconSpacing = 1;
-    }
-    {
-      name = "ShowHiddenChannels";
-      channelStyle = 0;
-      defaultAllowedUsersAndRolesDropdownState = true;
-      showMode = 0;
-    }
-    {
-      name = "ShowHiddenThings";
-      showInvitesPaused = true;
-      showModView = true;
-      showTimeouts = true;
-    }
-    {
-      name = "ShowMeYourName";
-      displayNames = false;
-      inReplies = true;
-      mode = "nick-user";
-      preferFriend = true;
-    }
-    {
-      name = "ShowTimeoutDuration";
-      displayStyle = "ssalggnikool";
-    }
-    "SidebarChat"
-    {
-      name = "SilentTyping";
-      blockAllIsTyping = false;
-      blockAllTypingIndicators = false;
-      blockEverything = false;
-      contextMenu = true;
-      isEnabled = true;
-      showIcon = false;
-    }
-    {
-      name = "SortFriendRequests";
-      showDates = true;
-    }
-    {
-      name = "SoundBoardLogger";
-      FileType = ".ogg";
-      IconLocation = "toolbar";
-      soundVolume = 0.5;
-    }
-    "SplitLargeMessages"
-    "SpotifyActivityToggle"
-    # {
-    #   name = "SpotifyControls";
-    #   hoverControls = false;
-    #   previousButtonRestartsTrack = true;
-    #   useSpotifyUris = false;
-    # }
-    {
-      name = "SpotifyCrack";
-      keepSpotifyActivityOnIdle = false;
-      noSpotifyAutoPause = true;
-    }
-    # "SpotifyLyrics"
-    "SpotifyShareCommands"
-    "StartupTimings"
-    "StatusPresets"
-    "StickerPaste"
-    "StreamerModeOn"
-    {
-      name = "SuperReactionTweaks";
-      superReactByDefault = true;
-      superReactionPlayingLimit = 20;
-      unlimitedSuperReactionPlaying = false;
-    }
-    "SupportHelper"
-    "ThemeAttributes"
-    {
-      name = "Timezones";
-      "24h Time" = true;
-      showMessageHeaderTime = true;
-      showProfileTime = true;
-    }
-    "ToneIndicators"
-    {
-      name = "Translate+";
-      shavian = true;
-      sitelen = true;
-      target = "ru";
-      toki = true;
-    }
-    {
-      name = "TypingIndicator";
-      includeBlockedUsers = false;
-      includeCurrentChannel = true;
-      includeMutedChannels = false;
-      indicatorMode = 3;
-    }
-    {
-      name = "TypingTweaks";
-      alternativeFormatting = true;
-      showAvatars = true;
-      showRoleColors = true;
-    }
-    {
-      name = "USRBG";
-      nitroFirst = true;
-      voiceBackground = true;
-    }
-    "Unindent"
-    "UniversalMention"
-    {
-      name = "UnlimitedAccounts";
-      maxAccounts = 0;
-    }
-    {
-      name = "UnlockedAvatarZoom";
-      zoomMultiplier = 4;
-    }
-    {
-      name = "UserMessagesPronouns";
-      pronounsFormat = "LOWERCASE";
-      showSelf = true;
-    }
-    {
-      name = "UserPFP";
-      databaseToUse = "https://userpfp.github.io/UserPFP/source/data.json";
-      preferNitro = true;
-    }
-    "UserSettingsAPI"
-    {
-      name = "UserVoiceShow";
-      showInMemberList = true;
-      showInMessages = true;
-      showInUserProfileModal = true;
-    }
-    "VCPanelSettings"
-    "VCSupport"
-    "ValidReply"
-    "ValidUser"
-    {
-      name = "VideoSpeed";
-      preservePitch = false;
-    }
-    {
-      name = "ViewIcons";
-      format = "webp";
-      imgSize = "1024";
-    }
-    {
-      name = "ViewRaw";
-      clickMethod = "Left";
-    }
-    "ViewRawVariant"
-    "VoiceChatDoubleClick"
-    {
-      name = "VoiceChatUtilities";
-      waitAfter = 5;
-      waitSeconds = 2;
-    }
-    "VoiceDownload"
-    {
-      name = "VoiceMessages";
-      echoCancellation = true;
-      noiseSuppression = true;
-    }
-    {
-      name = "VoiceMessageTranscriber";
-      selectedModel = "Xenova/whisper-medium";
-      quantized = false;
-    }
-    {
-      name = "VolumeBooster";
-      multiplier = 5;
-    }
-    {
-      name = "WebContextMenus";
-      addBack = true;
-    }
-    "WebKeybinds"
-    "WebScreenShareFixes"
-    "WebpackTarball"
-    {
-      name = "WhoReacted";
-      avatarClick = false;
-    }
-    {
-      name = "WhosWatching";
-      showPanel = true;
-    }
-    "YoutubeAdblock"
-    "YoutubeDescription"
-    "petpet"
-  ];
+}: {
+  imports = [inputs.nixcord.homeModules.nixcord];
+  programs.nixcord = {
+    enable = true;
 
-  themes = [
-    "https://catppuccin.github.io/discord/dist/catppuccin-${config.theme.flavor}-${config.theme.accent}.theme.css"
-    "https://raw.githubusercontent.com/NikSneMC/discord-css/main/jetbrainsmono-nerd-font.css"
-    "https://raw.githubusercontent.com/NikSneMC/discord-css/main/make-discord-ui-great-again.css"
-  ];
-
-  inherit (builtins) toJSON;
-in {
-  xdg.configFile = {
-    "equibop/settings/settings.json".text = toJSON {
-      autoUpdate = false;
-      autoUpdateNotification = false;
-      disableMinSize = true;
-      eagerPatches = false;
-      enableReactDevtools = true;
-      enabledThemeLinks = themes;
-      enabledThemes = [];
-      frameless = false;
-      ignoreResetWarning = false;
-      notifications = {
-        logLimit = 50;
-        position = "bottom-right";
-        timeout = 5000;
-        useNative = "not-focused";
+    discord.vencord.enable = true;
+    vesktop = {
+      enable = true;
+      settings = {
+        tray = true;
+        minimizeToTray = true;
+        arRPC = true;
+        staticTitle = true;
+        trayMainOverride = false;
+        splashColor = "#${config.theme.colors.text}";
+        splashBackground = "#${config.theme.colors.base}";
+        trayColorType = "custom";
+        trayAutoFill = "auto";
+        disableMinSize = true;
+        splashAnimationPath = "/var/lib/AccountsService/icons/${config.home.user}";
       };
-      plugins = lib'.discord.mkEnabledPluginsFromList plugins;
-      themeLinks = themes;
-      transparent = true;
-      updateRelaunch = false;
-      useQuickCss = true;
-      userCssVars = {};
-      winCtrlQ = false;
-      winNativeTitleBar = false;
     };
-    "equibop/settings.json".text = toJSON {
-      discordBranch = "stable";
-      tray = true;
-      minimizeToTray = true;
-      arRPC = true;
-      staticTitle = true;
-      trayMainOverride = false;
-      splashColor = "#${config.theme.colors.text}";
-      splashBackground = "#${config.theme.colors.base}";
-      trayColorType = "custom";
-      trayAutoFill = "auto";
+
+    config = {
+      autoUpdate = true;
+      autoUpdateNotification = true;
       disableMinSize = true;
-      splashAnimationPath = "/var/lib/AccountsService/icons/${config.home.user}";
+      enabledThemeLinks = [
+        "https://catppuccin.github.io/discord/dist/catppuccin-${config.theme.flavor}-${config.theme.accent}.theme.css"
+        "https://raw.githubusercontent.com/NikSneMC/discord-css/main/jetbrainsmono-nerd-font.css"
+        "https://raw.githubusercontent.com/NikSneMC/discord-css/main/make-discord-ui-great-again.css"
+      ];
+      enableReactDevtools = true;
+      frameless = true;
+      notifyAboutUpdates = true;
+
+      plugins = {
+        accountPanelServerProfile = {
+          enable = true;
+          prioritizeServerProfile = true;
+        };
+        anonymiseFileNames.enable = true;
+        betterGifAltText.enable = true;
+        betterGifPicker.enable = true;
+        betterRoleContext = {
+          enable = true;
+          roleIconFileFormat = "webp";
+        };
+        betterSessions = {
+          enable = true;
+          backgroundCheck = true;
+        };
+        betterSettings.enable = true;
+        betterUploadButton.enable = true;
+        biggerStreamPreview.enable = true;
+        blurNsfw.enable = true;
+        callTimer.enable = true;
+        characterCounter.enable = true;
+        clearUrls.enable = true;
+        consoleJanitor.enable = true;
+        consoleShortcuts.enable = true;
+        copyEmojiMarkdown.enable = true;
+        copyFileContents.enable = true;
+        copyStickerLinks.enable = true;
+        copyUserUrls.enable = true;
+        crashHandler.enable = true;
+        dearrow.enable = true;
+        decor.enable = true;
+        disableCallIdle.enable = true;
+        disableDeepLinks.enable = true;
+        dontRoundMyTimestamps.enable = true;
+        expressionCloner.enable = true;
+        fakeNitro = {
+          enable = true;
+          transformCompoundSentence = true;
+          disableEmbedPermissionCheck = true;
+        };
+        favoriteEmojiFirst.enable = true;
+        favoriteGifSearch.enable = true;
+        fixCodeblockGap.enable = true;
+        fixImagesQuality.enable = true;
+        fixSpotifyEmbeds.enable = true;
+        fixYoutubeEmbeds.enable = true;
+        forceOwnerCrown.enable = true;
+        friendInvites.enable = true;
+        fullSearchContext.enable = true;
+        fullUserInChatbox.enable = true;
+        gameActivityToggle.enable = true;
+        gifPaste.enable = true;
+        greetStickerPicker.enable = true;
+        ignoreActivities = {
+          listMode = 1;
+        };
+        iLoveSpam.enable = true;
+        imageFilename.enable = true;
+        imageLink.enable = true;
+        imageZoom.enable = true;
+        implicitRelationships.enable = true;
+        keepCurrentChannel.enable = true;
+        memberCount.enable = true;
+        mentionAvatars.enable = true;
+        messageClickActions.enable = true;
+        messageLatency = {
+          enable = true;
+          showMillis = true;
+        };
+        messageLinkEmbeds.enable = true;
+        messageLogger.enable = true;
+        moreQuickReactions = {
+          enable = true;
+          reactionCount = 7;
+        };
+        mutualGroupDms.enable = true;
+        newGuildSettings = {
+          guild = false;
+          everyone = false;
+          role = false;
+          highlights = false;
+          events = false;
+        };
+        noDevtoolsWarning.enable = true;
+        noOnboardingDelay.enable = true;
+        noTypingAnimation.enable = true;
+        noUnblockToJump.enable = true;
+        pauseInvitesForever.enable = true;
+        permissionFreeWill.enable = true;
+        permissionsViewer.enable = true;
+        petpet.enable = true;
+        pictureInPicture = {
+          enable = true;
+          loop = false;
+        };
+        pinDms = {
+          enable = true;
+          pinOrder = 1;
+          canCollapseDmSection = true;
+          userBasedCategoryList = {
+            "760511113795207168" = [];
+          };
+        };
+        plainFolderIcon.enable = true;
+        platformIndicators.enable = true;
+        quickMention.enable = true;
+        reactErrorDecoder.enable = true;
+        readAllNotificationsButton.enable = true;
+        relationshipNotifier = {
+          enable = true;
+          notices = true;
+        };
+        replaceGoogleSearch = {
+          enable = true;
+          replacementEngine = "custom";
+          customEngineName = "DuckDuckGo";
+        };
+        replyTimestamp.enable = true;
+        revealAllSpoilers.enable = true;
+        reverseImageSearch.enable = true;
+        reviewDb.enable = true;
+        roleColorEverywhere.enable = true;
+        secretRingToneEnabler.enable = true;
+        sendTimestamps.enable = true;
+        serverInfo.enable = true;
+        shikiCodeblocks = {
+          enable = true;
+          theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/bc5436518111d87ea58eb56d97b3f9bec30e6b83/packages/tm-themes/themes/catppuccin-mocha.json";
+          useDevIcon = "COLOR";
+        };
+        showConnections.enable = true;
+        showHiddenChannels.enable = true;
+        showHiddenThings.enable = true;
+        showMeYourName.enable = true;
+        showTimeoutDuration.enable = true;
+        silentMessageToggle = {
+          enable = true;
+          persistState = "restarts";
+        };
+        silentTyping.enable = true;
+        sortFriendRequests = {
+          enable = true;
+          showDates = true;
+        };
+        spotifyControls.enable = true;
+        spotifyCrack = {
+          enable = true;
+          keepSpotifyActivityOnIdle = true;
+        };
+        spotifyShareCommands.enable = true;
+        startupTimings.enable = true;
+        stickerPaste.enable = true;
+        streamerModeOnStream.enable = true;
+        tenorGifSearch.enable = true;
+        themeAttributes.enable = true;
+        translate.enable = true;
+        typingTweaks.enable = true;
+        unindent.enable = true;
+        unlockedAvatarZoom.enable = true;
+        userMessagesPronouns.enable = true;
+        userVoiceShow.enable = true;
+        usrbg.enable = true;
+        validReply.enable = true;
+        validUser.enable = true;
+        viewIcons.enable = true;
+        viewRaw = {
+          enable = true;
+          messageContextMenu = true;
+        };
+        voiceChatDoubleClick.enable = true;
+        voiceDownload.enable = true;
+        voiceMessages.enable = true;
+        volumeBooster = {
+          enable = true;
+          multiplier = 5.;
+        };
+        webContextMenus.enable = true;
+        webKeybinds.enable = true;
+        webScreenShareFixes.enable = true;
+        whoReacted.enable = true;
+        youtubeAdblock.enable = true;
+      };
+    };
+    extraConfig.plugins = {
+      fakeNitro = {
+        useHyperLinks = true;
+      };
+      messageClickActions = {
+        enableDeleteOnClick = true;
+        enableDoubleClickToEdit = true;
+        enableDoubleClickToReply = true;
+        requireModifier = false;
+      };
+      platformIndicators = {
+        badges = true;
+      };
+      showHiddenChannels = {
+        hideUnreads = true;
+      };
+      showMeYourName = {
+        mode = "nick-user";
+        friendNicknames = "dms";
+        displayNames = false;
+        inReplies = true;
+      };
+      silentTyping = {
+        showIcon = false;
+        contextMenu = true;
+        isEnabled = true;
+      };
     };
   };
-
-  home.packages = with pkgs; [
-    equibop
-    (discord.override {
-      withEquicord = true;
-    })
-  ];
 }

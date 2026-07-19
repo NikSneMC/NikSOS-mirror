@@ -181,6 +181,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixcord = {
+      url = "github:4evy/nixcord";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-nixcord.follows = "nixpkgs";
+        flake-compat.follows = "";
+      };
+    };
+
     nixos-avf = {
       url = "github:NikSneMC/nixos-avf";
       inputs.nixpkgs.follows = "nixpkgs";
