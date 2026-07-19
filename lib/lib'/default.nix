@@ -1,5 +1,4 @@
 args: let
-  discord = import ./discord.nix args;
   disks = import ./disks.nix args;
   fish = import ./fish.nix args;
   hosts = import ./hosts.nix args;
@@ -9,6 +8,6 @@ args: let
   strings = import ./strings.nix args;
   zellij = import ./zellij.nix args;
 in {
-  inherit discord disks fish hosts jetbrains niri numbers strings zellij;
+  inherit disks fish hosts jetbrains niri numbers strings zellij;
   inherit (hosts) forHosts notForHosts;
 }
