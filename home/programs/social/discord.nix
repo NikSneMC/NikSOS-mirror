@@ -29,7 +29,7 @@
       autoUpdate = true;
       autoUpdateNotification = true;
       disableMinSize = true;
-      enabledThemeLinks = [
+      themeLinks = [
         "https://catppuccin.github.io/discord/dist/catppuccin-${config.theme.flavor}-${config.theme.accent}.theme.css"
         "https://raw.githubusercontent.com/NikSneMC/discord-css/main/jetbrainsmono-nerd-font.css"
         "https://raw.githubusercontent.com/NikSneMC/discord-css/main/make-discord-ui-great-again.css"
@@ -37,7 +37,6 @@
       enableReactDevtools = true;
       frameless = true;
       notifyAboutUpdates = true;
-
       plugins = {
         accountPanelServerProfile = {
           enable = true;
@@ -92,9 +91,6 @@
         gameActivityToggle.enable = true;
         gifPaste.enable = true;
         greetStickerPicker.enable = true;
-        ignoreActivities = {
-          listMode = 1;
-        };
         iLoveSpam.enable = true;
         imageFilename.enable = true;
         imageLink.enable = true;
@@ -134,14 +130,6 @@
           enable = true;
           loop = false;
         };
-        pinDms = {
-          enable = true;
-          pinOrder = 1;
-          canCollapseDmSection = true;
-          userBasedCategoryList = {
-            "760511113795207168" = [];
-          };
-        };
         plainFolderIcon.enable = true;
         platformIndicators.enable = true;
         quickMention.enable = true;
@@ -166,7 +154,7 @@
         serverInfo.enable = true;
         shikiCodeblocks = {
           enable = true;
-          theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/bc5436518111d87ea58eb56d97b3f9bec30e6b83/packages/tm-themes/themes/catppuccin-mocha.json";
+          theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/bc5436518111d87ea58eb56d97b3f9bec30e6b83/packages/tm-themes/themes/catppuccin-${config.theme.flavor}.json";
           useDevIcon = "COLOR";
         };
         showConnections.enable = true;
@@ -234,6 +222,9 @@
       };
       platformIndicators = {
         badges = true;
+      };
+      settings = {
+        settingsLocation = "bottom";
       };
       showHiddenChannels = {
         hideUnreads = true;
