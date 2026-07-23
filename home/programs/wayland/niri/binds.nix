@@ -109,7 +109,7 @@
         {
           bind = "Mod+D";
           desc = "Launch Discord";
-          action = spawn "equibop";
+          action = spawn "vesktop";
         }
         {
           bind = "Mod+E";
