@@ -68,11 +68,13 @@
       inputs.systems.follows = "systems";
     };
 
+    flake-compat.url = "github:NixOS/flake-compat";
+
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
+        flake-compat.follows = "flake-compat";
       };
     };
 
@@ -80,7 +82,7 @@
       url = "github:NikSneMC/templates";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
+        flake-compat.follows = "flake-compat";
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
         git-hooks.follows = "git-hooks";
@@ -131,7 +133,7 @@
     git-helper = {
       url = "github:NiKSneMC/git-helper";
       inputs = {
-        flake-compat.follows = "";
+        flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         systems.follows = "systems";
         naersk = {
@@ -171,7 +173,7 @@
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
       inputs = {
-        flake-compat.follows = "";
+        flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
       };
     };
@@ -187,7 +189,7 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         nixpkgs-nixcord.follows = "nixpkgs";
-        flake-compat.follows = "";
+        flake-compat.follows = "flake-compat";
       };
     };
 
@@ -200,7 +202,7 @@
       url = "github:nix-community/NixOS-WSL";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
+        flake-compat.follows = "flake-compat";
       };
     };
 
