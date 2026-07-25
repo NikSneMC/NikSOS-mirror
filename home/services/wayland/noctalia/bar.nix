@@ -13,11 +13,21 @@
         labels_only_when_occupied = true;
         occupied_color = "outline";
       };
+      anilist = {
+        type = "cleboost/anilist:tracker";
+      };
+      pomodoro = {
+        type = "thepunkoff/pomodoro:widget";
+      };
+      todo = {
+        type = "nightwatch75/todo:todo";
+      };
 
-      cpu = {
-        type = "sysmon";
-        display = "text";
-        stat = "cpu_usage";
+      catwalk = {
+        type = "dotnetrob/cat:cat";
+        show_cpu_percent = true;
+        cat_color = "on_surface";
+        cat_color_mode = "custom";
       };
       temp = {
         type = "sysmon";
@@ -38,12 +48,12 @@
         color = "primary";
         format = "{:%d %m}";
       };
-      cat = {
+      bongo_cat = {
         type = "noctalia/bongocat:cat";
-        audio_spectrum = true;
-        color = "primary";
+        audio_spectrum = false;
         tappy_mode = true;
         use_mpris_filter = true;
+        color = "primary";
       };
 
       privacy = {
@@ -97,6 +107,7 @@
         thickness = 30;
         widget_spacing = 6;
         auto_hide = false;
+        smart_auto_hide = false;
         contact_shadow = false;
         font_weight = 500;
         margin_edge = 0;
@@ -104,11 +115,12 @@
         margin_opposite_edge = 0;
         padding = 10;
         panel_overlap = 0;
+        concave_edge_corners = true;
         radius = 12;
         radius_bottom_left = 0;
-        radius_bottom_right = -12;
+        radius_bottom_right = 12;
         radius_top_left = 0;
-        radius_top_right = -12;
+        radius_top_right = 12;
         reserve_space = true;
         scale = 1;
         shadow = false;
@@ -116,6 +128,7 @@
         border_width = 0;
         capsule = false;
         show_on_workspace_switch = false;
+        hover_highlight = true;
         dead_zone = {
           command = "";
           middle_command = "";
@@ -125,6 +138,7 @@
         };
         capsule_group = [
           {
+            enabled = true;
             fill = "surface_variant";
             id = "datetime";
             members = [
@@ -141,15 +155,18 @@
           "workspaces"
           "caffeine"
           "power_profile"
+          "anilist"
+          "pomodoro"
+          "todo"
         ];
         center = [
-          "cpu"
+          "catwalk"
           "temp"
           "ram"
           "group:datetime"
           "battery"
           "weather"
-          "cat"
+          "bongo_cat"
         ];
         end = [
           "privacy"
