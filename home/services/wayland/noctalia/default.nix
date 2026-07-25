@@ -18,6 +18,10 @@
     systemd.enable = true;
 
     settings = {
+      accessibility = {
+        high_contrast = false;
+        ui_scale = 1;
+      };
       audio = {
         enable_overdrive = true;
         enable_sounds = true;
@@ -32,15 +36,22 @@
       brightness = {
         enable_ddcutil = true;
         minimum_brightness = 0.05;
+        sync_all_monitors = false;
       };
       calendar = {
         enabled = true;
         refresh_minutes = 15;
       };
       control_center = {
-        shortcuts = [];
+        calendar = {
+          event_date_format = "%A %e %B";
+          event_time_format = "%H:%M";
+          show_events_card = true;
+          show_week_numbers = true;
+        };
         sidebar = "full";
         sidebar_section = "full";
+        width = 700;
       };
       desktop_widgets.enabled = false;
       dock.enabled = false;
@@ -48,28 +59,23 @@
         "noctalia msg notification-dnd-set on"
         "noctalia msg caffeine-enable"
       ];
+      hot_corners.enabled = false;
       idle = {
         behavior = {
           lock = {
+            enabled = true;
             action = "lock";
-            command = "";
-            enabled = false;
-            resume_command = "";
-            timeout = 600;
+            timeout = 300;
           };
           lock-and-suspend = {
+            enabled = true;
             action = "lock_and_suspend";
-            command = "";
-            enabled = false;
-            resume_command = "";
             timeout = 900;
           };
           screen-off = {
+            enabled = true;
             action = "screen_off";
-            command = "";
-            enabled = false;
-            resume_command = "";
-            timeout = 660;
+            timeout = 600;
           };
         };
         behavior_order = [
@@ -95,8 +101,9 @@
       location.auto_locate = true;
       lockscreen = {
         enabled = true;
-        blurred_desktop = false;
+        allow_empty_password = false;
         fingerprint = false;
+        blurred_desktop = false;
         wallpaper = config.theme.wallpaper;
       };
       lockscreen_widgets.enabled = false;
@@ -111,6 +118,7 @@
         collapse_on_dismiss = true;
         layer = "overlay";
         position = "top_right";
+        border = true;
         scale = 1;
         show_actions = true;
         show_app_name = true;
@@ -118,12 +126,13 @@
         offset_y = 8;
       };
       osd = {
-        background_opacity = 0.97;
+        enabled = true;
         kinds = {
           bluetooth = true;
           brightness = true;
           caffeine = true;
           dnd = true;
+          keyboard_backlight = true;
           keyboard_layout = true;
           lock_keys = true;
           media = false;
@@ -135,6 +144,8 @@
           volume_output = true;
           wifi = true;
         };
+        border = true;
+        background_opacity = 0.97;
         offset_x = 20;
         offset_y = 8;
         orientation = "horizontal";
@@ -142,11 +153,15 @@
         position_vertical = "top_center";
         scale = 1;
       };
+      storage = {
+        key_file = "";
+        key_source = "secret-service";
+      };
       system.monitor.enabled = true;
       weather = {
         effects = true;
         enabled = true;
-        refresh_minutes = 30;
+        refresh_minutes = 10;
         unit = "metric";
       };
     };

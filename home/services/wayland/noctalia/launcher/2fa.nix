@@ -23,8 +23,11 @@
       notify-send "Copied token for $account"
     '';
   in {
-    prefix = "/2fa";
+    prefix = "2fa";
+    label = "2FA Codes";
     glyph = "auth-2fa";
+    freeform = true;
+    global = false;
 
     command = ''
       jaq -r \
