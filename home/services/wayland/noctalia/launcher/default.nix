@@ -1,6 +1,7 @@
 {
   imports = [
     ./2fa.nix
+    ./run.nix
   ];
 
   programs.noctalia.settings.shell.launcher = {
