@@ -126,11 +126,11 @@
           desc = "Open notification center";
           action = noctalia-control "notifications";
         }
-        # {
-        #   bind = "Mod+R";
-        #   desc = "Execute command";
-        #   action = noctalia-launcher "/run ";
-        # }
+        {
+          bind = "Mod+R";
+          desc = "Execute command";
+          action = noctalia-launcher "/run ";
+        }
         {
           bind = "Mod+T";
           desc = "Launch terminal";
