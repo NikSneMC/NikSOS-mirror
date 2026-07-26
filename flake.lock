@@ -802,14 +802,30 @@
         "type": "github"
       }
     },
+    "noctalia-plugins-community": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785025384,
+        "narHash": "sha256-q5YfdNy4HJNyNweY6EydnW5k+Psbcz4SxNA1n/Xaq9M=",
+        "owner": "noctalia-dev",
+        "repo": "community-plugins",
+        "rev": "ca20bb9c8526b5ef91d07752ced28aa575bb6c48",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "community-plugins",
+        "type": "github"
+      }
+    },
     "noctalia-plugins-official": {
       "flake": false,
       "locked": {
-        "lastModified": 1784946297,
-        "narHash": "sha256-qe/Obo60nXuMjaJ89nM7jjX1+S5lEuRtlVSUVRbUvLA=",
+        "lastModified": 1785004651,
+        "narHash": "sha256-xTsdn2LEz5BrS3bIxXBz7jsrniNY+yaT7bBZqu0ore4=",
         "owner": "noctalia-dev",
         "repo": "official-plugins",
-        "rev": "f77fa367300b5b219c82a855ff3fc7af9a71a8f0",
+        "rev": "8bed6e8ebb2fbb8a055bbf77a26b2889fcb6e538",
         "type": "github"
       },
       "original": {
@@ -875,6 +891,7 @@
         ],
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",
+        "noctalia-plugins-community": "noctalia-plugins-community",
         "noctalia-plugins-official": "noctalia-plugins-official",
         "rio": "rio",
         "rust-overlay": "rust-overlay",

@@ -215,6 +215,11 @@
       flake = false;
     };
 
+    noctalia-plugins-community = {
+      url = "github:noctalia-dev/community-plugins";
+      flake = false;
+    };
+
     rio = {
       url = "github:raphamorim/rio";
       inputs = {

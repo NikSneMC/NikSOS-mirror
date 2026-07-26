@@ -50,7 +50,7 @@
       };
       bongo_cat = {
         type = "noctalia/bongocat:cat";
-        audio_spectrum = false;
+        audio_spectrum = true;
         tappy_mode = true;
         use_mpris_filter = true;
         color = "primary";
