@@ -26,7 +26,7 @@
     prefix = "2fa";
     label = "2FA Codes";
     glyph = "auth-2fa";
-    freeform = true;
+    freeform = false;
     global = false;
 
     command = ''
