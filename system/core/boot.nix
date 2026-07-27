@@ -6,6 +6,8 @@
 }: let
   niksos-logo = "${inputs.assets}/niksos/niksos100.png";
 in {
+  nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
+
   boot = {
     initrd = {
       systemd.enable = true;

@@ -6,23 +6,21 @@
   ...
 }: {
   imports = [
-    inputs.nix-index-database.nixosModules.default
-    ./documentation.nix
     ./caches.nix
+    ./comma.nix
+    ./documentation.nix
     ./nh.nix
     ./nixpkgs.nix
   ];
 
   environment.systemPackages = with pkgs; [
     git
-    comma
   ];
 
   nixpkgs.overlays = [
     (_: prev: {
       inherit (prev.lixPackageSets.stable) nixpkgs-review nix-eval-jobs nix-fast-build colmena;
     })
-    inputs.nix-cachyos-kernel.overlays.pinned
   ];
 
   environment.etc = let

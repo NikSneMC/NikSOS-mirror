@@ -4,13 +4,13 @@
   ...
 }: {
   imports = [
-    inputs.nix-index-database.homeModules.default
     ./git
     ./zellij
     ./ani-cli.nix
     ./atuin.nix
     ./bat.nix
     ./cargo.nix
+    ./comma.nix
     ./eza.nix
     ./fetchers.nix
     ./skim.nix
