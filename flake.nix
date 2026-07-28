@@ -78,6 +78,11 @@
       };
     };
 
+    gitignore = {
+      url = "github:hercules-ci/gitignore.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     templates = {
       url = "github:NikSneMC/templates";
       inputs = {
@@ -254,7 +259,7 @@
     wakatime-ls = {
       url = "github:mrnossiom/wakatime-ls";
       inputs = {
-        gitignore.follows = "git-hooks/gitignore";
+        gitignore.follows = "gitignore";
         rust-overlay = {
           follows = "rust-overlay";
           inputs.nixpkgs.follows = "wakatime-ls/nixpkgs";
