@@ -9,7 +9,11 @@
 in {
   programs.rio = {
     enable = true;
-    package = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
+    package = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs {
+      doCheck = false;
+    };
+
     settings = {
       colors = with config.theme.colors; {
         tabs = mkForce "#${text}";
