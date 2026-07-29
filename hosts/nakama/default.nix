@@ -3,11 +3,11 @@ mkNixosModules: {pkgs, ...}: {
     # "hardware/intel.nix"
     "hardware/nvidia-prime.nix"
     "hardware/nvidia.nix"
+    "hardware/razer.nix"
+    "nix/builders.nix"
     "programs/niri.nix"
     "programs/obs-studio.nix"
-    "hardware/razer.nix"
     "services/thermald.nix"
-    # "services/ollama.nix"
     "virtualisation/virt-manager.nix"
   ];
 

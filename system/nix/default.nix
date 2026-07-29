@@ -73,19 +73,23 @@
       keep-derivations = true;
       keep-outputs = true;
 
-      trusted-users = [
-        "root"
-        "@wheel"
-      ];
+      allowed-users = ["root" "@wheel" "builder"];
 
-      max-jobs = "auto";
+      trusted-users = ["root" "@wheel" "builder"];
+
+      max-jobs = lib.mkDefault "auto";
 
       sandbox = true;
       sandbox-fallback = false;
 
       system-features = ["nixos-test" "kvm" "recursive-nix" "big-parallel"];
 
+      extra-platforms = config.boot.binfmt.emulatedSystems;
+
       keep-going = true;
+
+      connect-timeout = 5;
+      stalled-download-timeout = 20;
 
       log-lines = 30;
 
