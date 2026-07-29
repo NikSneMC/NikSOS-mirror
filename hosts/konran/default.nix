@@ -2,11 +2,11 @@ mkNixosModules: {pkgs, ...}: {
   imports = mkNixosModules [
     # "hardware/nvidia.nix"
     "hardware/amd.nix"
+    "hardware/razer.nix"
+    "nix/builder.nix"
     "programs/niri.nix"
     "programs/obs-studio.nix"
-    "hardware/razer.nix"
     "services/thermald.nix"
-    # "services/ollama.nix"
     "virtualisation/virt-manager.nix"
   ];
   boot = {
