@@ -57,7 +57,7 @@ in {
       {
         matches = [
           {app-id = "zen";}
-          {app-id = "Spotify";}
+          {app-id = "spotify";}
         ];
         open-on-workspace = workspace 2;
       }
@@ -118,7 +118,7 @@ in {
       }
       {
         matches = [
-          {app-id = "Spotify";}
+          {app-id = "spotify";}
           {app-id = "steam.*";}
           {app-id = "org.gnome.seahorse.*";}
           {app-id = "org.kde.kdeconnect.*";}
