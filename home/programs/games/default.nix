@@ -1,6 +1,6 @@
 {
   imports = [
-    ./factorio.nix
+    # ./factorio.nix
     ./minecraft.nix
   ];
 }
