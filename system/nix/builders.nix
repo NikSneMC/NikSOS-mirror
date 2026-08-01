@@ -5,7 +5,7 @@
     buildMachines =
       [
         {
-          hostNames = ["192.168.1.10" "192.168.1.11" "10.8.1.9"];
+          hostNames = ["192.168.1.11" "10.8.1.9" "192.168.1.10"];
           conf = {
             systems = ["x86_64-linux" "i686-linux" "aarch64-linux"];
             maxJobs = 36;
