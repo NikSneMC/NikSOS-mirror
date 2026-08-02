@@ -5,8 +5,8 @@
 }:
 lib'.zellij.zellijPlugin {
   name = "zsm";
-  url = "https://github.com/liam-mackie/zsm/releases/download/v0.4.1/zsm.wasm";
-  sha256 = "sha256-+VCf9MEHQVmr2q8lu95jAOsvCQU0iJa3ljqbnIC9ywg=";
+  url = "https://github.com/liam-mackie/zsm/releases/download/v0.5.0/zsm.wasm";
+  sha256 = "sha256-/hiruKlSsR7Ya7UsTAxjP5wpLjxHkNgugqHmZpxmp+k=";
   config =
     # kdl
     ''
