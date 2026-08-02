@@ -1,4 +1,5 @@
 {
+  config,
   lib',
   pkgs,
   ...
@@ -8,8 +9,6 @@
   ides = [
     "datagrip"
     "idea"
-    "rust-rover"
-    "webstorm"
   ];
 
   plugins = let
@@ -60,6 +59,6 @@ in {
       rev = "958314b6210d93d1abd4b1bc23b06a69fd17e3e9";
       hash = "sha256-BYXknpFAX2vQpebAN4yGuve+2jpB8j1ZS1dXaq2kuI0=";
     };
-    ".ideavimrc".text = "source ~/${path}/helix.idea.vim";
+    "${config.xdg.configHome}/ideavim/ideavimrc".text = "source ~/${path}/helix.idea.vim";
   };
 }
