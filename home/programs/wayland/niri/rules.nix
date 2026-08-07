@@ -122,7 +122,6 @@ in {
           {app-id = "steam.*";}
           {app-id = "org.gnome.seahorse.*";}
           {app-id = "org.kde.kdeconnect.*";}
-          {title = "AFFiNE";}
         ];
         block-out-from = "screen-capture";
       }
