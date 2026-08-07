@@ -12,6 +12,7 @@
         "wheel"
         "dialout"
         "i2c"
+        "wireshark"
       ];
     };
   };
