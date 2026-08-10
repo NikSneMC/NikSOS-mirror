@@ -129,13 +129,6 @@
         capsule = false;
         show_on_workspace_switch = false;
         hover_highlight = true;
-        dead_zone = {
-          command = "";
-          middle_command = "";
-          right_command = "";
-          scroll_down_command = "";
-          scroll_up_command = "";
-        };
         capsule_group = [
           {
             enabled = true;

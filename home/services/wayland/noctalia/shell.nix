@@ -7,11 +7,13 @@
     app_icon_colorize = false;
     avatar_path = "/var/lib/AccountsService/icons/${config.home.user}";
     button_borders = true;
+    card_borders = true;
     clipboard_enabled = true;
     clipboard_auto_paste = "auto";
     clipboard_confirm_clear_history = true;
     clipboard_history_max_entries = 100;
     clipboard_image_action_command = "";
+    clipboard_keep_from_closed_apps = true;
     corner_radius_scale = 1;
     date_format = "%A, %x";
     disable_mipmaps = false;
@@ -20,7 +22,6 @@
     greeter_sync.auto_sync = true;
     input_borders = true;
     launch_apps_as_systemd_services = true;
-    middle_click_opens_widget_settings = true;
     niri_overview_type_to_launch_enabled = false;
     offline_mode = false;
     panel = {
