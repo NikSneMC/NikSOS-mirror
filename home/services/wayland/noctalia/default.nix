@@ -49,7 +49,9 @@
           show_events_card = true;
           show_week_numbers = true;
         };
+        hidden_tabs = [];
         shortcuts = [];
+        show_shortcut_labels = false;
         sidebar = "full";
         sidebar_section = "full";
         width = 700;
