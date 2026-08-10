@@ -6,8 +6,6 @@
 }: let
   inherit (builtins) mapAttrs attrValues;
   inherit (lib) filterAttrs hasPrefix removePrefix;
-
-  prefix = "noctalia-plugins-";
 in {
   home.packages = with pkgs; [
     fzf
@@ -29,10 +27,11 @@ in {
         "nightwatch75/todo"
         "noctalia/translator"
         "yocraft/web-launcher"
-        "alexander/game-launcher"
       ];
 
-      source =
+      source = let
+        prefix = "noctalia-plugins-";
+      in
         inputs
         |> filterAttrs (name: _: hasPrefix prefix name)
         |> mapAttrs (_: toString)
@@ -41,22 +40,11 @@ in {
           enabled = true;
           inherit name location;
           kind = "path";
-          auto_update = false;
         })
         |> attrValues;
     };
 
     plugin_settings = {
-      "alexander/game-launcher" = {
-        steampoacher_enabled = true;
-      };
-      "blackbartblues/audio-switcher" = {
-        audio-switcher_placement = "floating";
-        audio-switcher_position = "center";
-      };
-      "gustav0ar/drive-health" = {
-        system_collector_enabled = true;
-      };
       "nightwatch75/file-search" = {
         exclude_dirs = "node_modules, target";
         panel_open_near_click = false;
@@ -69,10 +57,6 @@ in {
       };
       "noctalia/notes" = {
         panel_position = "center";
-      };
-      "oldirtty/color_picker" = {
-        hyprpicker-cursor = true;
-        hyprpicker-lowercase = true;
       };
       "thepunkoff/pomodoro" = {
         panel_placement = "floating";
