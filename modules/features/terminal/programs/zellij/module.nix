@@ -10,7 +10,7 @@
       os = {config, ...}: {
         networking.firewall.allowedTCPPorts = [443];
 
-        services.nginx.virtualHosts."${config.networking.hostName}.niksne.ru" = {
+        services.nginx.virtualHosts."zellij.${config.networking.hostName}.niksne.ru" = {
           forceSSL = true;
           enableACME = true;
 

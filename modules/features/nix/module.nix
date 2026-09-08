@@ -6,6 +6,7 @@
       nix-ld
       documentation
       nh
+      nix-overlays
       nix-settings
       nixpkgs-config
     ];

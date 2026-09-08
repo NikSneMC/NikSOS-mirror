@@ -1,43 +1,21 @@
 {
   config,
-  inputs,
-  inputs',
   pkgs,
   ...
-}: let
-  inherit (builtins) elem;
-in {
+}: {
   imports = [
-    ./options.nix
     ./languages
+    ./plugins
     ./keys.nix
+    ./options.nix
   ];
 
   programs.helix = {
     enable = true;
-    package = pkgs.symlinkJoin {
-      name = "helix-wrapped";
-      paths = [
-        (inputs'.helix.packages.default.override {
-          includeGrammarIf = grammar:
-            config.helix.grammars == "all" || elem grammar.name config.helix.grammars;
-        })
-      ];
-      preferLocalBuild = true;
-      nativeBuildInputs = [pkgs.makeWrapper];
-      postBuild = let
-        runtime =
-          pkgs.callPackage (import ./runtime.nix {inherit config inputs;}) {}
-          |> toString;
-      in
-        # sh
-        ''
-          wrapProgram $out/bin/hx \
-            --suffix HELIX_RUNTIME : ${runtime}
-        '';
-    };
+    package = pkgs.steelix;
 
     defaultEditor = true;
+
     settings.editor = {
       line-number = "relative";
       completion-trigger-len = 1;
@@ -45,8 +23,6 @@ in {
       bufferline = "multiple";
       color-modes = true;
       trim-trailing-whitespace = true;
-      rainbow-brackets = true;
-      breadcrumb.enable = true;
       lsp = {
         display-progress-messages = true;
         display-inlay-hints = true;
@@ -66,5 +42,12 @@ in {
         other-lines = "error";
       };
     };
+  };
+
+  xdg.configFile = let
+    extraRuntime = pkgs.callPackage (import ./runtime.nix {inherit config;}) {};
+  in {
+    "helix/runtime/grammars".source = "${extraRuntime}/grammars";
+    "helix/runtime/queries".source = "${extraRuntime}/queries";
   };
 }

@@ -21,10 +21,6 @@
     };
     catppuccin.url = "github:catppuccin/nix";
     den.url = "github:denful/den/v0.18.0";
-    discord-rpc-lsp = {
-      url = "gitlab:invra/discord-rpc-lsp";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,13 +62,6 @@
       url = "github:cjavad/nixpille-helium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix = {
-      url = "github:NikSneMC/helix";
-      inputs.rust-overlay = {
-        follows = "rust-overlay";
-        inputs.nixpkgs.follows = "helix/nixpkgs";
-      };
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -86,6 +75,7 @@
         nixpkgs.follows = "";
       };
     };
+    nhx.url = "github:Ra77a3l3-jar/nhx";
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs = {
@@ -189,16 +179,6 @@
       };
     };
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    wakatime-ls = {
-      url = "github:mrnossiom/wakatime-ls";
-      inputs = {
-        gitignore.follows = "gitignore";
-        rust-overlay = {
-          follows = "rust-overlay";
-          inputs.nixpkgs.follows = "wakatime-ls/nixpkgs";
-        };
-      };
-    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {

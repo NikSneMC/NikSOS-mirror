@@ -1,7 +1,7 @@
 {
-  inputs,
+  # inputs,
   lib,
-  pkgs,
+  # pkgs,
   ...
 }: let
   inherit (lib) mkDefault;
@@ -15,7 +15,7 @@ in {
     ./yaml.nix
   ];
 
-  helix.grammars = mkDefault [
+  programs.helix.grammars = mkDefault [
     "bash"
     "comment"
     "diff"
@@ -33,12 +33,12 @@ in {
     "yaml"
   ];
 
-  programs.helix = let
-    inherit (pkgs.stdenv.hostPlatform) system;
-    inherit (import ../lib.nix {inherit lib;}) mkGlobalLsps;
-  in
-    mkGlobalLsps (with pkgs; [
-      uwu-colors
-      inputs.wakatime-ls.packages.${system}.wakatime-ls
-    ]);
+  # programs.helix = let
+  #   inherit (pkgs.stdenv.hostPlatform) system;
+  #   inherit (import ../lib.nix {inherit lib;}) mkGlobalLsps;
+  # in
+  #   mkGlobalLsps (with pkgs; [
+  #     uwu-colors
+  #     inputs.wakatime-ls.packages.${system}.wakatime-ls
+  #   ]);
 }

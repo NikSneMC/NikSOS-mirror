@@ -636,6 +636,7 @@
           bind = "Mod+Ctrl+D";
           desc = "Power off all monitors via DPMS";
           action = noctalia "dpms-off";
+          allow-when-locked = true;
         }
       ]
     );
