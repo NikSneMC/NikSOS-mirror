@@ -12,6 +12,7 @@
       razer
       # builders
       niri
+      nginx
       obs-studio
       thermald
       virt-manager

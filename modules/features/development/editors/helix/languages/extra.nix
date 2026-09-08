@@ -1,5 +1,5 @@
 {
-  helix.grammars = "all";
+  programs.helix.grammars = "all";
 
   imports = [
     ./c.nix

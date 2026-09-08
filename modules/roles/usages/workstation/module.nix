@@ -66,7 +66,7 @@
       xkb
       zed
       ani-cli.noctalia-menu
-      helix.discord-rpc
+      # helix.discord-rpc
       helix.languages
       theme.system
     ];
