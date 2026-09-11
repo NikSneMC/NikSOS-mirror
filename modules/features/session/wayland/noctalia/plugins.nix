@@ -13,7 +13,7 @@ in {
 
   programs.noctalia.settings = {
     plugins = {
-      auto_update = false;
+      auto_update = "none";
       enabled = [
         "cleboost/anilist"
         "dotnetrob/cat"
@@ -27,6 +27,7 @@ in {
         "nightwatch75/todo"
         "noctalia/translator"
         "yocraft/web-launcher"
+        "icefish/phone-connect"
       ];
 
       source = let

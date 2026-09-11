@@ -7,7 +7,7 @@
       };
       workspaces = {
         type = "workspaces";
-        display = "name";
+        label_source = "name";
         empty_color = "surface_variant";
         hide_when_empty = true;
         labels_only_when_occupied = true;
@@ -31,12 +31,14 @@
       };
       temp = {
         type = "sysmon";
-        display = "text";
+        visualization = "none";
+        show_value = true;
         stat = "cpu_temp";
       };
       ram = {
         type = "sysmon";
-        display = "text";
+        visualization = "none";
+        show_value = true;
         stat = "ram_pct";
       };
       clock = {
@@ -53,7 +55,6 @@
         audio_spectrum = true;
         tappy_mode = true;
         use_mpris_filter = true;
-        color = "primary";
       };
 
       privacy = {
@@ -90,12 +91,8 @@
       };
       keyboard_layout = {
         type = "keyboard_layout";
-        custom_labels = {
-          "English (US)" = "EN";
-          Russian = "RU";
-        };
         hide_when_single_layout = true;
-        show_icon = false;
+        show_glyph = false;
       };
     };
     bar = {
