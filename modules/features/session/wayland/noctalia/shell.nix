@@ -21,6 +21,10 @@
     font_family = "JetBrainsMono NFP";
     greeter_sync.auto_sync = true;
     input_borders = true;
+    keyboard_layout.custom_labels = {
+      "English (US)" = "EN";
+      Russian = "RU";
+    };
     launch_apps_as_systemd_services = true;
     niri_overview_type_to_launch_enabled = false;
     offline_mode = false;

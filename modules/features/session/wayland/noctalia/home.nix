@@ -41,11 +41,11 @@
       calendar = {
         enabled = true;
         refresh_minutes = 15;
+        event_date_format = "%A %e %B";
+        event_time_format = "%H:%M";
       };
       control_center = {
         calendar = {
-          event_date_format = "%A %e %B";
-          event_time_format = "%H:%M";
           show_events_card = true;
           show_week_numbers = true;
         };
@@ -105,7 +105,8 @@
       lockscreen = {
         enabled = true;
         allow_empty_password = false;
-        fingerprint = false;
+        fingerprint = true;
+        lock_before_suspend = true;
         blurred_desktop = false;
         wallpaper = config.theme.wallpaper;
       };
@@ -153,7 +154,7 @@
         offset_y = 8;
         orientation = "horizontal";
         position = "bottom_center";
-        position_vertical = "top_center";
+        position_vertical = "bottom_center";
         scale = 1;
       };
       storage = {

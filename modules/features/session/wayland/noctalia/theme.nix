@@ -43,6 +43,7 @@ in {
       wallpaper = {
         enabled = true;
         default.path = config.theme.wallpaper;
+        directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
         automation.enabled = false;
         edge_smoothness = 0.3;
         fill_color = colors.base;
