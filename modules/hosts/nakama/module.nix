@@ -17,6 +17,7 @@
       thermald
       virt-manager
       zellij-web
+      filebrowser
     ];
 
     os = {pkgs, ...}: {
