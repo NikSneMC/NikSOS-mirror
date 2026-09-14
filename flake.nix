@@ -20,6 +20,19 @@
       flake = false;
     };
     catppuccin.url = "github:catppuccin/nix";
+    cord-hx = {
+      url = "github:NikSneMC/cord.hx";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-parts.follows = "flake-parts";
+        naersk = {
+          follows = "naersk";
+          inputs.nixpkgs.follows = "cord-hx/nixpkgs";
+        };
+        nhx.follows = "nhx";
+        systems.follows = "systems";
+      };
+    };
     den.url = "github:denful/den/v0.18.0";
     disko = {
       url = "github:nix-community/disko";

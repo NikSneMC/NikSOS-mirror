@@ -62,6 +62,43 @@
         "type": "github"
       }
     },
+    "cord-hx": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "naersk": [
+          "naersk"
+        ],
+        "nhx": [
+          "nhx"
+        ],
+        "nixpkgs": [
+          "cord-hx",
+          "nhx",
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789413987,
+        "narHash": "sha256-nsj22otFi59Dyhh8Cty3I/nIsYdvXcJz3MNLz+/igAE=",
+        "owner": "NikSneMC",
+        "repo": "cord.hx",
+        "rev": "bcee12c7db0a3a101436208846178b1cd0589724",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NikSneMC",
+        "repo": "cord.hx",
+        "type": "github"
+      }
+    },
     "den": {
       "locked": {
         "lastModified": 1781621963,
@@ -792,6 +829,7 @@
         "agenix": "agenix",
         "assets": "assets",
         "catppuccin": "catppuccin",
+        "cord-hx": "cord-hx",
         "den": "den",
         "disko": "disko",
         "flake-compat": "flake-compat",
