@@ -1,21 +1,49 @@
 {
   imports = [
+    ./alloy.nix
+    ./amber.nix
+    ./blade.nix
+    ./blueprint.nix
     ./c.nix
+    ./caddyfile.nix
+    ./capnp.nix
     ./ci.nix
     ./docker.nix
     ./elixir.nix
+    ./esdl.nix
+    ./fga.nix
+    ./forth.nix
+    ./fortran.nix
+    ./gleam.nix
+    ./glsl.nix
     ./go.nix
     ./helm.nix
+    ./hurl.nix
+    ./inko.nix
     ./just.nix
     ./jvm.nix
+    ./koka.nix
+    ./koto.nix
     ./latex.nix
     ./lisette.nix
+    ./lua.nix
+    ./mail.nix
+    ./markdown.nix
+    ./matlab.nix
+    ./nu.nix
+    ./pest.nix
     ./protobuf.nix
     ./python.nix
     ./qml.nix
+    ./rego.nix
+    ./rst.nix
     ./rust.nix
+    ./scala.nix
+    ./smali.nix
+    ./spade.nix
     ./sql.nix
     ./surql.nix
+    ./templ.nix
     ./tofu.nix
     ./typst.nix
     ./web.nix

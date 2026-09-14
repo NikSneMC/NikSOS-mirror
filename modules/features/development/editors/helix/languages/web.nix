@@ -90,5 +90,48 @@
       svelte-language-server
       astro-language-server
     ];
+
+    steelixGrammarOverrides = [
+      {
+        name = "css";
+        fetcher = "github";
+        owner = "tree-sitter";
+        repo = "tree-sitter-css";
+        rev = "6e327db434fec0ee90f006697782e43ec855adf5";
+        hash = "sha256-en379DlqzzvQNvKgE8CtiA00j7phUyipttqbnETGHKc=";
+      }
+      {
+        name = "javascript";
+        fetcher = "github";
+        owner = "tree-sitter";
+        repo = "tree-sitter-javascript";
+        rev = "3a837b6f3658ca3618f2022f8707e29739c91364";
+        hash = "sha256-apgWWYD0XOvH5c3BY7kAF7UYtwPJaEvJzC5aWvJ9YQ8=";
+      }
+      {
+        name = "svelte";
+        fetcher = "github";
+        owner = "tree-sitter-grammars";
+        repo = "tree-sitter-svelte";
+        rev = "ae5199db47757f785e43a14b332118a5474de1a2";
+        hash = "sha256-cH9h7i6MImw7KlcuVQ6XVKNjd9dFjo93J1JdTWmEpV4=";
+      }
+      {
+        name = "tsx";
+        fetcher = "github";
+        owner = "tree-sitter";
+        repo = "tree-sitter-typescript";
+        rev = "75b3874edb2dc714fb1fd77a32013d0f8699989f";
+        hash = "sha256-A0M6IBoY87ekSV4DfGHDU5zzFWdLjGqSyVr6VENgA+s=";
+      }
+      {
+        name = "typescript";
+        fetcher = "github";
+        owner = "tree-sitter";
+        repo = "tree-sitter-typescript";
+        rev = "75b3874edb2dc714fb1fd77a32013d0f8699989f";
+        hash = "sha256-A0M6IBoY87ekSV4DfGHDU5zzFWdLjGqSyVr6VENgA+s=";
+      }
+    ];
   };
 }
