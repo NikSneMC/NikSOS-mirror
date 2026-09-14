@@ -7,6 +7,16 @@
   inherit (lib) getExe' mkEnableOption mkIf mkOption types;
 
   cfg = config.programs.ani-cli;
+
+  pkg = pkgs.ani-cli.overrideAttrs (_: {
+    version = "5.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "pystardust";
+      repo = "ani-cli";
+      tag = "v5.1";
+      hash = "sha256-lPQA3iO3F/9NS2IziQccsJ3aai6WMQy6YObdB3mDCZA=";
+    };
+  });
 in {
   options.programs.ani-cli = {
     enable = mkEnableOption "ani-cli";
@@ -28,7 +38,7 @@ in {
         then
           pkgs.symlinkJoin {
             name = "ani-cli-wrapped";
-            paths = [pkgs.ani-cli];
+            paths = [pkg];
             preferLocalBuild = true;
             nativeBuildInputs = [pkgs.makeWrapper];
             postBuild = ''
@@ -37,7 +47,7 @@ in {
                 --set ANI_CLI_MENU_FLAGS "dmenu -p"
             '';
           }
-        else pkgs.ani-cli
+        else pkg
       )
     ];
   };
