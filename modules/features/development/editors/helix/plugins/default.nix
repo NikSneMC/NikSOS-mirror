@@ -5,6 +5,7 @@
     # ./moka.nix
     ./oil.nix
     ./scopeline.nix
+    ./splash-hx.nix
     ./wakatime.nix
   ];
 
