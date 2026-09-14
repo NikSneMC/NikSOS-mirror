@@ -30,18 +30,23 @@
         }
         {
           glob = "^~/Projects/[^/]+/work";
-          details = "Probably some work-related stuff";
           state = "Dealing with some \${name}";
+          details = "Probably some work-related stuff";
         }
         {
           glob = "^~/Education/University";
-          details = "Probably some uni-related stuff";
           state = "Dealing with some \${name}";
+          details = "Probably some uni-related stuff";
+        }
+        {
+          path = "~/.local/cache/helix/helix.log";
+          state = "Reading helix log file";
+          details = false;
         }
         {
           glob = "^/";
-          details = "Probably some private stuff";
           state = "Dealing with some \${name}";
+          details = "Probably some private stuff";
         }
       ];
     };
