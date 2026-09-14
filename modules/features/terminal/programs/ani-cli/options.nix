@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkOption types;
+  inherit (lib) getExe' mkEnableOption mkIf mkOption types;
 
   cfg = config.programs.ani-cli;
 in {
@@ -15,8 +15,8 @@ in {
       type = types.bool;
       default = false;
       description = ''
-        Replace ani-cli's `dmenu` external menu with noctalia's. Only useful
-        where the noctalia shell actually runs.
+        Replace ani-cli's external menu with noctalia's. Only useful where
+        the noctalia shell actually runs.
       '';
     };
   };
@@ -26,18 +26,17 @@ in {
       (
         if cfg.useNoctaliaMenu
         then
-          pkgs.ani-cli.overrideAttrs (old: {
-            postPatch =
-              (old.postPatch or "")
-              + ''
-                substituteInPlace ani-cli \
-                  --replace-fail \
-                    '[ "$use_external_menu" = "2" ] && dmenu -l 20 -p "$2"' \
-                    '[ "$use_external_menu" = "2" ] && noctalia dmenu -p "$2"'
-              '';
-
-            buildInputs = (old.buildInputs or []) ++ [config.programs.noctalia.package];
-          })
+          pkgs.symlinkJoin {
+            name = "ani-cli-wrapped";
+            paths = [pkgs.ani-cli];
+            preferLocalBuild = true;
+            nativeBuildInputs = [pkgs.makeWrapper];
+            postBuild = ''
+              wrapProgram $out/bin/ani-cli \
+                --set ANI_CLI_MENU ${getExe' config.programs.noctalia.package "noctalia"} \
+                --set ANI_CLI_MENU_FLAGS "dmenu -p"
+            '';
+          }
         else pkgs.ani-cli
       )
     ];

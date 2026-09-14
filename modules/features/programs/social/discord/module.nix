@@ -3,10 +3,10 @@
     nixcord = {
       url = "github:4evy/nixcord";
       inputs = {
-        flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         nixpkgs-nixcord.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        home-manager.follows = "home-manager";
+        nix-darwin.follows = "";
       };
     };
   };
@@ -93,7 +93,7 @@
               disableEmbedPermissionCheck = true;
             };
             favoriteEmojiFirst.enable = true;
-            favoriteGifSearch.enable = true;
+            # favoriteGifSearch.enable = true;
             fixCodeblockGap.enable = true;
             fixImagesQuality.enable = true;
             fixSpotifyEmbeds.enable = true;
@@ -168,7 +168,7 @@
             serverInfo.enable = true;
             shikiCodeblocks = {
               enable = true;
-              theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/bc5436518111d87ea58eb56d97b3f9bec30e6b83/packages/tm-themes/themes/catppuccin-${config.theme.flavor}.json";
+              theme = "https://cdn.jsdelivr.net/gh/shikijs/textmate-grammars-themes@bc5436518111d87ea58eb56d97b3f9bec30e6b83/packages/tm-themes/themes/catppuccin-${config.theme.flavor}.json";
               useDevIcon = "COLOR";
             };
             showConnections.enable = true;

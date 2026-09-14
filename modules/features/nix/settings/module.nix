@@ -67,7 +67,7 @@
 
           accept-flake-config = false;
 
-          use-cgroups = pkgs.stdenv.isLinux;
+          use-cgroups = pkgs.stdenv.hostPlatform.isLinux;
         };
       };
 

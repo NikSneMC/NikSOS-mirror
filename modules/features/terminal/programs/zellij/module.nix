@@ -28,15 +28,13 @@
     };
 
     zellij = {
-      homeManager = {pkgs, ...} @ args: let
+      homeManager = args: let
         inherit (builtins) concatStringsSep;
       in {
         imports = [./layouts];
 
         programs.zellij = {
           enable = true;
-
-          package = pkgs.callPackage ./package.nix {};
 
           enableFishIntegration = true;
           exitShellOnExit = true;
