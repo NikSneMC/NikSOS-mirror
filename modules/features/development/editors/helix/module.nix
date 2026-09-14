@@ -20,6 +20,7 @@
   den.aspects.helix = {
     provides = {
       languages.homeManager.imports = [./languages/extra.nix];
+      discord-rpc.homeManager.imports = [./plugins/cord.nix];
     };
 
     homeManager = {inputs, ...}: {
