@@ -1,6 +1,5 @@
 {
   imports = [
-    ./cord.nix
     ./emotional.nix
     ./lsp-picker.nix
     # ./moka.nix
