@@ -1,11 +1,4 @@
 {
-  # inputs,
-  lib,
-  # pkgs,
-  ...
-}: let
-  inherit (lib) mkDefault;
-in {
   imports = [
     ./bash.nix
     ./fish.nix
@@ -14,31 +7,4 @@ in {
     ./toml.nix
     ./yaml.nix
   ];
-
-  programs.helix.grammars = mkDefault [
-    "bash"
-    "comment"
-    "diff"
-    "fish"
-    "git-config"
-    "git-rebase"
-    "gitattributes"
-    "gitcommit"
-    "gitignore"
-    "ini"
-    "json"
-    "nix"
-    "regex"
-    "toml"
-    "yaml"
-  ];
-
-  # programs.helix = let
-  #   inherit (pkgs.stdenv.hostPlatform) system;
-  #   inherit (import ../lib.nix {inherit lib;}) mkGlobalLsps;
-  # in
-  #   mkGlobalLsps (with pkgs; [
-  #     uwu-colors
-  #     inputs.wakatime-ls.packages.${system}.wakatime-ls
-  #   ]);
 }

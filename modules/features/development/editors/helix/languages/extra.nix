@@ -1,6 +1,4 @@
 {
-  programs.helix.grammars = "all";
-
   imports = [
     ./c.nix
     ./ci.nix
