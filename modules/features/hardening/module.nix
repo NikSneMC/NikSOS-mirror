@@ -4,8 +4,11 @@
       auditd
       hardened-journald
       hardened-kernel
-      hardened-profile
       hardened-sudo
     ];
+
+    os = {
+      users.groups.netdev = {};
+    };
   };
 }
