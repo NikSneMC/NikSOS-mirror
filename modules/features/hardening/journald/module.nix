@@ -1,17 +1,20 @@
 {
   den.aspects.hardened-journald = {
     os = {
-      users.groups.netdev = {};
-
       services = {
         logrotate.enable = true;
+
         journald = {
-          storage = "volatile";
+          storage = "persistent";
           upload.enable = false;
-          extraConfig = ''
-            SystemMaxUse=500M
-            SystemMaxFileSize=50M
-          '';
+
+          settings.Journal = {
+            SystemMaxUse = "500M";
+            SystemMaxFileSize = "50M";
+            RuntimeMaxUse = "100M";
+            RuntimeMaxFileSize = "20M";
+            MaxRetentionSec = "7day";
+          };
         };
       };
     };

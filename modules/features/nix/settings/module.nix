@@ -47,7 +47,7 @@
 
           max-jobs = mkDefault "auto";
 
-          sandbox = true;
+          sandbox = config.nix.settings.max-jobs != 0;
           sandbox-fallback = false;
 
           system-features = ["nixos-test" "kvm" "recursive-nix" "big-parallel"];
