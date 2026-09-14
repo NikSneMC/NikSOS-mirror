@@ -1,6 +1,7 @@
 {
   den,
   inputs,
+  lib,
   ...
 }: {
   den.aspects.kokunai = {
@@ -11,6 +12,7 @@
       gateway
 
       hardening
+      docker
     ];
 
     os = {
@@ -19,7 +21,10 @@
 
         ./hardware-configuration.nix
         ./disks.nix
+        ./wg.nix
       ];
+
+      virtualisation.docker.storageDriver = lib.mkForce null;
 
       boot = {
         loader = {
@@ -40,8 +45,7 @@
         matchConfig.MACAddress = "52:54:00:10:55:e2";
 
         address = [
-          "95.85.240.133/32"
-          "2a12:bec4:1280:203::2/64"
+          "95.85.240.254/32"
         ];
 
         routes = [
