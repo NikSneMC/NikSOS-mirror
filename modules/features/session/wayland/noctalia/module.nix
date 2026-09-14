@@ -25,7 +25,7 @@
 
       niksos.caches."noctalia.cachix.org" = "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=";
 
-      programs.noctalia-greeter = {
+      services.displayManager.noctalia-greeter = {
         enable = true;
         package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
 

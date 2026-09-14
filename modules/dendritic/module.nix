@@ -45,7 +45,7 @@ in {
 
       import-tree.url = "github:vic/import-tree";
 
-      flake-file.url = "github:vic/flake-file";
+      flake-file.url = "github:denful/flake-file";
 
       flake-utils = {
         url = "github:numtide/flake-utils";
