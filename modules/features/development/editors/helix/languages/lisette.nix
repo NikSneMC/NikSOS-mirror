@@ -21,16 +21,6 @@
           };
         }
       ];
-      grammar = [
-        {
-          name = "lisette";
-          source = {
-            git = "https://github.com/ivov/lisette";
-            rev = "2f76686f3bd4d54ca99303a8d5e20a3f1609e354";
-            subpath = "editors/tree-sitter-lisette";
-          };
-        }
-      ];
     };
   };
 }
