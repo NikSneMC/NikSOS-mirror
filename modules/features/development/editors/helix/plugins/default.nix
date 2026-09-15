@@ -2,7 +2,7 @@
   imports = [
     ./emotional.nix
     ./lsp-picker.nix
-    # ./moka.nix
+    ./moka.nix
     ./oil.nix
     ./scopeline.nix
     ./splash-hx.nix
