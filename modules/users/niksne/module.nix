@@ -1,6 +1,6 @@
 {
+  assets,
   den,
-  inputs,
   lib,
   ...
 }: let
@@ -30,7 +30,7 @@ in {
         flavor = "mocha";
         accent = "blue";
 
-        wallpaper = "${inputs.assets}/wallpapers/night_forest.png";
+        wallpaper = "${assets}/wallpapers/night_forest.png";
       };
     };
 

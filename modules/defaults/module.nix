@@ -1,4 +1,5 @@
 {
+  assets,
   den,
   inputs,
   lib,
@@ -31,7 +32,7 @@ in {
             |> attrValues
             |> any (u: elem "homeManager" u.classes)) {
             os.home-manager = {
-              extraSpecialArgs = {inherit inputs;};
+              extraSpecialArgs = {inherit assets inputs;};
 
               useGlobalPkgs = true;
               useUserPackages = true;

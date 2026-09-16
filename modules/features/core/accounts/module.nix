@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{assets, ...}: {
   den.aspects.accounts = {host, ...}: {
     os = let
       inherit (builtins) attrNames concatMap;
@@ -10,7 +10,7 @@
         |> attrNames
         |> concatMap (username: [
           "f+ /var/lib/AccountsService/users/${username}  0600 root root - [User]\\nIcon=/var/lib/AccountsService/icons/${username}\\n"
-          "L+ /var/lib/AccountsService/icons/${username}  - - - - ${inputs.assets}/users/${username}.png"
+          "L+ /var/lib/AccountsService/icons/${username}  - - - - ${assets}/users/${username}.png"
         ]);
     };
   };

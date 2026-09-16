@@ -1,9 +1,9 @@
-{inputs, ...}: {
+{assets, ...}: {
   programs.noctalia.settings = {
     widget = {
       launcher = {
         type = "launcher";
-        custom_image = "${inputs.assets}/niksos/niksos100.png";
+        custom_image = "${assets}/niksos/niksos100.png";
       };
       workspaces = {
         type = "workspaces";
