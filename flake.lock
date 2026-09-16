@@ -27,23 +27,6 @@
         "type": "github"
       }
     },
-    "assets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1779243392,
-        "narHash": "sha256-b/+whtJR6sLZJsrrVGJsMlw9uzKQQIwbm1/9EIDb9SM=",
-        "ref": "assets",
-        "rev": "6327f0ae701cdb2a45f66575e5a37138a2aa1702",
-        "revCount": 169,
-        "type": "git",
-        "url": "https://codeberg.org/NikSne/NikSOS"
-      },
-      "original": {
-        "ref": "assets",
-        "type": "git",
-        "url": "https://codeberg.org/NikSne/NikSOS"
-      }
-    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -827,7 +810,6 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "assets": "assets",
         "catppuccin": "catppuccin",
         "cord-hx": "cord-hx",
         "den": "den",

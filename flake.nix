@@ -15,10 +15,6 @@
         systems.follows = "systems";
       };
     };
-    assets = {
-      url = "git+https://codeberg.org/NikSne/NikSOS?ref=assets";
-      flake = false;
-    };
     catppuccin.url = "github:catppuccin/nix";
     cord-hx = {
       url = "github:NikSneMC/cord.hx";

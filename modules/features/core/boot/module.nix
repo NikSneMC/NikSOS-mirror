@@ -1,5 +1,9 @@
-{inputs, ...}: let
-  niksos-logo = "${inputs.assets}/niksos/niksos100.png";
+{
+  assets,
+  inputs,
+  ...
+}: let
+  niksos-logo = "${assets}/niksos/niksos100.png";
 in {
   flake-file.inputs = {
     nix-cachyos-kernel = {

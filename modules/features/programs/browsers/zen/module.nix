@@ -11,6 +11,7 @@
 
   den.aspects.zen = {
     homeManager = {
+      assets,
       inputs,
       pkgs,
       ...
@@ -27,7 +28,7 @@
       in {
         enable = true;
 
-        icon = "${inputs.assets}/icons/zen-browser/icon.svg";
+        icon = "${assets}/icons/zen-browser/icon.svg";
 
         inherit languagePacks;
 

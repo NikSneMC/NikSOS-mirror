@@ -34,11 +34,6 @@ in {
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
-      assets = {
-        url = "git+https://codeberg.org/NikSne/NikSOS?ref=assets";
-        flake = false;
-      };
-
       systems.url = "github:nix-systems/default";
 
       den.url = "github:denful/den/v0.18.0";
