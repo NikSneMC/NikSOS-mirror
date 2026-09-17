@@ -155,17 +155,6 @@
       };
     };
     stable.url = "github:NixOS/nixpkgs/nixos-26.05";
-    system-manager = {
-      url = "github:numtide/system-manager";
-      inputs = {
-        flake-compat.follows = "flake-compat";
-        userborn.inputs = {
-          flake-parts.follows = "flake-parts";
-          pre-commit-hooks-nix.follows = "git-hooks";
-          systems.follows = "systems";
-        };
-      };
-    };
     systems.url = "github:nix-systems/default";
     templates = {
       url = "github:NikSneMC/templates";
