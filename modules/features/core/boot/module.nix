@@ -52,11 +52,6 @@ in {
           };
           timeout = 3;
         };
-
-        plymouth = {
-          enable = true;
-          logo = niksos-logo;
-        };
       };
     };
   };
