@@ -6,7 +6,9 @@
 
         enableDefaultConfig = false;
 
-        includes = ["hosts/*/*.conf"];
+        includes = [
+          "config.d/*"
+        ];
 
         settings."*" = {
           forwardAgent = false;
