@@ -32,6 +32,12 @@
       }: let
         inherit (lib) mkForce getExe';
       in {
+        home = {
+          sessionVariables.TERMINAL = "rio";
+
+          file.".config/xdg-terminals.list".text = "rio.desktop\n";
+        };
+
         programs.rio = {
           enable = true;
 
