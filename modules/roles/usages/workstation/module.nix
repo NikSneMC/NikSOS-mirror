@@ -42,6 +42,7 @@
       office
       openssh-hardened
       pipewire
+      plymouth
       pointer-cursor
       playerctl
       podman
