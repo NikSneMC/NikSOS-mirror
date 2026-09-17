@@ -42,15 +42,18 @@
           };
         };
 
-        config = {
-          autoUpdate = true;
-          autoUpdateNotification = true;
-          disableMinSize = true;
-          themeLinks = [
+        config = let
+          themes = [
             "https://catppuccin.github.io/discord/dist/catppuccin-${config.theme.flavor}-${config.theme.accent}.theme.css"
             "https://raw.githubusercontent.com/NikSneMC/discord-css/main/jetbrainsmono-nerd-font.css"
             "https://raw.githubusercontent.com/NikSneMC/discord-css/main/make-discord-ui-great-again.css"
           ];
+        in {
+          autoUpdate = true;
+          autoUpdateNotification = true;
+          disableMinSize = true;
+          themeLinks = themes;
+          enabledThemeLinks = themes;
           enableReactDevtools = true;
           frameless = true;
           notifyAboutUpdates = true;
