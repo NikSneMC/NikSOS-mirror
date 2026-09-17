@@ -24,6 +24,11 @@ in {
         "no-X11-forwarding"
       ];
     in {
+      nix.settings = {
+        allowed-users = ["builder"];
+        trusted-users = ["builder"];
+      };
+
       users = {
         groups.builder = {};
         users.builder = {
