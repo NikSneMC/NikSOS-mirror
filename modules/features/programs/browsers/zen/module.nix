@@ -12,6 +12,7 @@
   den.aspects.zen = {
     homeManager = {
       assets,
+      config,
       inputs,
       pkgs,
       ...
@@ -33,11 +34,11 @@
         inherit languagePacks;
 
         nativeMessagingHosts = with pkgs; [
-          master.firefoxpwa
+          firefoxpwa
         ];
 
         policies = let
-          DownloadDirectory = "$${home}/Downloads/Zen Browser";
+          DownloadDirectory = "${config.home.homeDirectory}/Downloads/Zen Browser";
         in {
           AIControls = {
             Default = {
