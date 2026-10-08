@@ -18,18 +18,6 @@
 
         settings.safe.directory = ["*"];
 
-        ignores = [
-          "*~"
-          "*.swp"
-          "*result*"
-          "kls_database.db"
-          "**/.project"
-          "**/.settings"
-          "**/.classpath"
-          "**/.factorypath"
-          "**/bin"
-        ];
-
         settings.credential.helper = "store";
 
         signing = {
