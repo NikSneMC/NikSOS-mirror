@@ -211,7 +211,7 @@
         {
           bind = "Mod+Shift+W";
           desc = "Launch ani-cli";
-          action = spawn "ani-cli" "--dmenu";
+          action = spawn "ani-cli";
         }
         {
           bind = "Mod+Shift+X";
