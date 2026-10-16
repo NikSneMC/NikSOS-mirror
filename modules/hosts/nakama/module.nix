@@ -16,8 +16,8 @@
       obs-studio
       thermald
       virt-manager
-      zellij-web
-      filebrowser
+      # zellij-web
+      # filebrowser
     ];
 
     os = {pkgs, ...}: {
