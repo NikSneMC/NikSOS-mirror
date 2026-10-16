@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  inherit (lib) mkForce;
-in {
+{config, ...}: {
   imports = [
     ./binds.nix
     ./input.nix
@@ -13,6 +7,13 @@ in {
   ];
 
   programs.niri.settings = {
+    includes = [
+      {
+        path = "monitor.kdl";
+        optional = true;
+      }
+    ];
+
     environment = {
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
@@ -41,53 +42,21 @@ in {
       workspace-shadow.enable = false;
     };
 
+    recent-windows = {
+      enable = true;
+      highlight = {
+        active-color = "#${config.theme.colors.accent}ff";
+        urgent-color = "#${config.theme.colors.yellow}ff";
+        padding = 30;
+        corner-radius = 12;
+      };
+    };
+
     gestures.hot-corners.enable = false;
 
     xwayland-satellite.enable = true;
-  };
 
-  xdg.configFile = {
-    niri-config.target = mkForce "niri/hm.kdl";
-    "niri/config.kdl".text =
-      # kdl
-      ''
-        include "hm.kdl"
-        include optional=true "monitor.kdl"
-
-        layout { border { on; }; }
-
-        // FIXME: rio's blur and transparency seems broken
-        window-rule {
-          match app-id="rio"
-
-          opacity 0.9
-          background-effect {
-            blur true
-          }
-        }
-
-        recent-windows {
-          highlight {
-            active-color "#${config.theme.colors.accent}ff"
-            urgent-color "#${config.theme.colors.yellow}ff"
-            padding 30
-            corner-radius 12
-          }
-
-          binds {
-            Mod+Tab       hotkey-overlay-title="Switch to the next recent window" {
-              next-window;
-            }
-            Mod+Shift+Tab hotkey-overlay-title="Switch to the previous recent window" {
-              previous-window;
-            }
-          }
-        }
-
-        debug {
-          // Allows notification actions and window activation from Noctalia.
-          honor-xdg-activation-with-invalid-serial
-        }
-      '';
+    # Allows notification actions and window activation from Noctalia.
+    debug.honor-xdg-activation-with-invalid-serial = [];
   };
 }

@@ -46,6 +46,14 @@ in {
           urgent.color = "#${colors.peach}";
         };
       }
+      # FIXME: rio's blur and transparency seems broken
+      {
+        matches = [
+          {app-id = "rio";}
+        ];
+        opacity = 0.9;
+        background-effect.blur = true;
+      }
       {
         matches = [
           {app-id = "dev.zed.*";}
