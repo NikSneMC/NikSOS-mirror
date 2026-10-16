@@ -1,25 +1,28 @@
 {lib, ...}: let
-  inherit (builtins) listToAttrs attrValues concatLists genList;
-  inherit (lib) nameValuePair take mod;
+  inherit (builtins) mapAttrs attrValues genList;
+  inherit (lib) optionalAttrs mergeAttrsList take mod;
   inherit (lib.lists) findFirstIndex;
 
-  mkBinds = binds:
+  mkBinds = includeOptionals: binds:
     binds
-    |> map (
-      {
-        bind,
+    |> mapAttrs (
+      _: {
         desc,
         action,
         allow-when-locked ? false,
         repeat ? false,
         cooldown-ms ? null,
       }:
-        nameValuePair bind {
-          hotkey-overlay.title = desc;
-          inherit action allow-when-locked repeat cooldown-ms;
+        {
+          inherit action;
         }
-    )
-    |> listToAttrs;
+        // (
+          optionalAttrs includeOptionals {
+            hotkey-overlay.title = desc;
+            inherit allow-when-locked repeat cooldown-ms;
+          }
+        )
+    );
 
   mkWorkspacesBinds = config: let
     workspaces =
@@ -34,25 +37,22 @@
         nameIndex = findFirstIndex (w: w == name) null workspaces;
         wsIndex = mod (nameIndex + 1) 10;
         ws = toString wsIndex;
-      in [
-        {
-          bind = "Mod+${ws}";
+      in {
+        "Mod+${ws}" = {
           desc = "Focus the `${name}` workspace";
           action.focus-workspace = name;
-        }
-        {
-          bind = "Mod+Shift+${ws}";
+        };
+        "Mod+Shift+${ws}" = {
           desc = "Move the focused window to the `${name}` workspace";
           action.move-window-to-workspace = name;
-        }
-        {
-          bind = "Mod+Shift+Ctrl+Alt+${ws}";
+        };
+        "Mod+Shift+Ctrl+Alt+${ws}" = {
           desc = "Move the focused column to the `${name}` workspace";
           action.move-column-to-workspace = name;
-        }
-      ]
+        };
+      }
     )
-    |> concatLists;
+    |> mergeAttrsList;
 
   mkColumnsBinds = n:
     n
@@ -61,20 +61,18 @@
         m = x + 1;
         ws = toString (mod m 10);
         mStr = toString m;
-      in [
-        {
-          bind = "Mod+Alt+${ws}";
+      in {
+        "Mod+Alt+${ws}" = {
           desc = "Focus a column at index ${mStr}";
           action.focus-column = m;
-        }
-        {
-          bind = "Mod+Alt+Shift+${ws}";
+        };
+        "Mod+Alt+Shift+${ws}" = {
           desc = "Move column to the index ${mStr}";
           action.move-column-to-index = m;
-        }
-      ]
+        };
+      }
     )
-    |> concatLists;
+    |> mergeAttrsList;
 in {
   inherit mkBinds mkWorkspacesBinds mkColumnsBinds;
 }

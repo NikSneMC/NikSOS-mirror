@@ -1,7 +1,7 @@
 {inputs, ...}: {
   flake-file.inputs = {
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:epireyn/niri-flake";
       inputs = {
         nixpkgs-stable.follows = "";
         niri-stable.follows = "";
@@ -26,7 +26,7 @@
         inputs.niri-autoselect-portal.nixosModules.default
       ];
 
-      niksos.caches."niri.cachix.org" = "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=";
+      niksos.caches."niri-epireyn.cachix.org" = "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA=";
 
       programs.niri = {
         enable = true;
