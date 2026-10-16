@@ -25,7 +25,7 @@ in {
     in {
       nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
 
-      niksos.caches."attic.xuyh0120.win/lantian" = "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=";
+      niksos.caches."cache.xinux.uz" = "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=";
 
       boot = {
         initrd = {
