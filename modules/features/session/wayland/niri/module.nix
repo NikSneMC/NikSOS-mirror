@@ -18,6 +18,7 @@
   den.aspects.niri = {
     os = {
       config,
+      inputs',
       pkgs,
       ...
     }: {
@@ -30,11 +31,11 @@
 
       programs.niri = {
         enable = true;
-        package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+        package = inputs'.niri.packages.niri-unstable;
       };
 
       environment.systemPackages = [
-        inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+        inputs'.niri.packages.xwayland-satellite-unstable
       ];
 
       services.niri-autoselect-portal.enable = true;

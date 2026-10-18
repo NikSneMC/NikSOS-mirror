@@ -26,9 +26,8 @@
     rio = {
       homeManager = {
         config,
-        inputs,
+        inputs',
         lib,
-        pkgs,
         ...
       }: let
         inherit (lib) mkForce getExe';
@@ -42,7 +41,7 @@
         programs.rio = {
           enable = true;
 
-          package = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs {
+          package = inputs'.rio.packages.default.overrideAttrs {
             doCheck = false;
           };
 
