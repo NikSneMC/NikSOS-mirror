@@ -24,6 +24,7 @@
     keyboard_layout.custom_labels = {
       "English (US)" = "EN";
       Russian = "RU";
+      Mozc = "JA";
     };
     launch_apps_as_systemd_services = true;
     niri_overview_type_to_launch_enabled = false;

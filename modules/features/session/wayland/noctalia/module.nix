@@ -1,6 +1,7 @@
 {inputs, ...}: {
   flake-file.inputs = {
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    # noctalia.url = "github:noctalia-dev/noctalia/cachix"; # FIXME: https://github.com/noctalia-dev/noctalia/pull/4925
+    noctalia.url = "github:NikSneMC/noctalia/usable";
 
     noctalia-plugins-official = {
       url = "github:noctalia-dev/official-plugins";

@@ -4,8 +4,8 @@
       console.useXkbConfig = true;
 
       services.xserver.xkb = {
-        layout = "us, ru";
-        options = "grp:win_space_toggle, compose:ralt";
+        layout = "us";
+        options = "compose:ralt";
       };
 
       environment.variables = {

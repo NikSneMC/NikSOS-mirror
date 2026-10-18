@@ -13,6 +13,7 @@
       ddcutil
       development
       docker
+      fcitx5
       ffmpeg
       file-roller
       fonts
