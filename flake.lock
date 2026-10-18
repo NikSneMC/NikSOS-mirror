@@ -120,18 +120,15 @@
     },
     "fenix": {
       "inputs": {
-        "nixpkgs": [
-          "naersk",
-          "nixpkgs"
-        ],
+        "nixpkgs": [],
         "rust-analyzer-src": []
       },
       "locked": {
-        "lastModified": 1752475459,
-        "narHash": "sha256-z6QEu4ZFuHiqdOPbYss4/Q8B0BFhacR8ts6jO/F/aOU=",
+        "lastModified": 1792232679,
+        "narHash": "sha256-qH046WSPn7A97UyNSZdiPobVf3E9Q9zPKdW8nYHHx+Q=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "bf0d6f70f4c9a9cf8845f992105652173f4b617f",
+        "rev": "8926ac637672b2d2e9afde568b1448853e5bcbaf",
         "type": "github"
       },
       "original": {
@@ -356,15 +353,17 @@
     },
     "naersk": {
       "inputs": {
-        "fenix": "fenix",
+        "fenix": [
+          "fenix"
+        ],
         "nixpkgs": []
       },
       "locked": {
-        "lastModified": 1782220280,
-        "narHash": "sha256-thLTFbp9D5Qknmh8q/v4FRpLGphUSijT3E86cbLYTXo=",
+        "lastModified": 1792096940,
+        "narHash": "sha256-75jRkpI2iya4fd/FPOyE9+BuiAp/2sV/hYtwrj6IyME=",
         "owner": "nix-community",
         "repo": "naersk",
-        "rev": "9aa07bb0256d300219b30622d2454e85f7f3667e",
+        "rev": "5c7912af5141e323ff0bd25c95bd6d3b889b8c53",
         "type": "github"
       },
       "original": {
@@ -779,15 +778,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1788794937,
-        "narHash": "sha256-tH/zrMXQUBzLJF5IA/0LUV2HyNMb4A38mZtexXBdsiQ=",
-        "owner": "raphamorim",
+        "lastModified": 1791363214,
+        "narHash": "sha256-ZK5lFUzCZs68LQGQpr9MYkynlMNSJegT2UNtC2e22s0=",
+        "owner": "kronberger-droid",
         "repo": "rio",
-        "rev": "7ae087500bcde5c0c9f09cb9c50382e9220b3360",
+        "rev": "5b706ce3ce2483e47f874b5efb2d0fe39d4d4ccc",
         "type": "github"
       },
       "original": {
-        "owner": "raphamorim",
+        "owner": "kronberger-droid",
+        "ref": "nix-drop-x86_64-darwin",
         "repo": "rio",
         "type": "github"
       }
@@ -799,6 +799,7 @@
         "cord-hx": "cord-hx",
         "den": "den",
         "disko": "disko",
+        "fenix": "fenix",
         "flake-compat": "flake-compat",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",

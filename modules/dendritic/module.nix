@@ -65,11 +65,19 @@ in {
         };
       };
 
+      fenix = {
+        url = "github:nix-community/fenix";
+        inputs = {
+          nixpkgs.follows = "";
+          rust-analyzer-src.follows = "";
+        };
+      };
+
       naersk = {
         url = "github:nix-community/naersk";
         inputs = {
           nixpkgs.follows = "";
-          fenix.inputs.rust-analyzer-src.follows = "";
+          fenix.follows = "fenix";
         };
       };
 

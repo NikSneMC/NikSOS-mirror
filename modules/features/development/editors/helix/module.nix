@@ -9,10 +9,7 @@
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         systems.follows = "systems";
-        naersk = {
-          follows = "naersk";
-          inputs.nixpkgs.follows = "cord-hx/nixpkgs";
-        };
+        naersk.follows = "naersk";
       };
     };
   };

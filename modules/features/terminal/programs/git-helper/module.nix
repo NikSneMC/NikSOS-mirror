@@ -6,10 +6,7 @@
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         systems.follows = "systems";
-        naersk = {
-          follows = "naersk";
-          inputs.nixpkgs.follows = "git-helper/nixpkgs";
-        };
+        naersk.follows = "naersk";
       };
     };
   };

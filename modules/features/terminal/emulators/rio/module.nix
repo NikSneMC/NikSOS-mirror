@@ -1,7 +1,8 @@
 {inputs, ...}: {
   flake-file.inputs = {
     rio = {
-      url = "github:raphamorim/rio";
+      # url = "github:raphamorim/rio"; # FIXME: https://github.com/raphamorim/rio/pull/1970
+      url = "github:kronberger-droid/rio/nix-drop-x86_64-darwin";
       inputs = {
         flake-parts.follows = "flake-parts";
         rust-overlay = {

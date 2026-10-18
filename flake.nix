@@ -21,10 +21,7 @@
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
-        naersk = {
-          follows = "naersk";
-          inputs.nixpkgs.follows = "cord-hx/nixpkgs";
-        };
+        naersk.follows = "naersk";
         nhx.follows = "nhx";
         systems.follows = "systems";
       };
@@ -33,6 +30,13 @@
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs = {
+        nixpkgs.follows = "";
+        rust-analyzer-src.follows = "";
+      };
     };
     flake-compat.url = "github:NixOS/flake-compat";
     flake-file.url = "github:denful/flake-file";
@@ -49,10 +53,7 @@
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
-        naersk = {
-          follows = "naersk";
-          inputs.nixpkgs.follows = "git-helper/nixpkgs";
-        };
+        naersk.follows = "naersk";
         systems.follows = "systems";
       };
     };
@@ -80,7 +81,7 @@
     naersk = {
       url = "github:nix-community/naersk";
       inputs = {
-        fenix.inputs.rust-analyzer-src.follows = "";
+        fenix.follows = "fenix";
         nixpkgs.follows = "";
       };
     };
@@ -133,7 +134,7 @@
       flake = false;
     };
     rio = {
-      url = "github:raphamorim/rio";
+      url = "github:kronberger-droid/rio/nix-drop-x86_64-darwin";
       inputs = {
         flake-parts.follows = "flake-parts";
         rust-overlay = {
