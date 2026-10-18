@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   flake-file.inputs = {
     helium-browser = {
       url = "github:cjavad/nixpille-helium";
@@ -6,11 +6,7 @@
     };
   };
   den.aspects.helium = {
-    homeManager = {
-      config,
-      inputs,
-      ...
-    }: let
+    homeManager = {config, ...}: let
       inherit (builtins) attrValues;
     in {
       imports = [inputs.helium-browser.homeModules.default];

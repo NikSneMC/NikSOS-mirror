@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   flake-file.inputs = {
     nhx.url = "github:Ra77a3l3-jar/nhx";
 
@@ -20,7 +20,7 @@
       discord-rpc.homeManager.imports = [./plugins/cord.nix];
     };
 
-    homeManager = {inputs, ...}: {
+    homeManager = {
       imports = [
         inputs.nhx.homeManagerModules.nhx
         inputs.cord-hx.homeManagerModules.default

@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   flake-file.inputs = {
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -11,7 +11,6 @@
 
   den.aspects.spicetify = {
     homeManager = {
-      inputs,
       inputs',
       config,
       ...

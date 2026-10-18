@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   flake-file.inputs = {
     nixcord = {
       url = "github:4evy/nixcord";
@@ -12,11 +12,7 @@
   };
 
   den.aspects.discord = {
-    homeManager = {
-      config,
-      inputs,
-      ...
-    }: {
+    homeManager = {config, ...}: {
       imports = [
         inputs.nixcord.homeModules.nixcord
         ./plugins
