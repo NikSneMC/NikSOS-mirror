@@ -16,6 +16,7 @@
       obs-studio
       thermald
       virt-manager
+      network-manager.no-wait-online
       # zellij-web
       # filebrowser
     ];
