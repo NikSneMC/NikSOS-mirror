@@ -69,11 +69,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789422847,
-        "narHash": "sha256-vy+RLCg6julxIA+mHRavskykz2VJomzNNfkaxszwQL8=",
+        "lastModified": 1792303326,
+        "narHash": "sha256-7m2gI3Ixm5ur17S/BnnSHqZ9nS9Y7OR5NMW35hUYJ8c=",
         "owner": "NikSneMC",
         "repo": "cord.hx",
-        "rev": "5629bb3e38e90b82304b8ea9a60ce492c96000f9",
+        "rev": "5de9ff0127087837beff4a3deb973560adc3ff95",
         "type": "github"
       },
       "original": {
