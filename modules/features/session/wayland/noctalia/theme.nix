@@ -34,6 +34,8 @@ in {
           then "dark"
           else "light";
         source = "custom";
+        pure_black_dark = false;
+        shell_mode = "follow";
         inherit custom_palette;
         templates = {
           enable_builtin_templates = false;
@@ -48,7 +50,17 @@ in {
         edge_smoothness = 0.3;
         fill_color = colors.base;
         fill_mode = "crop";
-        transition_on_startup = false;
+        per_monitor_directories = false;
+        transition_on_startup = true;
+        transition = [
+          "fade"
+          "wipe"
+          "disc"
+          "honeycomb"
+          "pixel"
+          "diamond"
+        ];
+        transition_duration = 1000;
       };
     };
 

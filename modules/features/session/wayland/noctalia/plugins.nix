@@ -5,10 +5,14 @@
   ...
 }: let
   inherit (builtins) mapAttrs attrValues;
-  inherit (lib) filterAttrs hasPrefix removePrefix;
+  inherit (lib) filterAttrs hasPrefix removePrefix mapAttrsToList;
 in {
   home.packages = with pkgs; [
-    fzf
+    qrencode
+    grim
+    slurp
+    tesseract
+    speedtest-cli
   ];
 
   programs.noctalia.settings = {
@@ -22,12 +26,17 @@ in {
         "noctalia/kaomoji"
         "noctalia/notes"
         "thepunkoff/pomodoro"
-        "radimous/prismlauncher-instances"
         "whyoolw/sharednd"
         "nightwatch75/todo"
         "noctalia/translator"
-        "yocraft/web-launcher"
         "icefish/phone-connect"
+        "kjvdven/case-convert"
+        "fel/ocr"
+        "yocraft/qrcode"
+        "nilsonlinux/speedtest-meter"
+        "aristides/udiskie"
+        "notfinaldev/web-search"
+        "zyrex/run-path"
       ];
 
       source = let
@@ -46,31 +55,37 @@ in {
     };
 
     plugin_settings = {
+      "aristides/udiskie" = {
+        manager_open_near_click = true;
+        manager_placement = "attached";
+      };
       "nightwatch75/file-search" = {
         exclude_dirs = "node_modules, target";
         panel_open_near_click = false;
         panel_placement = "floating";
         panel_position = "center";
       };
-      "nightwatch75/todo" = {
-        panel_placement = "floating";
-        panel_position = "center";
+      "nilsonlinux/speedtest-meter" = {
+        speedtest_position = "center";
       };
       "noctalia/notes" = {
         panel_position = "center";
       };
+      "notfinaldev/web-search" = {
+        provider = "duckduckgo";
+        links =
+          {
+            GitHub = "https://github.com";
+            Codeberg = "https://codeberg.org";
+            YouTube = "https://youtube.com";
+            Gmail = "https://mail.google.com";
+            Reddit = "https://reddit.com";
+          }
+          |> mapAttrsToList (name: url: "${name}|${url}");
+      };
       "thepunkoff/pomodoro" = {
         panel_placement = "floating";
         panel_position = "center";
-      };
-      "yocraft/web-launcher" = {
-        icon_provider = "direct";
-        links = [
-          "GitHub|https://github.com"
-          "Codeberg|https://codeberg.org"
-          "YouTube|https://youtube.com"
-          "Gmail|https://mail.google.com"
-        ];
       };
     };
   };

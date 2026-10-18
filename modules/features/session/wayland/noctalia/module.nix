@@ -1,7 +1,6 @@
 {inputs, ...}: {
   flake-file.inputs = {
-    # noctalia.url = "github:noctalia-dev/noctalia/cachix"; # FIXME: https://github.com/noctalia-dev/noctalia/pull/4925
-    noctalia.url = "github:NikSneMC/noctalia/usable";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
     noctalia-plugins-official = {
       url = "github:noctalia-dev/official-plugins";
@@ -45,11 +44,6 @@
     homeManager = {
       imports = [
         ./home.nix
-        ./bar.nix
-        ./launcher
-        ./plugins.nix
-        ./shell.nix
-        ./theme.nix
       ];
     };
   };

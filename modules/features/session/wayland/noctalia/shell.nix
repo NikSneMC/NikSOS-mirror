@@ -27,23 +27,22 @@
       Mozc = "JA";
     };
     launch_apps_as_systemd_services = true;
+    launch_apps_custom_command = "";
     niri_overview_type_to_launch_enabled = false;
     offline_mode = false;
     panel = {
       borders = true;
+      border_color = "outline";
+      border_width = 1;
       clipboard_placement = "floating";
       clipboard_position = "center";
       control_center_placement = "floating";
       control_center_position = "center";
+      floating_layer = "overlay";
       floating_offset = 8;
       launcher_placement = "floating";
       launcher_position = "center";
       list_item_background = false;
-      open_near_click_clipboard = true;
-      open_near_click_control_center = true;
-      open_near_click_launcher = true;
-      open_near_click_session = true;
-      open_near_click_wallpaper = true;
       polkit_placement = "floating";
       polkit_position = "center";
       session_placement = "floating";
@@ -52,6 +51,7 @@
       transparency_mode = "glass";
       wallpaper_placement = "floating";
       wallpaper_position = "auto";
+      wallpaper_show_names = true;
     };
     panel_anchor_bar = "main";
     password_style = "random";
@@ -59,18 +59,24 @@
     popup_borders = true;
     popup_shadows = true;
     privacy.mic_filter_regex = "^DeepFilter Noise Canceling source$";
+    readline_shortcuts = false;
     screen_corners.enabled = false;
     screen_time_enabled = true;
     screenshot = {
+      annotate = true;
+      close_on_copy = true;
+      close_on_save = true;
       confirm_region = true;
       copy_to_clipboard = true;
       directory = config.xdg.userDirs.extraConfig.SCREENSHOTS;
       filename_pattern = "";
       freeze_screen = true;
-      pipe_command = "";
       pipe_to_command = false;
+      region_modifier = "none";
+      remember_last_region = true;
       save_to_file = true;
       show_cursor = true;
+      skip_annotate_on_copy_save = true;
     };
     session = {
       actions = let
@@ -93,7 +99,7 @@
           glyph = "";
           label = "";
           shortcut = "e";
-          variant = "default";
+          variant = "destructive";
           inherit countdown_seconds;
         }
         {
@@ -113,7 +119,7 @@
           glyph = "";
           label = "";
           shortcut = "r";
-          variant = "default";
+          variant = "destructive";
           inherit countdown_seconds;
         }
         {
@@ -129,7 +135,9 @@
       ];
       show_shortcuts = true;
     };
+    settings_expand_all_groups = true;
     settings_show_advanced = true;
+    settings_window_translucent = false;
     setup_wizard_enabled = false;
     shadow = {
       alpha = 0.55;

@@ -104,7 +104,7 @@ in {
           };
           "Mod+R" = {
             desc = "Execute command";
-            action = noctalia-launcher "/run ";
+            action = noctalia-launcher "/r ";
           };
           "Mod+T" = {
             desc = "Launch terminal";

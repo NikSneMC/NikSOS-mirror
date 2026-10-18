@@ -1,7 +1,15 @@
 {
   den.aspects.udiskie = {
-    homeManager = {
-      services.udiskie.enable = true;
+    homeManager = {pkgs, ...}: {
+      services.udiskie = {
+        enable = true;
+        tray = "never";
+        automount = false;
+      };
+
+      home.packages = with pkgs; [
+        udiskie
+      ];
     };
   };
 }

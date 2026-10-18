@@ -123,7 +123,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.follows = "unstable";
-    noctalia.url = "github:NikSneMC/noctalia/usable";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia-plugins-community = {
       url = "github:noctalia-dev/community-plugins";

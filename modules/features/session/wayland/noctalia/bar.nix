@@ -19,9 +19,6 @@
       pomodoro = {
         type = "thepunkoff/pomodoro:widget";
       };
-      todo = {
-        type = "nightwatch75/todo:todo";
-      };
 
       catwalk = {
         type = "dotnetrob/cat:cat";
@@ -61,6 +58,10 @@
         type = "privacy";
         hide_inactive = true;
         active_color = "error";
+      };
+      udiskie = {
+        type = "aristides/udiskie:status";
+        hide_when_empty = true;
       };
       tray = {
         type = "tray";
@@ -106,6 +107,7 @@
         auto_hide = false;
         smart_auto_hide = false;
         contact_shadow = false;
+        font_scale = 1.0;
         font_weight = 500;
         margin_edge = 0;
         margin_ends = 0;
@@ -122,10 +124,12 @@
         scale = 1;
         shadow = false;
         background_opacity = 0.75;
+        compositor_blur = true;
         border_width = 0;
         capsule = false;
         show_on_workspace_switch = false;
         hover_highlight = true;
+        show_tooltip = true;
         capsule_group = [
           {
             enabled = true;
@@ -137,6 +141,8 @@
             ];
             opacity = 0.5;
             padding = 3;
+            accordion = false;
+            border_width = 1;
           }
         ];
         start = [
@@ -147,7 +153,6 @@
           "power_profile"
           "anilist"
           "pomodoro"
-          "todo"
         ];
         center = [
           "catwalk"
@@ -160,6 +165,7 @@
         ];
         end = [
           "privacy"
+          "udiskie"
           "tray"
           "notifications"
           "brightness"

@@ -67,6 +67,7 @@
       xdg
       xkb
       zed
+      udiskie
       ani-cli.noctalia-menu
       helix.discord-rpc
       helix.languages
