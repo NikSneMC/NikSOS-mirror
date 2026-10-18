@@ -1,4 +1,37 @@
-{
+{lib, ...}: let
+  inherit (builtins) head concatLists;
+  inherit (lib) imap0 concat removePrefix mergeAttrsList;
+
+  mkInputMethod = groups:
+    groups
+    |> imap0 (ig: group: let
+      g = toString ig;
+      DefaultIM = head group;
+    in
+      group
+      |> imap0 (
+        i: item: {
+          "Groups/${g}/Items/${toString i}" = {
+            Name = item.name or item;
+            Layout = item.layout or "";
+          };
+        }
+      )
+      |> concat [
+        {
+          "Groups/${g}" = {
+            Name =
+              if ig == 0
+              then "Default"
+              else "Group-${g}";
+            "Default Layout" = removePrefix "keyboard-" DefaultIM;
+            inherit DefaultIM;
+          };
+        }
+      ])
+    |> concatLists
+    |> mergeAttrsList;
+in {
   den.aspects.fcitx5 = {
     homeManager = {pkgs, ...}: {
       i18n.inputMethod = {
@@ -7,40 +40,34 @@
         fcitx5 = {
           waylandFrontend = true;
           addons = with pkgs; [
-            fcitx5-mozc
-            fcitx5-gtk
+            fcitx5-mozc-ut
           ];
 
           settings = {
-            inputMethod = {
-              GroupOrder."0" = "Default";
-              "Groups/0" = {
-                Name = "Default";
-                "Default Layout" = "us";
-                DefaultIM = "keyboard-us";
-              };
-              "Groups/0/Items/0".Name = "keyboard-us";
-              "Groups/0/Items/1".Name = "keyboard-ru";
-              "Groups/0/Items/2".Name = "mozc";
-            };
-
+            inputMethod = mkInputMethod [
+              [
+                "keyboard-us"
+                "keyboard-ru"
+                "mozc"
+              ]
+            ];
             globalOptions = {
               "Hotkey/TriggerKeys"."0" = "Super+space";
               "Hotkey/ActivateKeys" = {};
               "Hotkey/DeactivateKeys" = {};
 
               Behavior = {
-                ActiveByDefault = "True";
-                ShowInputMethodInformation = "False";
-                CompactInputMethodInformation = "False";
-                OverrideXkbOption = "True";
-                AllowInputMethodForPassword = "True";
+                ActiveByDefault = true;
+                ShowInputMethodInformation = false;
+                CompactInputMethodInformation = false;
+                OverrideXkbOption = true;
+                AllowInputMethodForPassword = true;
               };
             };
 
             addons = {
-              classicui.globalSection."Vertical Candidate List" = "True";
-              mozc.globalSection.PreeditCursorPositionAtBeginning = "True";
+              classicui.globalSection."Vertical Candidate List" = true;
+              mozc.globalSection.PreeditCursorPositionAtBeginning = true;
             };
           };
         };
