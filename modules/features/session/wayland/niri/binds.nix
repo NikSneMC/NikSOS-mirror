@@ -3,13 +3,9 @@
   lib,
   ...
 }: let
-  inherit (lib) mergeAttrsList;
-
   inherit (import ./lib.nix {inherit lib;}) mkBinds mkWorkspacesBinds mkColumnsBinds;
 in {
-  programs.niri.settings = with config.lib.niri.actions; let
-    recent-windows = config.lib.niri.actions.recent-windows |> mergeAttrsList;
-  in {
+  programs.niri.settings = with config.lib.niri.actions; {
     binds = let
       fish = spawn "fish" "-c";
       noctalia = spawn "noctalia" "msg";
