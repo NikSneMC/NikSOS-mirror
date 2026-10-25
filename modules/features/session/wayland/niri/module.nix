@@ -1,7 +1,7 @@
 {inputs, ...}: {
   flake-file.inputs = {
     niri = {
-      url = "github:NikSneMC/niri-flake/usable";
+      url = "github:epireyn/niri-flake";
       inputs = {
         nixpkgs-stable.follows = "";
         niri-stable.follows = "";

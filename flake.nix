@@ -87,7 +87,7 @@
     };
     nhx.url = "github:Ra77a3l3-jar/nhx";
     niri = {
-      url = "github:NikSneMC/niri-flake/usable";
+      url = "github:epireyn/niri-flake";
       inputs = {
         niri-stable.follows = "";
         nixpkgs-stable.follows = "";
