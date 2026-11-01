@@ -8,10 +8,7 @@
 
   programs.niri.settings = {
     includes = [
-      {
-        path = "monitor.kdl";
-        optional = true;
-      }
+      "monitor.kdl"
     ];
 
     environment = {
@@ -52,7 +49,12 @@
       };
     };
 
-    gestures.hot-corners.enable = false;
+    gestures.hot-corners = {
+      bottom-left = false;
+      bottom-right = false;
+      top-left = false;
+      top-right = false;
+    };
 
     xwayland-satellite.enable = true;
 

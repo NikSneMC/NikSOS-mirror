@@ -34,7 +34,6 @@ in {
         1.
       ]
       |> map proportion;
-    preset-window-heights = [];
 
     always-center-single-column = true;
 

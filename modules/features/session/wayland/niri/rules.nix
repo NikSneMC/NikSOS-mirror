@@ -15,9 +15,8 @@ in {
           top-right = radius;
         };
         clip-to-geometry = true;
-      }
-      {
         open-maximized = true;
+        on-xdg-activate = "set-urgent";
       }
       {
         matches = [
