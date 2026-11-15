@@ -16,7 +16,6 @@
     ./qml.nix
     ./rust.nix
     ./sql.nix
-    ./surql.nix
     ./tofu.nix
     ./typst.nix
     ./web.nix

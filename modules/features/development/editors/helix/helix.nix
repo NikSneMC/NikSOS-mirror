@@ -21,16 +21,6 @@
           };
           location = "editors/tree-sitter-lisette";
         };
-        tree-sitter-surrealql = pkgs.tree-sitter.buildGrammar {
-          language = "surrealql";
-          version = "8eda53c";
-          src = pkgs.fetchFromGitHub {
-            owner = "Ce11an";
-            repo = "tree-sitter-surrealql";
-            rev = "8eda53c708592d32f0c705a7f8d13d4727502e2d";
-            hash = "sha256-k8TcKwLsnqBnzxQea5B64oP69SIkYaduj6HJ15hb3Tk=";
-          };
-        };
 
         tree-sitter-agda = prev.tree-sitter-agda.override {excludeBrokenTreeSitterJson = false;};
         tree-sitter-beancount = prev.tree-sitter-beancount.override {excludeBrokenTreeSitterJson = false;};

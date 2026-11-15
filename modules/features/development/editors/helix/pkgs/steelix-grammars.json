@@ -2960,18 +2960,6 @@
     },
     "subpath": null
   },
-  "surrealql": {
-    "nurl": {
-      "args": {
-        "hash": "sha256-k8TcKwLsnqBnzxQea5B64oP69SIkYaduj6HJ15hb3Tk=",
-        "owner": "Ce11an",
-        "repo": "tree-sitter-surrealql",
-        "rev": "8eda53c708592d32f0c705a7f8d13d4727502e2d"
-      },
-      "fetcher": "fetchFromGitHub"
-    },
-    "subpath": null
-  },
   "svelte": {
     "nurl": {
       "args": {

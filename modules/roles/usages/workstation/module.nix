@@ -58,7 +58,6 @@
       seahorse
       security
       social
-      surrealist
       terminal
       thunar
       upower
