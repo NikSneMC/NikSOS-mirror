@@ -13,6 +13,8 @@ let
   everyHost = hostKeysOf hosts ++ userKeysOf hosts;
 in {
   "cloudflare-dns.age".publicKeys = recipients ["nakama"];
+  "cliproxyapi-api-key.age".publicKeys = recipients ["nakama"];
+  "cliproxyapi-management-key.age".publicKeys = recipients ["nakama"];
 
   _helpers = {inherit recipients everyHost;};
 }

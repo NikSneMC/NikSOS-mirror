@@ -58,6 +58,7 @@
       seahorse
       security
       social
+      t3code
       terminal
       thunar
       upower

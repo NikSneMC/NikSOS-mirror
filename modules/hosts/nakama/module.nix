@@ -14,6 +14,7 @@
       niri
       nginx
       obs-studio
+      cli-proxy-api
       thermald
       virt-manager
       network-manager.no-wait-online
