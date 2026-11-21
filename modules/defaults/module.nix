@@ -17,6 +17,7 @@ in {
       includes = [
         den.batteries.define-user
         den.batteries.inputs'
+        den.batteries.self'
 
         den.batteries.hostname
 

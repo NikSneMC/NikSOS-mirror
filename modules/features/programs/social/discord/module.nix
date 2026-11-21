@@ -4,7 +4,8 @@
       url = "github:4evy/nixcord";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        nixpkgs-nixcord.follows = "nixpkgs";
+        nixpkgs-ci.follows = "";
+        nixpkgs-packages.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         nix-darwin.follows = "";
       };

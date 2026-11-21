@@ -18,6 +18,7 @@
 
   perSystem = {
     config,
+    inputs',
     pkgs,
     ...
   }: {
@@ -38,6 +39,9 @@
         alejandra
         deadnix
         git
+        (inputs'.agenix.packages.default.override {
+          nix = pkgs.lixPackageSets.stable.lix;
+        })
       ];
 
       shellHook = ''

@@ -1,5 +1,12 @@
 {
   den.aspects.jetbrains = {
+    os = {
+      nixpkgs.config.jetbrains.vmopts = ''
+        -Dnosplash=true
+        -Dawt.toolkit.name=WLToolkit
+      '';
+    };
+
     homeManager = {
       config,
       lib,
@@ -10,7 +17,7 @@
 
       ides = [
         "datagrip"
-        "idea"
+        "intellij-idea"
       ];
 
       plugins = let
@@ -32,7 +39,7 @@
           "${jetbrains}/22477/922454/gitea-0.5.4.zip" = "sha256-aLPy+JIBnQB2took2LkmmIhtnNkgazvZoDEKJi3c9A4=";
           "${jetbrains}/22857/907468/vcs-gitlab-253.28294.325.zip" = "sha256-E1WbqzQGk3hnasxS+m85r7eHI+QUzRoAZb1OWhMrRbI=";
         };
-        idea = {
+        intellij-idea = {
           "${jetbrains}/1347/918481/scala-intellij-bin-2025.3.26.zip" = "sha256-wU1DNK5m1UH/L6iAUBnm1Mfv1D/Luz4SUmnvjdf/pso=";
           "${jetbrains}/8327/917195/Minecraft_Development-2025.3-1.8.11.zip" = "sha256-e831b/IcNH/FTbJyi6tbpXbSQE8SztJBbszNiMVqd/0=";
           "${jetbrains}/12839/262179/minecraft-nbt-intellij-plugin-1.5.4.zip" = "sha256-CDsO0R1vZN/Xv7aIuyEKOcN35FZfMbE9s7tXXmUzk/0=";

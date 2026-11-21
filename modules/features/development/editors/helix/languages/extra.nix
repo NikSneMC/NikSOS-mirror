@@ -9,7 +9,6 @@
     ./just.nix
     ./jvm.nix
     ./latex.nix
-    ./lisette.nix
     ./markdown.nix
     ./protobuf.nix
     ./python.nix

@@ -8,12 +8,7 @@
   inputs = {
     agenix = {
       url = "github:ryantm/agenix";
-      inputs = {
-        darwin.follows = "";
-        home-manager.follows = "home-manager";
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
     cord-hx = {
@@ -115,7 +110,8 @@
         home-manager.follows = "home-manager";
         nix-darwin.follows = "";
         nixpkgs.follows = "nixpkgs";
-        nixpkgs-nixcord.follows = "nixpkgs";
+        nixpkgs-ci.follows = "";
+        nixpkgs-packages.follows = "nixpkgs";
       };
     };
     nixos-hardware = {
@@ -134,7 +130,7 @@
       flake = false;
     };
     rio = {
-      url = "github:kronberger-droid/rio/nix-drop-x86_64-darwin";
+      url = "github:orafaelfragoso/rio/nix-oniguruma";
       inputs = {
         flake-parts.follows = "flake-parts";
         rust-overlay = {

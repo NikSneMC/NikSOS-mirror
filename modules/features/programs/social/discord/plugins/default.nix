@@ -29,7 +29,6 @@
     ./musicControls.nix
     ./newGuildSettings.nix
     ./pictureInPicture.nix
-    ./platformSpoofer.nix
     ./quoter.nix
     ./relationshipNotifier.nix
     ./replaceGoogleSearch.nix
@@ -69,7 +68,6 @@
     copyFileContents.enable = true;
     copyProfileColors.enable = true;
     copyStatusUrls.enable = true;
-    copyStickerLinks.enable = true;
     copyUserMention.enable = true;
     copyUserUrls.enable = true;
     crashHandler.enable = true;
@@ -80,7 +78,7 @@
     disableDeepLinks.enable = true;
     dontRoundMyTimestamps.enable = true;
     downloadAllAttachments.enable = true;
-    expressionCloner.enable = true;
+    expressionManager.enable = true;
     favoriteEmojiFirst.enable = true;
     fixCodeblockGap.enable = true;
     fixFileExtensions.enable = true;
@@ -91,9 +89,9 @@
     friendCodes.enable = true;
     friendInvites.enable = true;
     fullSearchContext.enable = true;
-    fullUserInChatbox.enable = true;
     gameActivityToggle.enable = true;
     gifPaste.enable = true;
+    gifProviderSwitcher.enable = true;
     greetStickerPicker.enable = true;
     guildPickerDumper.enable = true;
     homeTyping.enable = true;
@@ -148,7 +146,6 @@
     startupTimings.enable = true;
     stickerPaste.enable = true;
     streamerModeOnStream.enable = true;
-    tenorGifSearch.enable = true;
     themeAttributes.enable = true;
     translate.enable = true;
     typingTweaks.enable = true;

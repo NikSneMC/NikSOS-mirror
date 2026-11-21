@@ -39,17 +39,9 @@
     plugins = mkPlugins pkgs plugins';
   in
     map (
-      ide: let
-        package = jetbrains.${ide}.override {
-          vmopts = ''
-            -Dnosplash=true
-            -Dawt.toolkit.name=WLToolkit
-          '';
-        };
-        plugins' = plugins.${ide} or [];
-      in
-        jetbrains.plugins.addPlugins package
-        (plugins.common ++ plugins')
+      ide:
+        jetbrains.plugins.addPlugins pkgs.${ide}
+        (plugins.common ++ (plugins.${ide} or []))
     );
 in {
   inherit mkIdes;

@@ -28,10 +28,7 @@ in {
       niksos.caches."cache.xinux.uz" = "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=";
 
       boot = {
-        initrd = {
-          systemd.enable = true;
-          supportedFilesystems = ["fat32" "ext4" "btrfs" "ntfs"];
-        };
+        initrd.supportedFilesystems = ["fat32" "ext4" "btrfs" "ntfs"];
 
         binfmt.emulatedSystems = ["aarch64-linux"];
 

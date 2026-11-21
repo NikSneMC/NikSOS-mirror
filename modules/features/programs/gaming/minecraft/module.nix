@@ -11,11 +11,10 @@
       home.packages = with pkgs; [
         (prismlauncher.override {
           jdks = [
-            zulu8
-            zulu11
-            zulu17
-            zulu21
-            zulu25
+            temurin-bin-8
+            graalvmPackages.graalvm-oracle_17
+            temurin-bin-21
+            graalvmPackages.graalvm-oracle_25
           ];
         })
       ];

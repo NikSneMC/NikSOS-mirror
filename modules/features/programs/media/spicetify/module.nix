@@ -47,7 +47,6 @@
           songStats
           showQueueDuration
           copyToClipboard
-          betterGenres
           hidePodcasts
           adblock
           autoSkip
